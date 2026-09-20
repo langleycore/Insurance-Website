@@ -54,7 +54,7 @@ class AuthService {
   }
 
   login(username: string, password: string): boolean {
-    if (username === CREDENTIALS.username && password === CREDENTIALS.password) {
+    if (username.toLowerCase() === CREDENTIALS.username.toLowerCase() && password === CREDENTIALS.password) {
       sessionStorage.setItem(this.SESSION_KEY, 'true');
       this.updateLastLogin();
       return true;
