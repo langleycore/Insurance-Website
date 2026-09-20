@@ -9,10 +9,11 @@ import MatchingGame from './components/MatchingGame';
 import Analytics from './components/Analytics';
 import TimedTest from './components/TimedTest';
 import Videos from './components/Videos';
+import Settings from './components/Settings';
 import { firebaseAuthService } from './services/firebaseAuthService';
 import './styles.css';
 
-type Mode = 'home' | 'test' | 'timed' | 'flashcards' | 'scenarios' | 'truefalse' | 'fillblank' | 'matching' | 'analytics' | 'videos';
+type Mode = 'home' | 'test' | 'timed' | 'flashcards' | 'scenarios' | 'truefalse' | 'fillblank' | 'matching' | 'analytics' | 'videos' | 'settings';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -74,6 +75,8 @@ function App() {
             return <Analytics />;
           case 'videos':
             return <Videos />;
+          case 'settings':
+            return <Settings />;
           default:
             return null;
         }
@@ -96,6 +99,7 @@ function App() {
                 {mode === 'matching' && 'Matching Game'}
                 {mode === 'analytics' && 'Performance Analytics'}
                 {mode === 'videos' && 'Video Library'}
+                {mode === 'settings' && 'Settings'}
               </h1>
           <button className="logout-button" onClick={handleLogout}>
             Logout
@@ -145,10 +149,21 @@ function App() {
 
               <h3 className="section-title">Practice Activities</h3>
               <div className="mode-cards">
+                <button className="mode-card" onClick={() => setMode('settings')}>
+                  <div className="mode-icon">⚙️</div>
+                  <h3>Settings</h3>
+                  <p>Clear cache, manage data, and app controls</p>
+                  <div className="mode-features">
+                    <span>✓ Clear cache</span>
+                    <span>✓ Manage progress</span>
+                    <span>✓ App info</span>
+                  </div>
+                </button>
+
                 <button className="mode-card" onClick={() => setMode('videos')}>
                   <div className="mode-icon">📺</div>
                   <h3>Video Library</h3>
-                  <p>30+ educational videos covering all exam topics</p>
+                  <p>Educational videos covering all exam topics</p>
                   <div className="mode-features">
                     <span>✓ Expert explanations</span>
                     <span>✓ Visual learning</span>
