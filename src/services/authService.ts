@@ -2,10 +2,10 @@
 // SECURITY: Credentials are hashed using SHA-256
 // Original credentials are NOT stored in plaintext in the code
 const HASHED_CREDENTIALS = {
-  // Username hash (lowercase)
-  usernameHash: 'a318e4446fe3088ccbf909e07ac9e88ba3cd48c756c490e88ee1c214018b56c6', // 'mercy'
+  // Username hash (lowercase) - using Node.js crypto for consistency
+  usernameHash: '4d51fd998fd3a724c06ab00bb151c13a45de268c22cb4f088d826dc260f06218', // 'mercy'
   // Password hash
-  passwordHash: '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', // 'Piedad85'
+  passwordHash: '17f26b85dbc3c89fdcde6874e56c3264e78b4f6c51b040825fd89fb84757c182', // 'Piedad85'
 };
 
 // Simple SHA-256 hash function for browser
