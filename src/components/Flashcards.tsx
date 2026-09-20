@@ -14,7 +14,8 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 export default function Flashcards() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
-  const [studiedCards, setStudiedCards] = useState(new Set<number>());
+  const [score, setScore] = useState({ correct: 0, incorrect: 0, total: 0 });
+  const [hasAnswered, setHasAnswered] = useState(false);
   
   // Shuffle flashcards once when component mounts
   const shuffledFlashcards = useMemo(() => shuffleArray(flashcards), []);
@@ -23,8 +24,27 @@ export default function Flashcards() {
 
   const handleFlip = () => {
     setIsFlipped(prev => !prev);
-    if (!isFlipped) {
-      setStudiedCards(prev => new Set([...prev, currentCard.id]));
+  };
+
+  const handleKnewIt = () => {
+    if (!hasAnswered) {
+      setScore(prev => ({
+        correct: prev.correct + 1,
+        incorrect: prev.incorrect,
+        total: prev.total + 1
+      }));
+      setHasAnswered(true);
+    }
+  };
+
+  const handleDidntKnow = () => {
+    if (!hasAnswered) {
+      setScore(prev => ({
+        correct: prev.correct,
+        incorrect: prev.incorrect + 1,
+        total: prev.total + 1
+      }));
+      setHasAnswered(true);
     }
   };
 
@@ -32,6 +52,7 @@ export default function Flashcards() {
     if (currentCardIndex < shuffledFlashcards.length - 1) {
       setCurrentCardIndex(prev => prev + 1);
       setIsFlipped(false);
+      setHasAnswered(false);
     }
   };
 
@@ -39,16 +60,19 @@ export default function Flashcards() {
     if (currentCardIndex > 0) {
       setCurrentCardIndex(prev => prev - 1);
       setIsFlipped(false);
+      setHasAnswered(false);
     }
   };
 
   const handleReset = () => {
     setCurrentCardIndex(0);
     setIsFlipped(false);
-    setStudiedCards(new Set());
+    setScore({ correct: 0, incorrect: 0, total: 0 });
+    setHasAnswered(false);
   };
 
-  const progress = Math.round((studiedCards.size / shuffledFlashcards.length) * 100);
+  const progress = Math.round(((currentCardIndex + 1) / shuffledFlashcards.length) * 100);
+  const percentage = score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0;
 
   return (
     <div className="flashcards">
@@ -63,9 +87,13 @@ export default function Flashcards() {
           <span className="card-counter">
             Card {currentCardIndex + 1} of {shuffledFlashcards.length}
           </span>
-          <span className="studied-count">
-            Studied: {studiedCards.size}/{shuffledFlashcards.length}
+          <span className="score">
+            Score: {score.correct}/{score.total} ({percentage}%)
           </span>
+        </div>
+        <div className="flashcard-score-details">
+          <span className="correct-count">✓ Knew: {score.correct}</span>
+          <span className="incorrect-count">✗ Didn't Know: {score.incorrect}</span>
         </div>
         <div className="category-badge">{currentCard.category}</div>
       </div>
@@ -90,6 +118,23 @@ export default function Flashcards() {
         </div>
       </div>
 
+      {isFlipped && !hasAnswered && (
+        <div className="knowledge-buttons">
+          <button
+            className="knowledge-button knew-it"
+            onClick={handleKnewIt}
+          >
+            ✓ I Knew It
+          </button>
+          <button
+            className="knowledge-button didnt-know"
+            onClick={handleDidntKnow}
+          >
+            ✗ Didn't Know It
+          </button>
+        </div>
+      )}
+
       <div className="navigation-buttons">
         <button
           className="nav-button secondary"
@@ -110,6 +155,7 @@ export default function Flashcards() {
           <button
             className="nav-button primary"
             onClick={handleNext}
+            disabled={!hasAnswered}
           >
             Next →
           </button>

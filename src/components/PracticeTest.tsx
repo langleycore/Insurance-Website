@@ -15,7 +15,7 @@ export default function PracticeTest() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showExplanation, setShowExplanation] = useState(false);
-  const [score, setScore] = useState({ correct: 0, total: 0 });
+  const [score, setScore] = useState({ correct: 0, incorrect: 0, total: 0 });
   
   // Shuffle questions once when component mounts
   const shuffledQuestions = useMemo(() => shuffleArray(questions), []);
@@ -27,8 +27,10 @@ export default function PracticeTest() {
     if (!showExplanation) {
       setSelectedAnswer(answerIndex);
       setShowExplanation(true);
+      const isCorrectAnswer = answerIndex === currentQuestion.correctAnswer;
       setScore(prev => ({
-        correct: prev.correct + (answerIndex === currentQuestion.correctAnswer ? 1 : 0),
+        correct: prev.correct + (isCorrectAnswer ? 1 : 0),
+        incorrect: prev.incorrect + (isCorrectAnswer ? 0 : 1),
         total: prev.total + 1
       }));
     }
@@ -58,7 +60,7 @@ export default function PracticeTest() {
     setCurrentQuestionIndex(0);
     setSelectedAnswer(null);
     setShowExplanation(false);
-    setScore({ correct: 0, total: 0 });
+    setScore({ correct: 0, incorrect: 0, total: 0 });
   };
 
   const getAnswerClassName = (answerIndex: number) => {
@@ -95,6 +97,10 @@ export default function PracticeTest() {
           <span className="score">
             Score: {score.correct}/{score.total} ({percentage}%)
           </span>
+        </div>
+        <div className="test-score-details">
+          <span className="correct-count">✓ Correct: {score.correct}</span>
+          <span className="incorrect-count">✗ Incorrect: {score.incorrect}</span>
         </div>
         <div className="category-badge">{currentQuestion.category}</div>
       </div>
