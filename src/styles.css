@@ -113,19 +113,23 @@ body {
 .home-header {
   flex-direction: column;
   text-align: center;
-  padding: 2rem 1rem;
-  position: static;
+  padding: 1rem 1rem 2rem 1rem;
+  position: relative;
+  min-height: auto;
 }
 
 .home-header h1 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   margin-bottom: 0.5rem;
+  line-height: 1.2;
+  padding: 0 3rem; /* Space for logout button */
 }
 
 .subtitle {
-  font-size: 1.125rem;
-  opacity: 0.9;
-  font-weight: 300;
+  font-size: 1rem;
+  opacity: 0.95;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .header-actions {
@@ -135,6 +139,7 @@ body {
   gap: 1rem;
   margin-top: 1rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .session-info {
@@ -207,17 +212,24 @@ body {
 }
 
 .mode-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 0 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .mode-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 .mode-card {
   background: white;
-  border: none;
+  border: 2px solid var(--border-color);
   border-radius: var(--radius-xl);
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -333,20 +345,24 @@ body {
 
 .logout-button-home {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  background: white;
-  color: var(--primary-color);
-  border: 2px solid white;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.625rem 1.25rem;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 0.5rem;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.2s;
+  font-size: 0.875rem;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .logout-button-home:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
 }
 
