@@ -10,7 +10,7 @@ export interface Video {
 
 // Educational videos for Virginia Personal Lines exam preparation
 // Focus: Personal auto, homeowners, renters - NO commercial insurance
-// Cache bust: 2026-09-20T19:38:00Z
+// Cache bust: 2026-09-20T20:06:00Z
 export const videos: Video[] = [
   // Homeowners Insurance
   {
