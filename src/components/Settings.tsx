@@ -3,6 +3,8 @@ import './Settings.css';
 
 export default function Settings() {
   const [showSuccess, setShowSuccess] = useState(false);
+  const [progressDeleteStep, setProgressDeleteStep] = useState(0);
+  const [deleteInput, setDeleteInput] = useState('');
 
   const handleClearCache = () => {
     // Clear all caches
@@ -31,11 +33,27 @@ export default function Settings() {
   };
 
   const handleClearProgress = () => {
-    if (confirm('Are you sure you want to clear all your progress data? This cannot be undone.')) {
-      localStorage.clear();
-      alert('Progress data cleared. Refreshing...');
-      window.location.reload();
+    if (progressDeleteStep === 0) {
+      // First click - show first warning
+      setProgressDeleteStep(1);
+    } else if (progressDeleteStep === 1) {
+      // Second click - show second warning
+      setProgressDeleteStep(2);
+    } else if (progressDeleteStep === 2) {
+      // Third click - verify DELETE was typed
+      if (deleteInput.toUpperCase() === 'DELETE') {
+        localStorage.clear();
+        alert('Progress data cleared. Refreshing...');
+        window.location.reload();
+      } else {
+        alert('You must type DELETE in the text box to confirm deletion.');
+      }
     }
+  };
+
+  const handleCancelDelete = () => {
+    setProgressDeleteStep(0);
+    setDeleteInput('');
   };
 
   return (
@@ -79,10 +97,41 @@ export default function Settings() {
             <div className="setting-info">
               <h4>Clear Progress Data</h4>
               <p>Delete all your test scores, analytics, and progress. This cannot be undone.</p>
+              
+              {progressDeleteStep === 1 && (
+                <div className="warning-box warning-1">
+                  <strong>⚠️ WARNING #1:</strong> You are about to delete ALL your progress data including test scores, analytics, and study history. This is NOT the same as clearing cache. Click again to continue.
+                </div>
+              )}
+              
+              {progressDeleteStep === 2 && (
+                <div className="warning-box warning-2">
+                  <strong>🚨 FINAL WARNING #2:</strong> This will PERMANENTLY delete all your exam progress! To confirm, type <strong>DELETE</strong> in the box below and click the button.
+                  <input 
+                    type="text" 
+                    className="delete-confirm-input"
+                    placeholder="Type DELETE here"
+                    value={deleteInput}
+                    onChange={(e) => setDeleteInput(e.target.value)}
+                  />
+                </div>
+              )}
             </div>
-            <button className="btn-danger" onClick={handleClearProgress}>
-              🗑️ Clear Progress
-            </button>
+            <div className="button-group">
+              <button 
+                className={`btn-danger ${progressDeleteStep > 0 ? 'btn-danger-active' : ''}`}
+                onClick={handleClearProgress}
+              >
+                {progressDeleteStep === 0 && '🗑️ Clear Progress'}
+                {progressDeleteStep === 1 && '⚠️ Click Again to Continue'}
+                {progressDeleteStep === 2 && '🚨 Confirm DELETE'}
+              </button>
+              {progressDeleteStep > 0 && (
+                <button className="btn-secondary" onClick={handleCancelDelete}>
+                  Cancel
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
