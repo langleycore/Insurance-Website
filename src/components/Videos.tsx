@@ -11,6 +11,10 @@ export default function Videos() {
     : videos.filter(video => video.category === selectedCategory);
 
   const handleVideoClick = (youtubeId: string) => {
+    // Don't open video modal for placeholder entries
+    if (youtubeId === 'PLACEHOLDER') {
+      return;
+    }
     setSelectedVideo(youtubeId);
   };
 
@@ -49,20 +53,33 @@ export default function Videos() {
       {/* Video Grid */}
       <div className="videos-grid">
         {filteredVideos.map(video => (
-          <div key={video.id} className="video-card" onClick={() => handleVideoClick(video.youtubeId)}>
+          <div 
+            key={video.id} 
+            className={`video-card ${video.youtubeId === 'PLACEHOLDER' ? 'placeholder-card' : ''}`}
+            onClick={() => handleVideoClick(video.youtubeId)}
+            style={{ cursor: video.youtubeId === 'PLACEHOLDER' ? 'default' : 'pointer' }}
+          >
             <div className="video-thumbnail">
-              <img
-                src={`https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`}
-                alt={video.title}
-                loading="lazy"
-              />
-              <div className="play-overlay">
-                <svg width="68" height="48" viewBox="0 0 68 48">
-                  <path fill="#fff" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"/>
-                  <path fill="#FF0000" d="M 45,24 27,14 27,34"/>
-                </svg>
-              </div>
-              <span className="video-duration">{video.duration}</span>
+              {video.youtubeId !== 'PLACEHOLDER' ? (
+                <>
+                  <img
+                    src={`https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`}
+                    alt={video.title}
+                    loading="lazy"
+                  />
+                  <div className="play-overlay">
+                    <svg width="68" height="48" viewBox="0 0 68 48">
+                      <path fill="#fff" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"/>
+                      <path fill="#FF0000" d="M 45,24 27,14 27,34"/>
+                    </svg>
+                  </div>
+                  <span className="video-duration">{video.duration}</span>
+                </>
+              ) : (
+                <div className="placeholder-thumbnail">
+                  <div className="coming-soon-badge">🎬 COMING SOON</div>
+                </div>
+              )}
             </div>
             <div className="video-info">
               <h3 className="video-title">{video.title}</h3>
