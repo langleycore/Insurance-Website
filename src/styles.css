@@ -723,6 +723,15 @@ body {
   overflow: hidden;
 }
 
+.answer-option:focus {
+  outline: none;
+}
+
+.answer-option:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--primary-color);
+}
+
 .answer-option:active:not(:disabled):not(.correct):not(.incorrect) {
   background: #e0f2fe;
   border-color: var(--primary-color);
