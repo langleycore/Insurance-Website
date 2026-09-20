@@ -17,6 +17,32 @@
   color: var(--secondary-text);
   line-height: 1.6;
   font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.clear-cache-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.clear-cache-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.clear-cache-btn:active {
+  transform: translateY(0);
 }
 
 /* Category Filter */

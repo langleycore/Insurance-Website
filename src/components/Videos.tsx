@@ -25,6 +25,17 @@ export default function Videos() {
     setSelectedVideo(null);
   };
 
+  const handleClearCache = () => {
+    // Clear all caches and force reload
+    if ('caches' in window) {
+      caches.keys().then(names => {
+        names.forEach(name => caches.delete(name));
+      });
+    }
+    // Add timestamp to force reload with new URL
+    window.location.href = window.location.href.split('?')[0] + '?v=' + Date.now();
+  };
+
   const handleImageLoad = (youtubeId: string) => {
     setLoadedImages(prev => new Set(prev).add(youtubeId));
   };
@@ -66,6 +77,9 @@ export default function Videos() {
           Comprehensive video lessons covering all Virginia Personal Lines exam topics. Watch expert explanations
           of insurance concepts, policies, and exam strategies.
         </p>
+        <button className="clear-cache-btn" onClick={handleClearCache} title="Clear cache and reload if videos aren't showing correctly">
+          🔄 Clear Cache & Reload
+        </button>
       </div>
 
       {/* Category Filter */}
