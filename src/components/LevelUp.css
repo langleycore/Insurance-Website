@@ -1,0 +1,133 @@
+.levelup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.levelup-overlay.visible {
+  opacity: 1;
+}
+
+.levelup-modal {
+  position: relative;
+  background: white;
+  border-radius: 2rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  transform: scale(0.5);
+  animation: levelupPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes levelupPop {
+  0% {
+    transform: scale(0.5) rotate(-10deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.levelup-rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(255, 215, 0, 0.1) 0deg 10deg,
+    transparent 10deg 20deg
+  );
+  animation: raysRotate 10s linear infinite;
+}
+
+@keyframes raysRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.levelup-content {
+  position: relative;
+  z-index: 2;
+}
+
+.levelup-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0 0 1rem;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titlePulse 1s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.levelup-number {
+  font-size: 6rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin: 0 0 1rem;
+  animation: numberBounce 0.8s ease-out, numberGlow 2s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(102, 126, 234, 0.5));
+}
+
+@keyframes numberBounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-30px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-15px); }
+}
+
+@keyframes numberGlow {
+  0%, 100% { filter: drop-shadow(0 4px 12px rgba(102, 126, 234, 0.5)); }
+  50% { filter: drop-shadow(0 8px 24px rgba(102, 126, 234, 0.8)); }
+}
+
+.levelup-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  font-weight: 600;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .levelup-modal {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .levelup-title {
+    font-size: 1.4rem;
+  }
+  
+  .levelup-number {
+    font-size: 4.5rem;
+  }
+  
+  .levelup-subtitle {
+    font-size: 1rem;
+  }
+}

@@ -13,8 +13,10 @@ import Settings from './components/Settings';
 import Achievements from './components/Achievements';
 import SideQuests from './components/SideQuests';
 import AchievementUnlock from './components/AchievementUnlock';
+import LevelUp from './components/LevelUp';
 import { firebaseAuthService } from './services/firebaseAuthService';
 import { Achievement } from './data/achievements';
+import { getStats } from './utils/gamification';
 import './styles.css';
 
 type Mode = 'home' | 'test' | 'timed' | 'flashcards' | 'scenarios' | 'truefalse' | 'fillblank' | 'matching' | 'analytics' | 'videos' | 'settings' | 'achievements' | 'quests';
@@ -24,6 +26,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [mode, setMode] = useState<Mode>('home');
   const [unlockedAchievements, setUnlockedAchievements] = useState<Achievement[]>([]);
+  const [levelUp, setLevelUp] = useState<number | null>(null);
+  const [stats, setStats] = useState(getStats());
 
   useEffect(() => {
     // Listen to authentication state changes
@@ -137,10 +141,26 @@ function App() {
           onClose={() => setUnlockedAchievements(prev => prev.slice(1))}
         />
       )}
+      {levelUp !== null && (
+        <LevelUp 
+          level={levelUp}
+          onClose={() => setLevelUp(null)}
+        />
+      )}
           <header className="app-header home-header">
             <h1>Virginia Personal Lines Insurance</h1>
             <p className="subtitle">Exam Prep</p>
             <div className="header-actions">
+              <div className="level-badge" onClick={() => setMode('achievements')}>
+                <span className="level-text">Level {stats.level}</span>
+                <div className="xp-bar">
+                  <div 
+                    className="xp-fill" 
+                    style={{ width: `${(stats.xp / stats.xpToNextLevel) * 100}%` }}
+                  />
+                </div>
+                <span className="xp-text">{stats.xp}/{stats.xpToNextLevel} XP</span>
+              </div>
               <span className="session-info">Welcome, {firebaseAuthService.getUserDisplayName()}!</span>
               <button className="logout-button-home" onClick={handleLogout}>
                 Logout
