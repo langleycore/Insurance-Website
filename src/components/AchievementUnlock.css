@@ -1,0 +1,297 @@
+.achievement-unlock-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  padding: 1rem;
+}
+
+.achievement-unlock-overlay.visible {
+  opacity: 1;
+}
+
+.achievement-unlock-modal {
+  background: white;
+  border-radius: 2rem;
+  padding: 2.5rem 2rem;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.8);
+  animation: modalPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes modalPop {
+  0% {
+    transform: scale(0.8) rotate(-5deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.unlock-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ffd700, #ffed4e);
+  border-radius: 50%;
+  animation: particleExplode 1.5s ease-out forwards;
+  opacity: 0;
+  box-shadow: 0 0 10px #ffd700;
+}
+
+@keyframes particleExplode {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--tx, 0)), calc(-50% + var(--ty, 0))) scale(1);
+    opacity: 0;
+  }
+}
+
+.unlock-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.unlock-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleBounce 0.8s ease-in-out;
+}
+
+@keyframes titleBounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-10px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-5px); }
+}
+
+.unlock-icon-wrapper {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: iconSpin 1s ease-out, iconGlow 2s ease-in-out infinite;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes iconSpin {
+  0% { transform: rotate(0deg) scale(0); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes iconGlow {
+  0%, 100% { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); }
+  50% { box-shadow: 0 10px 60px rgba(255, 215, 0, 0.6); }
+}
+
+.unlock-icon {
+  font-size: 5rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.unlock-shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shineMove 2s ease-in-out infinite;
+}
+
+@keyframes shineMove {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.unlock-achievement-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0 0 0.75rem;
+  color: #1f2937;
+  animation: textSlideUp 0.6s ease-out 0.3s both;
+}
+
+@keyframes textSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.unlock-description {
+  font-size: 1rem;
+  color: #6b7280;
+  margin: 0 0 2rem;
+  line-height: 1.6;
+  animation: textSlideUp 0.6s ease-out 0.4s both;
+}
+
+.unlock-rewards {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  animation: textSlideUp 0.6s ease-out 0.5s both;
+}
+
+.reward-item {
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+  border: 2px solid #667eea;
+  border-radius: 1rem;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: rewardPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes rewardPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.reward-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.reward-text {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #667eea;
+}
+
+.unlock-close-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  animation: textSlideUp 0.6s ease-out 0.6s both;
+}
+
+.unlock-close-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(102, 126, 234, 0.5);
+}
+
+.unlock-close-btn:active {
+  transform: translateY(0);
+}
+
+/* Rarity glows */
+.unlock-icon-wrapper.rarity-common {
+  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.5);
+}
+
+.unlock-icon-wrapper.rarity-rare {
+  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.5);
+}
+
+.unlock-icon-wrapper.rarity-epic {
+  box-shadow: 0 10px 40px rgba(168, 85, 247, 0.5);
+}
+
+.unlock-icon-wrapper.rarity-legendary {
+  box-shadow: 0 10px 40px rgba(245, 158, 11, 0.6);
+  animation: iconSpin 1s ease-out, legendaryGlow 2s ease-in-out infinite;
+}
+
+@keyframes legendaryGlow {
+  0%, 100% { 
+    box-shadow: 0 10px 40px rgba(245, 158, 11, 0.6);
+  }
+  50% { 
+    box-shadow: 0 10px 80px rgba(245, 158, 11, 0.9), 0 0 100px rgba(255, 215, 0, 0.5);
+  }
+}
+
+@media (max-width: 640px) {
+  .achievement-unlock-modal {
+    padding: 2rem 1.5rem;
+  }
+  
+  .unlock-title {
+    font-size: 1.25rem;
+  }
+  
+  .unlock-icon-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .unlock-icon {
+    font-size: 4rem;
+  }
+  
+  .unlock-achievement-title {
+    font-size: 1.4rem;
+  }
+  
+  .unlock-rewards {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .unlock-close-btn {
+    width: 100%;
+  }
+}

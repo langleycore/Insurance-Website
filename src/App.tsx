@@ -10,15 +10,20 @@ import Analytics from './components/Analytics';
 import TimedTest from './components/TimedTest';
 import Videos from './components/Videos';
 import Settings from './components/Settings';
+import Achievements from './components/Achievements';
+import SideQuests from './components/SideQuests';
+import AchievementUnlock from './components/AchievementUnlock';
 import { firebaseAuthService } from './services/firebaseAuthService';
+import { Achievement } from './data/achievements';
 import './styles.css';
 
-type Mode = 'home' | 'test' | 'timed' | 'flashcards' | 'scenarios' | 'truefalse' | 'fillblank' | 'matching' | 'analytics' | 'videos' | 'settings';
+type Mode = 'home' | 'test' | 'timed' | 'flashcards' | 'scenarios' | 'truefalse' | 'fillblank' | 'matching' | 'analytics' | 'videos' | 'settings' | 'achievements' | 'quests';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [mode, setMode] = useState<Mode>('home');
+  const [unlockedAchievements, setUnlockedAchievements] = useState<Achievement[]>([]);
 
   useEffect(() => {
     // Listen to authentication state changes
@@ -58,9 +63,9 @@ function App() {
       const renderContent = () => {
         switch (mode) {
           case 'test':
-            return <PracticeTest />;
+            return <PracticeTest onAchievements={setUnlockedAchievements} />;
           case 'timed':
-            return <TimedTest />;
+            return <TimedTest onAchievements={setUnlockedAchievements} />;
           case 'flashcards':
             return <Flashcards />;
           case 'scenarios':
@@ -77,6 +82,10 @@ function App() {
             return <Videos />;
           case 'settings':
             return <Settings />;
+          case 'achievements':
+            return <Achievements />;
+          case 'quests':
+            return <SideQuests />;
           default:
             return null;
         }
@@ -85,6 +94,12 @@ function App() {
   if (mode !== 'home') {
     return (
       <div className="app">
+        {unlockedAchievements.length > 0 && (
+          <AchievementUnlock 
+            achievement={unlockedAchievements[0]}
+            onClose={() => setUnlockedAchievements(prev => prev.slice(1))}
+          />
+        )}
         <header className="app-header">
           <button className="back-button" onClick={() => setMode('home')}>
             ← Back
@@ -100,6 +115,8 @@ function App() {
                 {mode === 'analytics' && 'Performance Analytics'}
                 {mode === 'videos' && 'Video Library'}
                 {mode === 'settings' && 'Settings'}
+                {mode === 'achievements' && 'Achievements'}
+                {mode === 'quests' && 'Side Quests'}
               </h1>
           <button className="logout-button" onClick={handleLogout}>
             Logout
@@ -114,6 +131,12 @@ function App() {
 
   return (
     <div className="app">
+      {unlockedAchievements.length > 0 && (
+        <AchievementUnlock 
+          achievement={unlockedAchievements[0]}
+          onClose={() => setUnlockedAchievements(prev => prev.slice(1))}
+        />
+      )}
           <header className="app-header home-header">
             <h1>Virginia Personal Lines Insurance</h1>
             <p className="subtitle">Exam Prep</p>
@@ -149,6 +172,28 @@ function App() {
 
               <h3 className="section-title">Practice Activities</h3>
               <div className="mode-cards">
+                <button className="mode-card" onClick={() => setMode('achievements')}>
+                  <div className="mode-icon">🏆</div>
+                  <h3>Achievements</h3>
+                  <p>Unlock badges and earn rewards</p>
+                  <div className="mode-features">
+                    <span>✓ Track progress</span>
+                    <span>✓ Earn points</span>
+                    <span>✓ Level up</span>
+                  </div>
+                </button>
+
+                <button className="mode-card" onClick={() => setMode('quests')}>
+                  <div className="mode-icon">🎯</div>
+                  <h3>Side Quests</h3>
+                  <p>Daily and weekly challenges</p>
+                  <div className="mode-features">
+                    <span>✓ Daily quests</span>
+                    <span>✓ Weekly challenges</span>
+                    <span>✓ Bonus XP</span>
+                  </div>
+                </button>
+
                 <button className="mode-card" onClick={() => setMode('settings')}>
                   <div className="mode-icon">⚙️</div>
                   <h3>Settings</h3>
