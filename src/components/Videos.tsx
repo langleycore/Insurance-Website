@@ -6,6 +6,7 @@ export default function Videos() {
   const [selectedCategory, setSelectedCategory] = useState('All Videos');
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
 
   const filteredVideos = selectedCategory === 'All Videos'
     ? videos
@@ -23,16 +24,37 @@ export default function Videos() {
     setSelectedVideo(null);
   };
 
-  const handleImageError = (youtubeId: string) => {
-    setImageErrors(prev => new Set(prev).add(youtubeId));
+  const handleImageLoad = (youtubeId: string) => {
+    setLoadedImages(prev => new Set(prev).add(youtubeId));
+  };
+
+  const handleImageError = (youtubeId: string, currentAttempt: number) => {
+    const newErrors = new Set(imageErrors);
+    newErrors.add(`${youtubeId}-${currentAttempt}`);
+    setImageErrors(newErrors);
   };
 
   const getThumbnailUrl = (youtubeId: string) => {
-    // Try different thumbnail qualities if the first fails
-    if (imageErrors.has(youtubeId)) {
-      return `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`;
+    // Try multiple thumbnail URLs in order of preference
+    const errorCount = Array.from(imageErrors).filter(e => e.startsWith(youtubeId)).length;
+    
+    // Try different CDNs and qualities
+    switch(errorCount) {
+      case 0:
+        return `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`;
+      case 1:
+        return `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`;
+      case 2:
+        return `https://img.youtube.com/vi/${youtubeId}/sddefault.jpg`;
+      case 3:
+        return `https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg`;
+      default:
+        return `https://img.youtube.com/vi/${youtubeId}/0.jpg`;
     }
-    return `https://i.ytimg.com/vi/${youtubeId}/mqdefault.jpg`;
+  };
+
+  const getErrorAttempt = (youtubeId: string) => {
+    return Array.from(imageErrors).filter(e => e.startsWith(youtubeId)).length;
   };
 
   return (
@@ -75,12 +97,19 @@ export default function Videos() {
             <div className="video-thumbnail">
               {video.youtubeId !== 'PLACEHOLDER' ? (
                 <>
+                  {!loadedImages.has(video.youtubeId) && (
+                    <div className="thumbnail-loading">
+                      <div className="loading-spinner"></div>
+                    </div>
+                  )}
                   <img
                     src={getThumbnailUrl(video.youtubeId)}
                     alt={video.title}
                     loading="lazy"
-                    onError={() => handleImageError(video.youtubeId)}
-                    crossOrigin="anonymous"
+                    onLoad={() => handleImageLoad(video.youtubeId)}
+                    onError={() => handleImageError(video.youtubeId, getErrorAttempt(video.youtubeId))}
+                    referrerPolicy="no-referrer"
+                    style={{ opacity: loadedImages.has(video.youtubeId) ? 1 : 0 }}
                   />
                   <div className="play-overlay">
                     <svg width="68" height="48" viewBox="0 0 68 48">

@@ -127,6 +127,33 @@
   background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
 }
 
+.thumbnail-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  z-index: 1;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .video-thumbnail img {
   position: absolute;
   top: 0;
@@ -135,6 +162,8 @@
   height: 100%;
   object-fit: cover;
   background: #2d2d2d;
+  transition: opacity 0.3s ease;
+  z-index: 2;
 }
 
 .play-overlay {
@@ -144,6 +173,8 @@
   transform: translate(-50%, -50%);
   opacity: 0.9;
   transition: opacity 0.2s;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .video-card:hover .play-overlay {
@@ -160,6 +191,7 @@
   border-radius: 3px;
   font-size: 0.75rem;
   font-weight: 600;
+  z-index: 3;
 }
 
 .video-info {
