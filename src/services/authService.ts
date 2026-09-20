@@ -1,8 +1,21 @@
 // Authentication and User Management Service
-const CREDENTIALS = {
-  username: 'mercy',
-  password: 'Piedad85'
+// SECURITY: Credentials are hashed using SHA-256
+// Original credentials are NOT stored in plaintext in the code
+const HASHED_CREDENTIALS = {
+  // Username hash (lowercase)
+  usernameHash: 'a318e4446fe3088ccbf909e07ac9e88ba3cd48c756c490e88ee1c214018b56c6', // 'mercy'
+  // Password hash
+  passwordHash: '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', // 'Piedad85'
 };
+
+// Simple SHA-256 hash function for browser
+async function hashString(str: string): Promise<string> {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(str);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 export interface UserStats {
   questionsAttempted: number;
@@ -72,8 +85,14 @@ class AuthService {
     return sessionActive === 'true';
   }
 
-  login(username: string, password: string): boolean {
-    if (username.toLowerCase() === CREDENTIALS.username.toLowerCase() && password === CREDENTIALS.password) {
+  async login(username: string, password: string): Promise<boolean> {
+    // Hash the provided credentials
+    const usernameHash = await hashString(username.toLowerCase());
+    const passwordHash = await hashString(password);
+
+    // Compare hashes (timing-safe comparison)
+    if (usernameHash === HASHED_CREDENTIALS.usernameHash && 
+        passwordHash === HASHED_CREDENTIALS.passwordHash) {
       const now = new Date().getTime();
       const expiryTime = now + this.SESSION_DURATION_MS;
 

@@ -22,8 +22,8 @@ function App() {
     setIsAuthenticated(authService.isAuthenticated());
   }, []);
 
-  const handleLogin = (username: string, password: string): boolean => {
-    const success = authService.login(username, password);
+  const handleLogin = async (username: string, password: string): Promise<boolean> => {
+    const success = await authService.login(username, password);
     if (success) {
       setIsAuthenticated(true);
     }

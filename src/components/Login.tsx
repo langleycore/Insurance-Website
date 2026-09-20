@@ -2,15 +2,16 @@ import { useState } from 'react';
 import './Login.css';
 
 interface LoginProps {
-  onLogin: (username: string, password: string) => boolean;
+  onLogin: (username: string, password: string) => Promise<boolean>;
 }
 
 export default function Login({ onLogin }: LoginProps) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -19,10 +20,17 @@ export default function Login({ onLogin }: LoginProps) {
       return;
     }
 
-    const success = onLogin(username, password);
-    if (!success) {
-      setError('Invalid username or password');
-      setPassword('');
+    setIsLoading(true);
+    try {
+      const success = await onLogin(username, password);
+      if (!success) {
+        setError('Invalid username or password');
+        setPassword('');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -66,8 +74,8 @@ export default function Login({ onLogin }: LoginProps) {
 
           {error && <div className="error-message">{error}</div>}
 
-          <button type="submit" className="login-button">
-            Login
+          <button type="submit" className="login-button" disabled={isLoading}>
+            {isLoading ? 'Authenticating...' : 'Login'}
           </button>
         </form>
 
