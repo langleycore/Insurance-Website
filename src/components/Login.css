@@ -106,5 +106,11 @@
 }
 
 .login-footer p {
-  margin: 0;
+  margin: 0.5rem 0;
+}
+
+.session-note {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  font-style: italic;
 }

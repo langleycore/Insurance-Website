@@ -48,14 +48,38 @@ export interface TestResult {
 class AuthService {
   private readonly STORAGE_KEY = 'insurance_exam_user';
   private readonly SESSION_KEY = 'insurance_exam_session';
+  private readonly SESSION_EXPIRY_KEY = 'insurance_exam_session_expiry';
+  private readonly SESSION_DURATION_MS = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
 
   isAuthenticated(): boolean {
-    return sessionStorage.getItem(this.SESSION_KEY) === 'true';
+    const sessionActive = localStorage.getItem(this.SESSION_KEY);
+    const expiryTime = localStorage.getItem(this.SESSION_EXPIRY_KEY);
+
+    if (!sessionActive || !expiryTime) {
+      return false;
+    }
+
+    // Check if session has expired
+    const now = new Date().getTime();
+    const expiry = parseInt(expiryTime, 10);
+
+    if (now > expiry) {
+      // Session expired, clean up
+      this.logout();
+      return false;
+    }
+
+    return sessionActive === 'true';
   }
 
   login(username: string, password: string): boolean {
     if (username.toLowerCase() === CREDENTIALS.username.toLowerCase() && password === CREDENTIALS.password) {
-      sessionStorage.setItem(this.SESSION_KEY, 'true');
+      const now = new Date().getTime();
+      const expiryTime = now + this.SESSION_DURATION_MS;
+
+      localStorage.setItem(this.SESSION_KEY, 'true');
+      localStorage.setItem(this.SESSION_EXPIRY_KEY, expiryTime.toString());
+      
       this.updateLastLogin();
       return true;
     }
@@ -63,7 +87,38 @@ class AuthService {
   }
 
   logout(): void {
-    sessionStorage.removeItem(this.SESSION_KEY);
+    localStorage.removeItem(this.SESSION_KEY);
+    localStorage.removeItem(this.SESSION_EXPIRY_KEY);
+  }
+
+  getSessionExpiryDate(): Date | null {
+    const expiryTime = localStorage.getItem(this.SESSION_EXPIRY_KEY);
+    if (!expiryTime) {
+      return null;
+    }
+    return new Date(parseInt(expiryTime, 10));
+  }
+
+  getRemainingSessionTime(): string {
+    const expiryDate = this.getSessionExpiryDate();
+    if (!expiryDate) {
+      return 'No active session';
+    }
+
+    const now = new Date().getTime();
+    const remaining = expiryDate.getTime() - now;
+
+    if (remaining <= 0) {
+      return 'Session expired';
+    }
+
+    const days = Math.floor(remaining / (24 * 60 * 60 * 1000));
+    const hours = Math.floor((remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+
+    if (days > 0) {
+      return `${days} day${days > 1 ? 's' : ''} ${hours} hour${hours !== 1 ? 's' : ''}`;
+    }
+    return `${hours} hour${hours !== 1 ? 's' : ''}`;
   }
 
   private updateLastLogin(): void {
@@ -196,7 +251,8 @@ class AuthService {
 
   resetAllData(): void {
     localStorage.removeItem(this.STORAGE_KEY);
-    sessionStorage.removeItem(this.SESSION_KEY);
+    localStorage.removeItem(this.SESSION_KEY);
+    localStorage.removeItem(this.SESSION_EXPIRY_KEY);
   }
 }
 

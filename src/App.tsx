@@ -92,13 +92,16 @@ function App() {
 
   return (
     <div className="app">
-      <header className="app-header home-header">
-        <h1>Virginia Personal Lines Insurance</h1>
-        <p className="subtitle">Exam Prep</p>
-        <button className="logout-button-home" onClick={handleLogout}>
-          Logout
-        </button>
-      </header>
+          <header className="app-header home-header">
+            <h1>Virginia Personal Lines Insurance</h1>
+            <p className="subtitle">Exam Prep</p>
+            <div className="header-actions">
+              <span className="session-info">Session expires: {authService.getRemainingSessionTime()}</span>
+              <button className="logout-button-home" onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
+          </header>
       <main className="app-main home-main">
         <div className="home-content">
           <div className="welcome-section">

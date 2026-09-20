@@ -68,6 +68,7 @@ export default function Login({ onLogin }: LoginProps) {
 
         <div className="login-footer">
           <p>Study smart, test with confidence</p>
+          <p className="session-note">Your session will stay active for 7 days</p>
         </div>
       </div>
     </div>
