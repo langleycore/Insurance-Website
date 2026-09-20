@@ -220,7 +220,6 @@ export const achievements: Achievement[] = [
 ];
 
 export const dailySideQuests = (): SideQuest[] => {
-  const now = Date.now();
   const endOfDay = new Date();
   endOfDay.setHours(23, 59, 59, 999);
   
@@ -262,7 +261,6 @@ export const dailySideQuests = (): SideQuest[] => {
 };
 
 export const weeklyChallenges = (): SideQuest[] => {
-  const now = Date.now();
   const endOfWeek = new Date();
   endOfWeek.setDate(endOfWeek.getDate() + (7 - endOfWeek.getDay()));
   endOfWeek.setHours(23, 59, 59, 999);

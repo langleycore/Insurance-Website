@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { getStats } from '../utils/gamification';
-import { SideQuest } from '../data/achievements';
 import './SideQuests.css';
 
 export default function SideQuests() {

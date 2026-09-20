@@ -27,7 +27,7 @@ function App() {
   const [mode, setMode] = useState<Mode>('home');
   const [unlockedAchievements, setUnlockedAchievements] = useState<Achievement[]>([]);
   const [levelUp, setLevelUp] = useState<number | null>(null);
-  const [stats, setStats] = useState(getStats());
+  const stats = getStats();
 
   useEffect(() => {
     // Listen to authentication state changes
@@ -67,9 +67,9 @@ function App() {
       const renderContent = () => {
         switch (mode) {
           case 'test':
-            return <PracticeTest onAchievements={setUnlockedAchievements} />;
+            return <PracticeTest />;
           case 'timed':
-            return <TimedTest onAchievements={setUnlockedAchievements} />;
+            return <TimedTest />;
           case 'flashcards':
             return <Flashcards />;
           case 'scenarios':
