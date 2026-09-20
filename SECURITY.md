@@ -1,83 +1,67 @@
-# Security Notice
+# Security
 
-## Client-Side Authentication
+## Authentication
 
-This application uses **client-side authentication** which has inherent security limitations:
+This application uses **Firebase Authentication with Google Sign-In**.
 
-### Current Implementation
+### How It Works
 
-- **SHA-256 Hashed Credentials**: Usernames and passwords are hashed using SHA-256 before comparison
-- **No Plaintext Storage**: Credentials are NOT stored in plaintext in the code
-- **Session Management**: 7-day session tokens stored in localStorage
+- Users sign in with their Google account
+- Authentication is handled entirely by Google/Firebase
+- No passwords or credentials are stored in this codebase
+- OAuth 2.0 tokens are used for session management
 
-### Security Limitations
+### What's Public (Safe)
 
-⚠️ **Important**: Client-side authentication is NOT suitable for production applications with sensitive data.
+The following information is public and safe to be in the codebase:
 
-**Known Limitations:**
-1. Hash values are visible in the source code
-2. Anyone with the hash can reverse-engineer using rainbow tables or brute force
-3. No rate limiting on login attempts
-4. Sessions stored in localStorage (vulnerable to XSS)
-5. No secure password reset mechanism
-6. No multi-factor authentication (MFA)
+- Firebase configuration (API keys, project IDs, auth domains)
+- Application source code
+- UI components
 
-### Recommendations for Production
+**Note:** Firebase API keys are designed to be public. Security is enforced through:
+- Firebase Security Rules (server-side)
+- Authorized domains configuration
+- User authentication requirements
 
-For a production environment, you should implement:
+### What's Private (Managed by Firebase)
 
-1. **Backend Authentication Server**
-   - Use a proper authentication service (Auth0, Firebase Auth, AWS Cognito, etc.)
-   - Never store credentials client-side
-   - Implement JWT tokens with secure httpOnly cookies
+The following is handled securely by Firebase/Google:
 
-2. **Security Best Practices**
-   - Rate limiting on login attempts
-   - Password complexity requirements
-   - Multi-factor authentication (MFA)
-   - Secure password reset via email
-   - Account lockout after failed attempts
-   - Session management with refresh tokens
+- User passwords (never exposed to our app)
+- Authentication tokens
+- User sessions
+- Login credentials
 
-3. **Data Protection**
-   - HTTPS only
-   - Content Security Policy (CSP)
-   - Protection against XSS and CSRF attacks
+### Access Control
 
-### Current Use Case
+To restrict who can use the application:
 
-This application is designed as a **personal study tool** with basic access control. The current implementation is acceptable for:
-- Personal use
-- Non-sensitive study materials
-- Educational content that doesn't require high security
+1. **Firebase Authentication** - Only users with valid Google accounts
+2. **Authorized Domains** - Configure in Firebase Console
+3. **Optional:** Implement custom authorization logic in the app
 
-## Changing Credentials
+### Best Practices
 
-To change the username or password:
+✅ **This app implements:**
+- OAuth 2.0 authentication via Google
+- Secure session management by Firebase
+- No credential storage in code
 
-1. Generate new SHA-256 hashes:
-```javascript
-async function generateHash(text) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(text);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-}
+✅ **Firebase handles:**
+- Password security
+- Token management
+- Session expiration
+- Multi-factor authentication (if user enables it)
 
-// Usage:
-await generateHash('newusername'); // for username
-await generateHash('NewPassword123'); // for password
-```
+### Reporting Security Issues
 
-2. Update the hashes in `src/services/authService.ts`:
-```typescript
-const HASHED_CREDENTIALS = {
-  usernameHash: 'your-new-username-hash',
-  passwordHash: 'your-new-password-hash',
-};
-```
+If you discover a security vulnerability, please:
+1. Do NOT open a public issue
+2. Contact the repository owner privately
+3. Provide details about the vulnerability
 
-## Reporting Security Issues
+### Further Reading
 
-If you discover a security vulnerability, please report it by creating an issue in the repository.
+- [Firebase Security Documentation](https://firebase.google.com/docs/security)
+- [Google Sign-In Security](https://developers.google.com/identity/protocols/oauth2)
