@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { questions } from '../data/questions';
+
+// Fisher-Yates shuffle algorithm
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 export default function PracticeTest() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showExplanation, setShowExplanation] = useState(false);
   const [score, setScore] = useState({ correct: 0, total: 0 });
+  
+  // Shuffle questions once when component mounts
+  const shuffledQuestions = useMemo(() => shuffleArray(questions), []);
 
-  const currentQuestion = questions[currentQuestionIndex];
+  const currentQuestion = shuffledQuestions[currentQuestionIndex];
   const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
 
   const handleAnswerSelect = (answerIndex: number) => {
@@ -22,7 +35,7 @@ export default function PracticeTest() {
   };
 
   const handleNext = () => {
-    if (currentQuestionIndex < questions.length - 1) {
+    if (currentQuestionIndex < shuffledQuestions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
       setSelectedAnswer(null);
       setShowExplanation(false);
@@ -72,12 +85,12 @@ export default function PracticeTest() {
         <div className="progress-bar">
           <div 
             className="progress-fill" 
-            style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
+            style={{ width: `${((currentQuestionIndex + 1) / shuffledQuestions.length) * 100}%` }}
           />
         </div>
         <div className="test-stats">
           <span className="question-counter">
-            Question {currentQuestionIndex + 1} of {questions.length}
+            Question {currentQuestionIndex + 1} of {shuffledQuestions.length}
           </span>
           <span className="score">
             Score: {score.correct}/{score.total} ({percentage}%)
@@ -140,7 +153,7 @@ export default function PracticeTest() {
           ← Previous
         </button>
         
-        {currentQuestionIndex === questions.length - 1 ? (
+        {currentQuestionIndex === shuffledQuestions.length - 1 ? (
           <button
             className="nav-button primary"
             onClick={handleRestart}

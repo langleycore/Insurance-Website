@@ -1,12 +1,25 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { flashcards } from '../data/flashcards';
+
+// Fisher-Yates shuffle algorithm
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 export default function Flashcards() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [studiedCards, setStudiedCards] = useState(new Set<number>());
+  
+  // Shuffle flashcards once when component mounts
+  const shuffledFlashcards = useMemo(() => shuffleArray(flashcards), []);
 
-  const currentCard = flashcards[currentCardIndex];
+  const currentCard = shuffledFlashcards[currentCardIndex];
 
   const handleFlip = () => {
     setIsFlipped(prev => !prev);
@@ -16,7 +29,7 @@ export default function Flashcards() {
   };
 
   const handleNext = () => {
-    if (currentCardIndex < flashcards.length - 1) {
+    if (currentCardIndex < shuffledFlashcards.length - 1) {
       setCurrentCardIndex(prev => prev + 1);
       setIsFlipped(false);
     }
@@ -35,7 +48,7 @@ export default function Flashcards() {
     setStudiedCards(new Set());
   };
 
-  const progress = Math.round((studiedCards.size / flashcards.length) * 100);
+  const progress = Math.round((studiedCards.size / shuffledFlashcards.length) * 100);
 
   return (
     <div className="flashcards">
@@ -48,10 +61,10 @@ export default function Flashcards() {
         </div>
         <div className="flashcard-stats">
           <span className="card-counter">
-            Card {currentCardIndex + 1} of {flashcards.length}
+            Card {currentCardIndex + 1} of {shuffledFlashcards.length}
           </span>
           <span className="studied-count">
-            Studied: {studiedCards.size}/{flashcards.length}
+            Studied: {studiedCards.size}/{shuffledFlashcards.length}
           </span>
         </div>
         <div className="category-badge">{currentCard.category}</div>
@@ -86,7 +99,7 @@ export default function Flashcards() {
           ← Previous
         </button>
         
-        {currentCardIndex === flashcards.length - 1 ? (
+        {currentCardIndex === shuffledFlashcards.length - 1 ? (
           <button
             className="nav-button primary"
             onClick={handleReset}
