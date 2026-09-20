@@ -3,12 +3,13 @@
 // They are NOT secrets - Firebase security is handled by server-side rules
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "YOUR_API_KEY_HERE",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "your-project.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "your-project-id",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "your-project.appspot.com",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "123456789",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:123456789:web:abcdef123456"
+  apiKey: "AIzaSyAZYyICRrvcqU3GDus3CeQ6iAZY1T-P98U",
+  authDomain: "virginia-personal-lines-cdba8.firebaseapp.com",
+  projectId: "virginia-personal-lines-cdba8",
+  storageBucket: "virginia-personal-lines-cdba8.firebasestorage.app",
+  messagingSenderId: "248818780283",
+  appId: "1:248818780283:web:a8c40be13a93fc1a023ade",
+  measurementId: "G-F9RQ2T23BZ"
 };
 
 export default firebaseConfig;
