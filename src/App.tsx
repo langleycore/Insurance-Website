@@ -8,10 +8,11 @@ import FillBlankQuiz from './components/FillBlankQuiz';
 import MatchingGame from './components/MatchingGame';
 import Analytics from './components/Analytics';
 import TimedTest from './components/TimedTest';
+import Videos from './components/Videos';
 import { authService } from './services/authService';
 import './styles.css';
 
-type Mode = 'home' | 'test' | 'timed' | 'flashcards' | 'scenarios' | 'truefalse' | 'fillblank' | 'matching' | 'analytics';
+type Mode = 'home' | 'test' | 'timed' | 'flashcards' | 'scenarios' | 'truefalse' | 'fillblank' | 'matching' | 'analytics' | 'videos';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -39,28 +40,30 @@ function App() {
     return <Login onLogin={handleLogin} />;
   }
 
-  const renderContent = () => {
-    switch (mode) {
-      case 'test':
-        return <PracticeTest />;
-      case 'timed':
-        return <TimedTest />;
-      case 'flashcards':
-        return <Flashcards />;
-      case 'scenarios':
-        return <Scenarios />;
-      case 'truefalse':
-        return <TrueFalseQuiz />;
-      case 'fillblank':
-        return <FillBlankQuiz />;
-      case 'matching':
-        return <MatchingGame />;
-      case 'analytics':
-        return <Analytics />;
-      default:
-        return null;
-    }
-  };
+      const renderContent = () => {
+        switch (mode) {
+          case 'test':
+            return <PracticeTest />;
+          case 'timed':
+            return <TimedTest />;
+          case 'flashcards':
+            return <Flashcards />;
+          case 'scenarios':
+            return <Scenarios />;
+          case 'truefalse':
+            return <TrueFalseQuiz />;
+          case 'fillblank':
+            return <FillBlankQuiz />;
+          case 'matching':
+            return <MatchingGame />;
+          case 'analytics':
+            return <Analytics />;
+          case 'videos':
+            return <Videos />;
+          default:
+            return null;
+        }
+      };
 
   if (mode !== 'home') {
     return (
@@ -69,16 +72,17 @@ function App() {
           <button className="back-button" onClick={() => setMode('home')}>
             ← Back
           </button>
-          <h1>
-            {mode === 'test' && 'Practice Test'}
-            {mode === 'timed' && 'Timed Test'}
-            {mode === 'flashcards' && 'Flashcards'}
-            {mode === 'scenarios' && 'Scenarios'}
-            {mode === 'truefalse' && 'True/False'}
-            {mode === 'fillblank' && 'Fill in the Blank'}
-            {mode === 'matching' && 'Matching Game'}
-            {mode === 'analytics' && 'Performance Analytics'}
-          </h1>
+              <h1>
+                {mode === 'test' && 'Practice Test'}
+                {mode === 'timed' && 'Timed Test'}
+                {mode === 'flashcards' && 'Flashcards'}
+                {mode === 'scenarios' && 'Scenarios'}
+                {mode === 'truefalse' && 'True/False'}
+                {mode === 'fillblank' && 'Fill in the Blank'}
+                {mode === 'matching' && 'Matching Game'}
+                {mode === 'analytics' && 'Performance Analytics'}
+                {mode === 'videos' && 'Video Library'}
+              </h1>
           <button className="logout-button" onClick={handleLogout}>
             Logout
           </button>
@@ -125,18 +129,29 @@ function App() {
             <p className="view-analytics">View Detailed Analytics →</p>
           </div>
 
-          <h3 className="section-title">Practice Activities</h3>
-          <div className="mode-cards">
-            <button className="mode-card" onClick={() => setMode('test')}>
-              <div className="mode-icon">📝</div>
-              <h3>Practice Test</h3>
-              <p>200 comprehensive questions with instant feedback</p>
-              <div className="mode-features">
-                <span>✓ All exam topics</span>
-                <span>✓ Detailed explanations</span>
-                <span>✓ Track your score</span>
-              </div>
-            </button>
+              <h3 className="section-title">Practice Activities</h3>
+              <div className="mode-cards">
+                <button className="mode-card" onClick={() => setMode('videos')}>
+                  <div className="mode-icon">📺</div>
+                  <h3>Video Library</h3>
+                  <p>30+ educational videos covering all exam topics</p>
+                  <div className="mode-features">
+                    <span>✓ Expert explanations</span>
+                    <span>✓ Visual learning</span>
+                    <span>✓ All categories</span>
+                  </div>
+                </button>
+
+                <button className="mode-card" onClick={() => setMode('test')}>
+                  <div className="mode-icon">📝</div>
+                  <h3>Practice Test</h3>
+                  <p>200 comprehensive questions with instant feedback</p>
+                  <div className="mode-features">
+                    <span>✓ All exam topics</span>
+                    <span>✓ Detailed explanations</span>
+                    <span>✓ Track your score</span>
+                  </div>
+                </button>
 
             <button className="mode-card" onClick={() => setMode('timed')}>
               <div className="mode-icon">⏱️</div>
