@@ -81,6 +81,24 @@ body {
   font-weight: 300;
 }
 
+.header-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.session-info {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
 .back-button {
   background: rgba(255, 255, 255, 0.2);
   border: none;
@@ -222,6 +240,97 @@ body {
   color: var(--text-secondary);
   border-top: 1px solid var(--border-color);
   margin-top: auto;
+}
+
+/* Logout Button */
+.logout-button {
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  background: var(--error-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.logout-button:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+.logout-button-home {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  color: var(--primary-color);
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.logout-button-home:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Analytics Preview */
+.analytics-preview {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.analytics-preview:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.analytics-preview h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.quick-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.quick-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-stat .stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.quick-stat .stat-label {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.view-analytics {
+  margin: 0;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.section-title {
+  margin: 2rem 0 1rem 0;
+  color: var(--text-primary);
+  font-size: 1.5rem;
 }
 
 /* Practice Test Styles */
