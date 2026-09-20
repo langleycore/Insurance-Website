@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="A1 Maids">
+  <rect width="64" height="64" rx="18" fill="#0d3b66"/>
+  <path d="M21 46 31 18h3l10 28h-6l-2-6H29l-2 6zm10-21-3.5 10h7z" fill="#f4d35e"/>
+  <path d="M47 18h-5v28h5z" fill="#faf0ca"/>
+</svg>
