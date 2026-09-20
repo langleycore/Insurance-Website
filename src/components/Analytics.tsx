@@ -1,12 +1,12 @@
-import { authService } from '../services/authService';
+import { firebaseAuthService } from '../services/firebaseAuthService';
 import './Analytics.css';
 
 export default function Analytics() {
-  const stats = authService.getUserStats();
-  const categoryPerformance = authService.getCategoryPerformance();
-  const weakAreas = authService.getWeakAreas();
-  const strongAreas = authService.getStrongAreas();
-  const overallScore = authService.getOverallScore();
+  const stats = firebaseAuthService.getUserStats();
+  const categoryPerformance = firebaseAuthService.getCategoryPerformance();
+  const weakAreas = firebaseAuthService.getWeakAreas();
+  const strongAreas = firebaseAuthService.getStrongAreas();
+  const overallScore = firebaseAuthService.getOverallScore();
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {

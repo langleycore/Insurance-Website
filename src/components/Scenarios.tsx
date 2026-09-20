@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { scenarios } from '../data/scenarios';
-import { authService, TestResult } from '../services/authService';
+import { firebaseAuthService, TestResult } from '../services/firebaseAuthService';
 import '../styles.css';
 
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -71,7 +71,7 @@ export default function Scenarios() {
       score: score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0,
       categoryBreakdown
     };
-    authService.recordTestResult(result);
+    firebaseAuthService.recordTestResult(result);
     
     setCurrentIndex(0);
     setSelectedAnswer(null);

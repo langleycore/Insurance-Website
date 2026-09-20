@@ -9,35 +9,49 @@ import MatchingGame from './components/MatchingGame';
 import Analytics from './components/Analytics';
 import TimedTest from './components/TimedTest';
 import Videos from './components/Videos';
-import { authService } from './services/authService';
+import { firebaseAuthService } from './services/firebaseAuthService';
 import './styles.css';
 
 type Mode = 'home' | 'test' | 'timed' | 'flashcards' | 'scenarios' | 'truefalse' | 'fillblank' | 'matching' | 'analytics' | 'videos';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [mode, setMode] = useState<Mode>('home');
 
   useEffect(() => {
-    setIsAuthenticated(authService.isAuthenticated());
+    // Listen to authentication state changes
+    const unsubscribe = firebaseAuthService.onAuthStateChange((user) => {
+      setIsAuthenticated(!!user);
+      setIsLoading(false);
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  const handleLogin = async (username: string, password: string): Promise<boolean> => {
-    const success = await authService.login(username, password);
-    if (success) {
-      setIsAuthenticated(true);
-    }
-    return success;
+  const handleGoogleSignIn = async (): Promise<void> => {
+    await firebaseAuthService.signInWithGoogle();
   };
 
-  const handleLogout = () => {
-    authService.logout();
+  const handleLogout = async () => {
+    await firebaseAuthService.signOut();
     setIsAuthenticated(false);
     setMode('home');
   };
 
+  if (isLoading) {
+    return (
+      <div className="app loading-screen">
+        <div className="loading-spinner">
+          <div className="spinner"></div>
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!isAuthenticated) {
-    return <Login onLogin={handleLogin} />;
+    return <Login onGoogleSignIn={handleGoogleSignIn} />;
   }
 
       const renderContent = () => {
@@ -100,7 +114,7 @@ function App() {
             <h1>Virginia Personal Lines Insurance</h1>
             <p className="subtitle">Exam Prep</p>
             <div className="header-actions">
-              <span className="session-info">Session expires: {authService.getRemainingSessionTime()}</span>
+              <span className="session-info">Welcome, {firebaseAuthService.getUserDisplayName()}!</span>
               <button className="logout-button-home" onClick={handleLogout}>
                 Logout
               </button>
@@ -109,7 +123,7 @@ function App() {
       <main className="app-main home-main">
         <div className="home-content">
           <div className="welcome-section">
-            <h2>Welcome, Mercy!</h2>
+            <h2>Welcome, {firebaseAuthService.getUserDisplayName()}!</h2>
             <p>Prepare for your Virginia Personal Lines Insurance licensing exam with comprehensive practice materials designed specifically for the Series 11-07 exam.</p>
           </div>
 
@@ -118,11 +132,11 @@ function App() {
             <h3>📊 Your Progress</h3>
             <div className="quick-stats">
               <div className="quick-stat">
-                <span className="stat-value">{authService.getOverallScore()}%</span>
+                <span className="stat-value">{firebaseAuthService.getOverallScore()}%</span>
                 <span className="stat-label">Overall Score</span>
               </div>
               <div className="quick-stat">
-                <span className="stat-value">{authService.getUserStats().testHistory.length}</span>
+                <span className="stat-value">{firebaseAuthService.getUserStats().testHistory.length}</span>
                 <span className="stat-label">Sessions</span>
               </div>
             </div>

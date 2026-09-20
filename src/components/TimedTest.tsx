@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { questions } from '../data/questions';
-import { authService, TestResult } from '../services/authService';
+import { firebaseAuthService, TestResult } from '../services/firebaseAuthService';
 import '../styles.css';
 import './TimedTest.css';
 
@@ -92,7 +92,7 @@ export default function TimedTest() {
       score: Object.keys(answers).length > 0 ? Math.round((correct / Object.keys(answers).length) * 100) : 0,
       categoryBreakdown: breakdown
     };
-    authService.recordTestResult(result);
+    firebaseAuthService.recordTestResult(result);
   };
 
   const formatTime = (seconds: number) => {

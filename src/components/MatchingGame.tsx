@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { matchingSets } from '../data/matching';
-import { authService, TestResult } from '../services/authService';
+import { firebaseAuthService, TestResult } from '../services/firebaseAuthService';
 import './Matching.css';
 
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -113,7 +113,7 @@ export default function MatchingGame() {
       score: score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0,
       categoryBreakdown
     };
-    authService.recordTestResult(result);
+    firebaseAuthService.recordTestResult(result);
     
     setCurrentSetIndex(0);
     setMatches({});

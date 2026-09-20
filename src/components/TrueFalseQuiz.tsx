@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { trueFalseQuestions } from '../data/trueFalse';
-import { authService, TestResult } from '../services/authService';
+import { firebaseAuthService, TestResult } from '../services/firebaseAuthService';
 import '../styles.css';
 import './TrueFalse.css';
 
@@ -72,7 +72,7 @@ export default function TrueFalseQuiz() {
       score: score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0,
       categoryBreakdown
     };
-    authService.recordTestResult(result);
+    firebaseAuthService.recordTestResult(result);
     
     setCurrentIndex(0);
     setSelectedAnswer(null);
