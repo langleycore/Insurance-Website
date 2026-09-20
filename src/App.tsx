@@ -43,14 +43,14 @@ function App() {
   return (
     <div className="app">
       <header className="app-header home-header">
-        <h1>Virginia P&C Insurance</h1>
+        <h1>Virginia Personal Lines Insurance</h1>
         <p className="subtitle">Exam Prep</p>
       </header>
       <main className="app-main home-main">
         <div className="home-content">
           <div className="welcome-section">
             <h2>Welcome!</h2>
-            <p>Prepare for your Virginia Property & Casualty Insurance exam with practice tests and flashcards.</p>
+            <p>Prepare for your Virginia Personal Lines Insurance licensing exam with practice tests and flashcards focused on personal auto, homeowners, dwelling, and consumer insurance.</p>
           </div>
 
           <div className="mode-cards">
@@ -68,7 +68,7 @@ function App() {
             <button className="mode-card" onClick={() => setMode('flashcards')}>
               <div className="mode-icon">🎴</div>
               <h3>Flashcards</h3>
-              <p>155 essential insurance terms and definitions</p>
+              <p>120 essential personal lines insurance terms and definitions</p>
               <div className="mode-features">
                 <span>✓ Flip to reveal definitions</span>
                 <span>✓ Track studied cards</span>
@@ -79,7 +79,7 @@ function App() {
 
           <div className="info-section">
             <h3>About This App</h3>
-            <p>This study tool is specifically designed for the Virginia Property & Casualty Insurance licensing exam. All content focuses on Virginia-specific regulations and general P&C insurance principles.</p>
+            <p>This study tool is specifically designed for the Virginia Personal Lines Insurance licensing exam (Series 11-07). Content focuses on Virginia-specific regulations, personal auto insurance, homeowners policies, dwelling policies, and personal insurance principles.</p>
           </div>
         </div>
       </main>

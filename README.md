@@ -1,18 +1,18 @@
-# Virginia P&C Insurance Exam Prep
+# Virginia Personal Lines Insurance Exam Prep
 
-A mobile-optimized web application for studying for the Virginia Property & Casualty Insurance licensing exam.
+A mobile-optimized web application for studying for the Virginia Personal Lines Insurance licensing exam (Series 11-07).
 
 ## Features
 
 ### Practice Test Mode
-- 30 comprehensive multiple-choice questions
+- 200 comprehensive multiple-choice questions
 - Instant feedback after each answer
 - Detailed explanations for every question
 - Score tracking throughout the test
-- Coverage of Virginia-specific regulations and general P&C principles
+- Coverage of Virginia-specific regulations and personal lines insurance principles
 
 ### Flashcard Mode
-- 50 essential insurance terms and definitions
+- 120 essential personal lines insurance terms and definitions
 - Interactive flip animation
 - Progress tracking
 - Organized by category
@@ -57,14 +57,21 @@ The app works perfectly on iPhone browsers and can be added to your home screen 
 ## Content Coverage
 
 ### Topics Included:
-- Virginia auto insurance requirements
-- Homeowners insurance (HO-3 policies)
-- Liability insurance principles
-- Property insurance concepts
-- Insurance terminology and definitions
-- Virginia-specific regulations
-- Claims procedures
-- Underwriting principles
+- Virginia insurance regulations and licensing (18%)
+- General insurance concepts (12%)
+- Property and casualty insurance basics (20%)
+- Dwelling policies (8%)
+- Homeowners policies (17%)
+- Auto insurance (20%)
+- Other personal lines coverages (5%)
+
+### Exam Details:
+- Series 11-07: Virginia Personal Lines Insurance Examination
+- 100 scored questions (plus 5 pretest)
+- 2-hour (120-minute) time limit
+- Passing score: 70%
+- Exam fee: $35
+- No pre-licensing education required
 
 ## License
 

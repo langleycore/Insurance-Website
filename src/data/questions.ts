@@ -8,35 +8,360 @@ export interface Question {
 }
 
 export const questions: Question[] = [
-  // VIRGINIA INSURANCE REGULATION (30 questions)
+  // INSURANCE REGULATION (36 questions - 18% of 200)
   {
     id: 1,
-    question: "What is the minimum passing score for the Virginia Property & Casualty exam?",
+    question: "What is the passing score required for the Virginia Personal Lines exam (Series 11-07)?",
     options: [
       "60%",
       "65%",
-      "70% (scaled score)",
+      "70%",
       "75%"
     ],
     correctAnswer: 2,
-    explanation: "The Virginia P&C exam (Series 11-03) requires a scaled score of 70 to pass. The exam consists of 135 scored questions plus 10 unscored pretest items, for 145 total questions.",
+    explanation: "The Virginia Personal Lines exam requires a scaled score of 70% to pass. The exam consists of 100 scored questions plus 5 pretest items, for 105 total questions, with a 2-hour (120-minute) time limit.",
     category: "Virginia Regulation"
   },
   {
     id: 2,
-    question: "How many continuing education (CE) hours are required for Virginia P&C license renewal?",
+    question: "How many continuing education hours are required for Virginia insurance license renewal?",
     options: [
       "12 hours every 2 years",
       "16 hours every 2 years, including 3 ethics hours",
-      "20 hours every 2 years",
-      "24 hours every year"
+      "20 hours every year",
+      "24 hours every 2 years"
     ],
     correctAnswer: 1,
-    explanation: "Virginia requires 16 hours of CE every 2 years, including 3 hours of ethics. Effective February 1, 2026, no more than 12 CE hours may be completed within any 24-hour period.",
+    explanation: "Virginia requires 16 hours of continuing education every 2 years, including 3 hours of ethics. Effective February 1, 2026, no more than 12 CE hours may be completed in any 24-hour period.",
     category: "Virginia Regulation"
   },
   {
     id: 3,
+    question: "What is the cost to take the Virginia Personal Lines licensing exam?",
+    options: [
+      "$25",
+      "$30",
+      "$35",
+      "$50"
+    ],
+    correctAnswer: 2,
+    explanation: "The Virginia Personal Lines exam (Series 11-07) costs $35 per attempt and is administered by Prometric.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 4,
+    question: "Can an agent hold both a Property & Casualty license and a Personal Lines license in Virginia?",
+    options: [
+      "Yes, they are separate licenses",
+      "No, P&C includes Personal Lines so you cannot hold both",
+      "Yes, but only with special approval",
+      "Only if licensed for 5+ years"
+    ],
+    correctAnswer: 1,
+    explanation: "Property & Casualty includes all Personal Lines authority, so agents cannot hold or apply for both licenses. The P&C license is broader and includes commercial coverages.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 5,
+    question: "An agent must report a felony conviction to the Virginia Bureau of Insurance within:",
+    options: [
+      "10 days",
+      "20 days",
+      "30 days",
+      "60 days"
+    ],
+    correctAnswer: 2,
+    explanation: "Virginia Code § 38.2-1826(B) requires agents to report any felony conviction to the Bureau of Insurance within 30 days. Failure to report can result in license revocation.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 6,
+    question: "How long must insurance agents retain records of transactions in Virginia?",
+    options: [
+      "1 year",
+      "3 years",
+      "5 years",
+      "7 years"
+    ],
+    correctAnswer: 1,
+    explanation: "Virginia Code § 38.2-1809(B) requires agents to maintain records of insurance transactions for at least 3 years from the date of the transaction.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 7,
+    question: "What is 'rebating' in insurance?",
+    options: [
+      "Returning part of the commission to the client",
+      "Offering inducements not specified in the policy to purchase insurance",
+      "Reducing coverage to lower premiums",
+      "Canceling a policy early"
+    ],
+    correctAnswer: 1,
+    explanation: "Rebating (Virginia Code § 38.2-509) is offering something of value (money, gifts, services) not specified in the policy as an inducement to purchase insurance. It is prohibited as it creates unfair competition.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 8,
+    question: "An agent's 'fiduciary duty' means:",
+    options: [
+      "Always selling the lowest-priced policy",
+      "Holding premiums in trust for the insurer and properly accounting for client funds",
+      "Only representing one insurance company",
+      "Providing legal advice"
+    ],
+    correctAnswer: 1,
+    explanation: "Under Virginia Code § 38.2-1813, agents have a fiduciary responsibility to hold premiums and client funds in trust and properly account for them. Mishandling fiduciary funds is grounds for license revocation.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 9,
+    question: "Can a Virginia insurance agent share commissions with an unlicensed person?",
+    options: [
+      "Yes, if they are a family member",
+      "Yes, up to 10% of commission",
+      "No, only licensed agents may receive commissions",
+      "Yes, with Bureau approval"
+    ],
+    correctAnswer: 2,
+    explanation: "Virginia Code § 38.2-1812 prohibits paying or sharing insurance commissions with unlicensed persons. Only properly licensed agents or agencies may receive commissions.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 10,
+    question: "What is 'twisting' in insurance?",
+    options: [
+      "Comparing different policies",
+      "Using misrepresentation to induce a policyholder to replace existing coverage",
+      "Negotiating premium rates",
+      "Explaining policy exclusions"
+    ],
+    correctAnswer: 1,
+    explanation: "Twisting is using misrepresentation or misleading comparisons to convince a policyholder to drop existing coverage and buy a new policy. It violates Virginia Code § 38.2-502.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 11,
+    question: "Who regulates insurance companies and agents in Virginia?",
+    options: [
+      "Virginia Department of Insurance",
+      "State Corporation Commission, Bureau of Insurance",
+      "Virginia Insurance Board",
+      "Department of Financial Regulation"
+    ],
+    correctAnswer: 1,
+    explanation: "The State Corporation Commission's Bureau of Insurance regulates insurers, agents, and insurance practices in Virginia under Title 38.2 of the Virginia Code.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 12,
+    question: "An agent who changes their address must notify the Bureau of Insurance within:",
+    options: [
+      "10 days",
+      "15 days",
+      "30 days",
+      "60 days"
+    ],
+    correctAnswer: 2,
+    explanation: "Virginia Code § 38.2-1826(A) requires agents to notify the Bureau of Insurance of address or name changes within 30 days.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 13,
+    question: "Before selling insurance for a company, an agent must:",
+    options: [
+      "Have 1 year of experience",
+      "Be appointed by that insurance company",
+      "Take a company-specific exam",
+      "Complete 40 hours of training"
+    ],
+    correctAnswer: 1,
+    explanation: "Virginia Code § 38.2-1833 requires agents to be appointed by each insurance company before soliciting or selling that company's products. Selling without an appointment is a violation.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 14,
+    question: "Is pre-licensing education required for Virginia Personal Lines licensing?",
+    options: [
+      "Yes, 40 hours required",
+      "Yes, 20 hours required",
+      "No, pre-licensing education is not required for Personal Lines",
+      "Yes, 16 hours required"
+    ],
+    correctAnswer: 2,
+    explanation: "Virginia does NOT require pre-licensing education for Personal Lines licenses. Only Title insurance licenses require pre-licensing education (16 hours).",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 15,
+    question: "What is 'defamation' as an unfair trade practice?",
+    options: [
+      "Canceling policies improperly",
+      "Making false statements about a competitor's financial condition or business practices",
+      "Charging excessive premiums",
+      "Denying valid claims"
+    ],
+    correctAnswer: 1,
+    explanation: "Defamation (Virginia Code § 38.2-504) is making false, derogatory, or malicious statements about another insurer's or agent's financial condition or business practices.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 16,
+    question: "How long is a passed Virginia Personal Lines exam valid before you must apply for the license?",
+    options: [
+      "90 days",
+      "120 days",
+      "183 days",
+      "1 year"
+    ],
+    correctAnswer: 2,
+    explanation: "A passed Virginia insurance exam remains valid for 183 days (approximately 6 months). You must submit your license application within this timeframe or retake the exam.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 17,
+    question: "What is 'coercion' as an unfair trade practice?",
+    options: [
+      "Offering multi-policy discounts",
+      "Using force, threats, or abuse to compel someone to purchase insurance",
+      "Explaining policy terms thoroughly",
+      "Recommending appropriate coverage"
+    ],
+    correctAnswer: 1,
+    explanation: "Coercion (Virginia Code § 38.2-505) includes using force, threats, intimidation, or abuse of authority to compel insurance purchase or prevent someone from obtaining insurance elsewhere.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 18,
+    question: "Can an agent charge fees for services in addition to commissions?",
+    options: [
+      "No, only commissions allowed",
+      "Yes, if disclosed in writing and agreed to by the client",
+      "Yes, up to $100 per policy",
+      "Only for commercial policies"
+    ],
+    correctAnswer: 1,
+    explanation: "Virginia Code § 38.2-310 allows agents to charge reasonable fees beyond commissions, but fees must be disclosed in writing and agreed to by the client before services are rendered.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 19,
+    question: "Must Virginia residents submit fingerprints when applying for an insurance license?",
+    options: [
+      "No, fingerprints not required",
+      "Yes, through Fieldprint",
+      "Only for non-residents",
+      "Only if requested by Bureau"
+    ],
+    correctAnswer: 1,
+    explanation: "Virginia residents applying for new insurance licenses must submit fingerprints through Fieldprint. The fingerprints must be less than 90 days old when the application is submitted.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 20,
+    question: "What is 'misrepresentation' in insurance?",
+    options: [
+      "False advertising",
+      "Providing false or misleading information on an application",
+      "Denying claims",
+      "Policy errors"
+    ],
+    correctAnswer: 1,
+    explanation: "Misrepresentation (Virginia Code § 38.2-502) is providing false, incomplete, or misleading information on an insurance application. Material misrepresentation can void coverage.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 21,
+    question: "An agent must report disciplinary actions by another state to the Virginia Bureau within:",
+    options: [
+      "10 days",
+      "20 days",
+      "30 days",
+      "60 days"
+    ],
+    correctAnswer: 2,
+    explanation: "Virginia Code § 38.2-1826(C) requires agents to report disciplinary actions taken by other states within 30 days to ensure the Bureau is aware of all regulatory actions.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 22,
+    question: "What is the purpose of the Fair Credit Reporting Act (FCRA)?",
+    options: [
+      "Set insurance rates",
+      "Protect consumer credit information and regulate its use in underwriting",
+      "Regulate bank loans",
+      "Set policy terms"
+    ],
+    correctAnswer: 1,
+    explanation: "The FCRA (15 USC 1681) protects consumers by regulating how credit information is collected, used, and disclosed. Insurers must notify applicants if they use credit information in underwriting decisions.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 23,
+    question: "What does the National Association of Insurance Commissioners (NAIC) do?",
+    options: [
+      "Issues insurance licenses",
+      "Coordinates regulation among states and develops model laws",
+      "Sells insurance policies",
+      "Handles consumer complaints"
+    ],
+    correctAnswer: 1,
+    explanation: "The NAIC is an organization of state insurance regulators that coordinates regulation, develops model laws and regulations, and provides resources, but does not directly regulate insurers or agents.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 24,
+    question: "Under Virginia law, what is 'unfair discrimination'?",
+    options: [
+      "Charging different rates based on legitimate risk factors",
+      "Making distinctions based on race, religion, or other prohibited factors",
+      "Declining high-risk applicants",
+      "Offering safe driver discounts"
+    ],
+    correctAnswer: 1,
+    explanation: "Unfair discrimination (Virginia Code § 38.2-508) means making distinctions based on race, religion, national origin, or other prohibited factors rather than legitimate underwriting criteria.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 25,
+    question: "How long does a Virginia insurance agent have to act on each appointment?",
+    options: [
+      "Agent appointments don't expire",
+      "1 year",
+      "2 years with the license renewal",
+      "5 years"
+    ],
+    correctAnswer: 2,
+    explanation: "Agent appointments in Virginia are typically renewed with the agent's license every 2 years. Agents must maintain active appointments to sell for each company.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 26,
+    question: "What is the penalty for acting as an agent without a license in Virginia?",
+    options: [
+      "Warning only",
+      "$500 fine",
+      "Misdemeanor, fine up to $5,000, possible jail time",
+      "$100 fine"
+    ],
+    correctAnswer: 2,
+    explanation: "Acting as an insurance agent without a license is a Class 1 misdemeanor in Virginia, punishable by fines up to $5,000 and potential imprisonment. Each violation can be charged separately.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 27,
+    question: "What must happen before an agent can solicit insurance for a newly appointed company?",
+    options: [
+      "Wait 30 days",
+      "Receive acknowledgment of appointment",
+      "Take company exam",
+      "Complete training course"
+    ],
+    correctAnswer: 1,
+    explanation: "Agents must receive acknowledgment of appointment from the insurer before beginning to solicit business. Soliciting before receiving appointment acknowledgment violates Virginia law.",
+    category: "Virginia Regulation"
+  },
+  {
+    id: 28,
     question: "What is the maximum number of CE hours that can be completed in a 24-hour period in Virginia (effective Feb 1, 2026)?",
     options: [
       "8 hours",
@@ -49,843 +374,1224 @@ export const questions: Question[] = [
     category: "Virginia Regulation"
   },
   {
-    id: 4,
-    question: "An insurance agent's fiduciary responsibility means they must:",
-    options: [
-      "Always recommend the cheapest policy",
-      "Hold premiums in trust for the insurer",
-      "Only sell products from one company",
-      "Provide legal advice to clients"
-    ],
-    correctAnswer: 1,
-    explanation: "Under Virginia Code § 38.2-1813, agents act in a fiduciary capacity, meaning they must hold premiums and client funds in trust and properly account for them. Mishandling fiduciary funds is grounds for license revocation.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 5,
-    question: "Which Virginia statute addresses unfair trade practices including misrepresentation?",
-    options: [
-      "§ 38.2-218",
-      "§ 38.2-502",
-      "§ 38.2-1800",
-      "§ 38.2-2200"
-    ],
-    correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-502 addresses misrepresentation and false statements as unfair trade practices. Violations can result in fines, license suspension, or revocation.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 6,
-    question: "How long must insurance agents retain records of insurance transactions in Virginia?",
-    options: [
-      "1 year",
-      "3 years",
-      "5 years",
-      "7 years"
-    ],
-    correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-1809(B) requires agents to retain records of insurance transactions for at least 3 years from the date of the transaction.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 7,
-    question: "Can a Virginia insurance agent share commissions with an unlicensed person?",
-    options: [
-      "Yes, if they are a family member",
-      "Yes, with State Corporation Commission approval",
-      "No, commissions can only be paid to licensed agents",
-      "Yes, up to 10% of commission"
-    ],
-    correctAnswer: 2,
-    explanation: "Virginia Code § 38.2-1812 prohibits paying or sharing commissions with unlicensed persons. Only properly licensed insurance agents or agencies may receive insurance commissions.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 8,
-    question: "What is the fee for taking the Virginia P&C licensing exam?",
-    options: [
-      "$25",
-      "$35",
-      "$50",
-      "$75"
-    ],
-    correctAnswer: 1,
-    explanation: "The Virginia Property & Casualty exam (Series 11-03) costs $35 per attempt and is administered by Prometric.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 9,
-    question: "How long is a passed Virginia P&C exam valid before applying for a license?",
-    options: [
-      "90 days",
-      "120 days",
-      "183 days",
-      "1 year"
-    ],
-    correctAnswer: 2,
-    explanation: "A passed Virginia insurance exam remains valid for 183 days (approximately 6 months). The license application must be submitted within this timeframe or the exam must be retaken.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 10,
-    question: "Which entity regulates insurance agents and companies in Virginia?",
-    options: [
-      "Virginia Department of Insurance",
-      "State Corporation Commission, Bureau of Insurance",
-      "Virginia Insurance Board",
-      "Department of Financial Services"
-    ],
-    correctAnswer: 1,
-    explanation: "The State Corporation Commission's Bureau of Insurance regulates insurance companies, agents, and practices in Virginia under Title 38.2 of the Virginia Code.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 11,
-    question: "An agent who moves to a new address must notify the Bureau of Insurance within:",
-    options: [
-      "10 days",
-      "15 days",
-      "30 days",
-      "60 days"
-    ],
-    correctAnswer: 2,
-    explanation: "Virginia Code § 38.2-1826(A) requires agents to notify the Bureau of Insurance of any address or name change within 30 days of the change.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 12,
-    question: "What must an agent do if convicted of a felony?",
-    options: [
-      "Nothing, it doesn't affect the license",
-      "Report it to the Bureau within 30 days",
-      "Surrender their license immediately",
-      "Apply for a waiver"
-    ],
-    correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-1826(B) requires agents to report any felony conviction to the Bureau of Insurance within 30 days. Failure to report can result in license revocation.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 13,
-    question: "What is 'twisting' in insurance sales?",
-    options: [
-      "Comparing different insurance policies",
-      "Using misrepresentation to induce a policyholder to replace coverage",
-      "Negotiating premium rates",
-      "Explaining policy exclusions"
-    ],
-    correctAnswer: 1,
-    explanation: "Twisting is an unfair trade practice where an agent uses misrepresentation or misleading comparisons to convince a policyholder to drop existing coverage and buy a new policy. It is prohibited under Virginia Code § 38.2-502.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 14,
-    question: "Is pre-licensing education required for Virginia P&C licensing?",
-    options: [
-      "Yes, 40 hours required",
-      "Yes, 20 hours required",
-      "No, pre-licensing education is not required for P&C",
-      "Yes, but only 8 hours required"
-    ],
-    correctAnswer: 2,
-    explanation: "Virginia does NOT require pre-licensing education for Property & Casualty licenses. Only Title insurance licenses require pre-licensing education (16 hours).",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 15,
-    question: "What is 'rebating' in insurance?",
-    options: [
-      "Canceling a policy early",
-      "Offering an inducement not specified in the policy to purchase insurance",
-      "Refusing to write a policy",
-      "Increasing premium rates"
-    ],
-    correctAnswer: 1,
-    explanation: "Rebating is the illegal practice of offering something of value (money, gifts, services) not specified in the policy as an inducement to purchase insurance. It is prohibited in Virginia as it creates unfair competition.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 16,
-    question: "How often must a licensed agent be appointed by an insurer to sell their products?",
-    options: [
-      "Agents don't need appointments",
-      "Before selling any insurance for that company",
-      "Within 90 days of first sale",
-      "Only for life insurance"
-    ],
-    correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-1833 requires agents to be appointed by each insurance company before soliciting or selling that company's insurance products. Selling without an appointment is a violation.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 17,
-    question: "What is the penalty for acting as an agent without a license in Virginia?",
-    options: [
-      "Warning letter only",
-      "Civil penalty up to $500 per violation",
-      "Misdemeanor, fine up to $5,000, and possible jail time",
-      "$100 fine"
-    ],
-    correctAnswer: 2,
-    explanation: "Acting as an insurance agent without a license is a Class 1 misdemeanor in Virginia, punishable by fines up to $5,000 and potential imprisonment. Each violation can be charged separately.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 18,
-    question: "Can an insurance company terminate an agent's appointment without cause?",
-    options: [
-      "No, cause must be shown",
-      "Yes, but must provide 30 days notice to the agent and Bureau",
-      "Yes, without any notice requirements",
-      "Only with Bureau approval"
-    ],
-    correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-1834 requires insurers to provide proper notice when terminating an agent's appointment, and certain terminations for cause must be reported to the Bureau of Insurance.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 19,
-    question: "What is 'defamation' as an unfair trade practice?",
-    options: [
-      "Canceling policies without notice",
-      "Making false statements about a competitor's financial condition",
-      "Charging excessive premiums",
-      "Denying claims improperly"
-    ],
-    correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-504 prohibits defamation, which includes making false, derogatory, or malicious statements about the financial condition or business practices of an insurer or agent.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 20,
-    question: "How many hours of the required 16 CE hours must be ethics training in Virginia?",
-    options: [
-      "2 hours",
-      "3 hours",
-      "4 hours",
-      "5 hours"
-    ],
-    correctAnswer: 1,
-    explanation: "Of the 16 continuing education hours required every 2 years in Virginia, 3 hours must be in ethics training to ensure agents maintain high professional standards.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 21,
-    question: "Can an agent charge a fee for services in addition to commissions?",
-    options: [
-      "No, only commissions are allowed",
-      "Yes, if disclosed in writing and agreed to by the client",
-      "Yes, up to $100 per policy",
-      "Only for commercial policies"
-    ],
-    correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-310 allows agents to charge fees for services beyond commissions, but the fees must be reasonable, disclosed in writing, and agreed to by the client before services are rendered.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 22,
-    question: "What is 'coercion' as an unfair trade practice?",
-    options: [
-      "Offering discounts for multiple policies",
-      "Using force or threats to compel someone to purchase insurance",
-      "Explaining policy terms carefully",
-      "Recommending appropriate coverage"
-    ],
-    correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-505 prohibits coercion, including using force, threats, or abuse of authority to compel someone to purchase insurance or prevent them from obtaining insurance elsewhere.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 23,
-    question: "When must an agent notify the Bureau of Insurance of disciplinary action by another state?",
-    options: [
-      "Within 10 days",
-      "Within 30 days",
-      "Within 60 days",
-      "Not required to report"
-    ],
-    correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-1826(C) requires agents to report disciplinary actions taken by other states within 30 days to ensure the Bureau is aware of all regulatory actions.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 24,
-    question: "What is the role of the State Corporation Commission regarding insurance?",
-    options: [
-      "Only handles complaints",
-      "Licenses agents, regulates insurers, enforces insurance laws",
-      "Sells insurance policies",
-      "Only approves policy forms"
-    ],
-    correctAnswer: 1,
-    explanation: "The State Corporation Commission's Bureau of Insurance has broad authority under Virginia Code § 38.2-200 to license agents, regulate insurance companies, approve policy forms, and enforce insurance laws.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 25,
-    question: "Can a P&C agent also apply for a Personal Lines license?",
-    options: [
-      "Yes, they are separate licenses",
-      "No, P&C includes Personal Lines",
-      "Only with special approval",
-      "Yes, but must take both exams"
-    ],
-    correctAnswer: 1,
-    explanation: "A Property & Casualty license includes Personal Lines authority, so an agent cannot and should not apply for both. The P&C license is broader and includes personal lines coverage.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 26,
-    question: "What is 'unfair discrimination' in insurance?",
-    options: [
-      "Charging different rates based on legitimate risk factors",
-      "Making distinctions based on prohibited factors like race or religion",
-      "Declining to write certain types of insurance",
-      "Offering discounts for safe drivers"
-    ],
-    correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-508 prohibits unfair discrimination, which means making distinctions based on race, religion, national origin, or other prohibited factors rather than legitimate underwriting criteria.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 27,
-    question: "Must fingerprints be submitted when applying for a Virginia resident insurance license?",
-    options: [
-      "No, fingerprints are not required",
-      "Yes, through Fieldprint within 90 days of application",
-      "Only for non-residents",
-      "Only if requested by the Bureau"
-    ],
-    correctAnswer: 1,
-    explanation: "Virginia residents applying for a new insurance license must submit fingerprints through Fieldprint. The fingerprints must be less than 90 days old when the application is submitted.",
-    category: "Virginia Regulation"
-  },
-  {
-    id: 28,
-    question: "What is a 'surplus lines' broker in Virginia?",
-    options: [
-      "An agent who sells excess coverage",
-      "A specially licensed agent who can place coverage with non-admitted insurers",
-      "An agent who works only on commission",
-      "An agent who handles claims"
-    ],
-    correctAnswer: 1,
-    explanation: "A surplus lines broker is a specially licensed agent who can place insurance with non-admitted (non-authorized) insurers when coverage cannot be obtained from admitted carriers. A P&C license is prerequisite.",
-    category: "Virginia Regulation"
-  },
-  {
     id: 29,
-    question: "What is the maximum time allowed to complete the Virginia P&C exam?",
+    question: "Which agency investigates insurance fraud in Virginia?",
     options: [
-      "2 hours",
-      "2.5 hours (150 minutes)",
-      "3 hours",
-      "4 hours"
+      "Local police only",
+      "State Corporation Commission Bureau of Insurance",
+      "FBI only",
+      "Consumer protection agency"
     ],
     correctAnswer: 1,
-    explanation: "The Virginia P&C exam (Series 11-03) allows 2.5 hours (150 minutes) to complete 145 questions (135 scored plus 10 pretest items).",
+    explanation: "The State Corporation Commission's Bureau of Insurance investigates insurance fraud in Virginia. Violations of 18 USC 1033 and 1034 make insurance fraud a federal crime as well.",
     category: "Virginia Regulation"
   },
   {
     id: 30,
-    question: "What does 'acting for an unlicensed insurer' mean?",
+    question: "What is the main difference between an independent agent and a captive agent?",
     options: [
-      "Selling insurance without a license",
-      "Representing an insurance company not authorized to do business in Virginia",
-      "Selling expired policies",
-      "Working as an intern"
+      "License type",
+      "Independent represents multiple companies; captive represents one company",
+      "Compensation structure only",
+      "Geographic territory"
     ],
     correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-1802 and § 38.2-1822 prohibit agents from representing or selling insurance for companies not licensed/authorized in Virginia, except through surplus lines procedures.",
+    explanation: "Independent agents represent multiple insurance companies and can shop coverage among carriers. Captive agents represent only one insurance company or group of companies.",
     category: "Virginia Regulation"
   },
-
-  // VIRGINIA AUTO INSURANCE (35 questions)
   {
     id: 31,
-    question: "What are the minimum auto liability limits required in Virginia for policies effective January 1, 2025 or after?",
+    question: "What is 'apparent authority' of an agent?",
     options: [
-      "$25,000/$50,000/$20,000",
-      "$30,000/$60,000/$20,000",
-      "$50,000/$100,000/$25,000",
-      "$100,000/$300,000/$50,000"
+      "Written in the agency contract",
+      "Authority the public reasonably believes the agent has based on insurer's actions",
+      "Stated in the insurance policy",
+      "Granted by the state"
     ],
-    correctAnswer: 2,
-    explanation: "Virginia Code § 46.2-472 was amended to require $50,000 per person, $100,000 per accident for bodily injury, and $25,000 for property damage (50/100/25) for all policies effective on or after January 1, 2025.",
-    category: "Auto Insurance"
+    correctAnswer: 1,
+    explanation: "Apparent authority is authority the public reasonably believes an agent possesses based on the insurer's actions or representations, even if not formally granted.",
+    category: "Virginia Regulation"
   },
   {
     id: 32,
-    question: "What happened to Virginia's $500 uninsured motor vehicle fee option?",
+    question: "Can an insurer cancel an agent's appointment without cause?",
     options: [
-      "It increased to $750",
-      "It was eliminated on July 1, 2024 - insurance is now mandatory",
-      "It was reduced to $250",
-      "It remains available"
+      "No, cause must always be shown",
+      "Yes, but must provide proper notice",
+      "No, requires Bureau approval",
+      "Only after 1 year"
     ],
     correctAnswer: 1,
-    explanation: "Virginia eliminated the $500 uninsured motor vehicle (UMV) fee on July 1, 2024. All registered vehicles must now carry liability insurance - driving uninsured is no longer a legal option.",
-    category: "Auto Insurance"
+    explanation: "Insurers can terminate appointments but must follow proper notice requirements under Virginia Code § 38.2-1834. Certain terminations for cause must be reported to the Bureau.",
+    category: "Virginia Regulation"
   },
   {
     id: 33,
-    question: "What were Virginia's minimum auto liability limits for policies effective before January 1, 2025?",
+    question: "What type of insurer is owned by policyholders?",
     options: [
-      "$25,000/$50,000/$20,000",
-      "$30,000/$60,000/$20,000",
-      "$50,000/$100,000/$25,000",
-      "$25,000/$50,000/$25,000"
+      "Stock company",
+      "Mutual company",
+      "Reciprocal exchange",
+      "Lloyd's association"
     ],
     correctAnswer: 1,
-    explanation: "For policies effective from January 1, 2022 through December 31, 2024, Virginia required minimum limits of $30,000/$60,000/$20,000. These increased to 50/100/25 on January 1, 2025.",
-    category: "Auto Insurance"
+    explanation: "A mutual insurance company is owned by its policyholders, who may receive dividends. Stock companies are owned by shareholders who receive profits.",
+    category: "Virginia Regulation"
   },
   {
     id: 34,
-    question: "Is uninsured motorist (UM) coverage mandatory in Virginia?",
+    question: "What is a 'reciprocal exchange'?",
     options: [
-      "No, it is optional",
-      "Yes, with limits equal to liability limits unless rejected in writing",
-      "Only for new vehicles",
-      "Only if required by lender"
+      "Reinsurance agreement",
+      "Unincorporated group of individuals insuring each other's risks",
+      "Foreign insurer",
+      "Government insurance"
     ],
     correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-2206 requires uninsured/underinsured motorist coverage with limits equal to liability limits unless the insured rejects or reduces the coverage in writing.",
-    category: "Auto Insurance"
+    explanation: "A reciprocal exchange is an unincorporated group where each member (subscriber) insures the risks of other members. Managed by an attorney-in-fact.",
+    category: "Virginia Regulation"
   },
   {
     id: 35,
-    question: "What is the minimum property damage coverage required in Virginia's UM endorsement?",
+    question: "What is a 'surplus lines' insurer?",
     options: [
-      "$10,000",
-      "$15,000",
-      "$20,000",
-      "$25,000"
+      "Insurer with excess capacity",
+      "Non-admitted insurer used when coverage unavailable from admitted insurers",
+      "Reinsurance company",
+      "Government insurer"
     ],
-    correctAnswer: 2,
-    explanation: "Virginia Code § 38.2-2206 requires at least $20,000 coverage for property damage caused by uninsured motorists, and may include a $200 deductible for hit-and-run accidents.",
-    category: "Auto Insurance"
+    correctAnswer: 1,
+    explanation: "Surplus lines insurers are non-admitted carriers used through licensed surplus lines brokers when coverage cannot be obtained from admitted (licensed) insurers in the state.",
+    category: "Virginia Regulation"
   },
   {
     id: 36,
-    question: "What is the purpose of underinsured motorist (UIM) coverage?",
+    question: "What is the difference between admitted and non-admitted insurers?",
     options: [
-      "Covers your vehicle if you don't have insurance",
-      "Pays when the at-fault driver has insufficient coverage for your injuries",
-      "Covers only property damage",
-      "Replaces liability coverage"
+      "Premium cost",
+      "Admitted are licensed in the state; non-admitted are not",
+      "Type of coverage offered",
+      "No difference"
     ],
     correctAnswer: 1,
-    explanation: "Underinsured motorist coverage pays when the at-fault driver's liability limits are insufficient to cover your injuries or damages. It bridges the gap between their coverage and your actual losses.",
-    category: "Auto Insurance"
+    explanation: "Admitted insurers are licensed by the state and must comply with all state regulations. Non-admitted insurers are not licensed in the state and are used only through surplus lines procedures.",
+    category: "Virginia Regulation"
   },
+
+  // GENERAL INSURANCE (24 questions - 12% of 200)
   {
     id: 37,
-    question: "Personal Auto Policy (PAP) liability coverage applies to:",
+    question: "What is 'risk' in insurance?",
     options: [
-      "Only the named insured",
-      "The named insured, resident family members, and permissive users",
-      "Anyone who drives the vehicle",
-      "Only licensed drivers"
+      "The insurance company",
+      "Uncertainty or chance of loss",
+      "The premium amount",
+      "A type of policy"
     ],
     correctAnswer: 1,
-    explanation: "The PAP provides liability coverage for the named insured, resident relatives/family members, and any person using the covered auto with permission (permissive user).",
-    category: "Auto Insurance"
+    explanation: "Risk is the uncertainty or chance that a loss will occur. Insurance is designed to transfer the financial consequences of risk from the individual to the insurance company.",
+    category: "General Insurance"
   },
   {
     id: 38,
-    question: "What does 'other than collision' (comprehensive) coverage insure against?",
+    question: "What is a 'peril'?",
     options: [
-      "All physical damage losses",
-      "Only collision losses",
-      "Theft, vandalism, fire, falling objects, glass breakage, animal strikes, etc.",
-      "Only mechanical breakdown"
+      "The property insured",
+      "The cause of loss (fire, theft, windstorm)",
+      "The premium amount",
+      "A condition increasing loss likelihood"
     ],
-    correctAnswer: 2,
-    explanation: "Comprehensive or 'other than collision' coverage insures against non-collision perils including theft, vandalism, fire, hail, flood, falling objects, glass breakage, and hitting an animal.",
-    category: "Auto Insurance"
+    correctAnswer: 1,
+    explanation: "A peril is the specific cause of loss, such as fire, windstorm, theft, or collision. Insurance policies cover specified perils or all perils except those excluded.",
+    category: "General Insurance"
   },
   {
     id: 39,
-    question: "If your car hits a deer, which coverage applies?",
+    question: "What is a 'hazard'?",
     options: [
-      "Collision coverage",
-      "Liability coverage",
-      "Comprehensive coverage",
-      "Uninsured motorist coverage"
+      "Same as a peril",
+      "A condition that increases the likelihood or severity of loss",
+      "The deductible",
+      "The insured property"
     ],
-    correctAnswer: 2,
-    explanation: "Hitting an animal (such as a deer) is covered under comprehensive (other than collision) coverage, not collision coverage. This is a specifically listed peril.",
-    category: "Auto Insurance"
+    correctAnswer: 1,
+    explanation: "A hazard is a condition that increases the chance or potential severity of loss. Examples include icy steps (physical hazard), dishonesty (moral hazard), or carelessness (morale hazard).",
+    category: "General Insurance"
   },
   {
     id: 40,
-    question: "What is the 'stacking' of uninsured motorist coverage?",
+    question: "What is a 'physical hazard'?",
     options: [
-      "Having two separate policies",
-      "Combining UM limits from multiple vehicles on the same policy",
-      "Increasing limits annually",
-      "Adding UM to collision coverage"
+      "Careless behavior",
+      "Tangible condition increasing loss chance (icy steps, worn tires)",
+      "Dishonesty",
+      "Intentional damage"
     ],
     correctAnswer: 1,
-    explanation: "Stacking allows an insured to combine or 'stack' uninsured motorist coverage limits from multiple vehicles on the same policy to provide higher total coverage for a single claim.",
-    category: "Auto Insurance"
+    explanation: "A physical hazard is a tangible, observable condition that increases the likelihood or severity of loss, such as icy sidewalks, defective wiring, or worn tires.",
+    category: "General Insurance"
   },
   {
     id: 41,
-    question: "Under the PAP, medical payments coverage pays for:",
+    question: "What is a 'moral hazard'?",
     options: [
-      "Injuries to other parties you hit",
-      "Injuries to you and passengers in your vehicle, regardless of fault",
-      "Only if you are at fault",
-      "Vehicle damage only"
+      "Physical condition",
+      "Dishonesty or character defects increasing loss likelihood",
+      "Legal liability",
+      "Building construction type"
     ],
     correctAnswer: 1,
-    explanation: "Medical payments (MedPay) coverage pays reasonable medical expenses for the insured and passengers injured in the covered auto, regardless of who was at fault in the accident.",
-    category: "Auto Insurance"
+    explanation: "Moral hazard refers to dishonesty or character defects that increase the chance of loss, such as intentionally causing damage to collect insurance money or submitting false claims.",
+    category: "General Insurance"
   },
   {
     id: 42,
-    question: "What is a 'permissive user' under an auto policy?",
+    question: "What is a 'morale hazard'?",
     options: [
-      "Someone who steals the vehicle",
-      "Someone using the vehicle with the owner's permission",
-      "A valet driver only",
-      "An unlicensed driver"
+      "Building materials",
+      "Carelessness or indifference to loss because insurance exists",
+      "Criminal intent",
+      "Natural disaster risk"
     ],
     correctAnswer: 1,
-    explanation: "A permissive user is any person using the covered auto with the express or implied permission of the named insured. Permissive users typically have coverage under the owner's policy.",
-    category: "Auto Insurance"
+    explanation: "Morale hazard is carelessness or indifference to loss prevention because insurance exists, such as leaving doors unlocked or not maintaining property because 'insurance will cover it.'",
+    category: "General Insurance"
   },
   {
     id: 43,
-    question: "Which of the following is excluded under PAP liability coverage?",
+    question: "What does 'risk avoidance' mean?",
     options: [
-      "Using the car for ride-sharing without proper endorsement",
-      "Letting a friend borrow the car",
-      "Driving in other states",
-      "Towing a trailer"
+      "Buying insurance",
+      "Eliminating risk by not engaging in an activity",
+      "Reducing loss frequency",
+      "Sharing losses"
     ],
-    correctAnswer: 0,
-    explanation: "Using a personal auto for business purposes like ride-sharing (Uber, Lyft) without a proper endorsement is excluded. Standard PAP liability excludes vehicles used for commercial transportation.",
-    category: "Auto Insurance"
+    correctAnswer: 1,
+    explanation: "Risk avoidance means eliminating exposure to loss by not engaging in the activity that creates the risk. Example: Not owning a swimming pool avoids pool-related liability.",
+    category: "General Insurance"
   },
   {
     id: 44,
-    question: "When is collision coverage required?",
+    question: "What is 'risk retention'?",
     options: [
-      "Always, it's mandatory in Virginia",
-      "When required by a lienholder/lender",
-      "Only for new cars",
-      "It's never required"
+      "Buying insurance",
+      "Accepting and bearing the financial consequences of loss (self-insurance)",
+      "Avoiding all risk",
+      "Transferring risk"
     ],
     correctAnswer: 1,
-    explanation: "Collision coverage is not legally required in Virginia, but lenders/lienholders typically require both collision and comprehensive coverage to protect their financial interest in financed or leased vehicles.",
-    category: "Auto Insurance"
+    explanation: "Risk retention means accepting responsibility for losses and bearing the financial consequences. Examples include deductibles, self-insurance, and going without insurance.",
+    category: "General Insurance"
   },
   {
     id: 45,
-    question: "What is the 'insuring agreement' in an auto policy?",
+    question: "What is 'risk transfer'?",
     options: [
-      "The exclusions section",
-      "The insurer's promise to pay covered losses",
-      "The premium payment schedule",
-      "The cancellation provisions"
+      "Moving to safer location",
+      "Shifting financial burden of loss to an insurer by purchasing insurance",
+      "Canceling coverage",
+      "Self-insuring"
     ],
     correctAnswer: 1,
-    explanation: "The insuring agreement is the core promise where the insurer agrees to provide coverage, pay claims, and defend the insured against covered claims in exchange for premium payment.",
-    category: "Auto Insurance"
+    explanation: "Risk transfer occurs when the insured shifts the financial consequences of potential losses to an insurance company by purchasing a policy and paying premiums.",
+    category: "General Insurance"
   },
   {
     id: 46,
-    question: "Collision coverage pays for damage to your vehicle caused by:",
+    question: "What is 'risk reduction'?",
     options: [
-      "Fire or theft",
-      "Upset or overturn, or impact with another vehicle or object",
-      "Hail or flood",
-      "Vandalism"
+      "Lowering premiums",
+      "Taking measures to reduce frequency or severity of losses",
+      "Canceling insurance",
+      "Avoiding all activities"
     ],
     correctAnswer: 1,
-    explanation: "Collision coverage pays for damage from the upset or rollover of the vehicle, or collision with another vehicle or object (tree, pole, guardrail, etc.), minus the deductible.",
-    category: "Auto Insurance"
+    explanation: "Risk reduction involves taking steps to minimize the frequency or severity of losses, such as installing sprinklers, alarm systems, or implementing safety programs.",
+    category: "General Insurance"
   },
   {
     id: 47,
-    question: "What is 'betterment' in auto physical damage claims?",
+    question: "What is the 'law of large numbers'?",
     options: [
-      "Upgrading to a better vehicle",
-      "The increase in value when old parts are replaced with new",
-      "Higher coverage limits",
-      "A discount for safe driving"
+      "More coverage is better",
+      "The larger the sample size, the more predictable the loss experience",
+      "Large losses are excluded",
+      "Multiple policies required"
     ],
     correctAnswer: 1,
-    explanation: "Betterment is the increased value when worn or damaged parts are replaced with new ones. Insurers may reduce claim payments to account for this improvement in the vehicle's condition.",
-    category: "Auto Insurance"
+    explanation: "The law of large numbers states that as the number of exposure units increases, actual loss experience becomes more predictable. This is the foundation that allows insurance to function.",
+    category: "General Insurance"
   },
   {
     id: 48,
-    question: "What must drivers provide to DMV when registering a vehicle in Virginia?",
+    question: "What is 'adverse selection'?",
     options: [
-      "Proof of driver's education",
-      "Proof of insurance or other financial responsibility",
-      "Proof of vehicle inspection",
-      "Proof of residency only"
+      "Insurer denying claims",
+      "Tendency for higher-risk individuals to seek insurance",
+      "Poor investment choices",
+      "Agent misconduct"
     ],
     correctAnswer: 1,
-    explanation: "Virginia Code § 46.2-706 requires all vehicle owners to certify they have minimum required insurance or other acceptable financial responsibility when registering a vehicle or obtaining plates.",
-    category: "Auto Insurance"
+    explanation: "Adverse selection occurs when those most likely to suffer losses are more likely to purchase insurance, creating imbalance in the risk pool. Insurers combat this through underwriting.",
+    category: "General Insurance"
   },
   {
     id: 49,
-    question: "What is 'rental reimbursement' coverage?",
+    question: "What is 'reinsurance'?",
     options: [
-      "Pays for rental car damage",
-      "Pays daily rental costs while your car is being repaired after a covered loss",
-      "Provides a permanent replacement vehicle",
-      "Covers ride-share expenses"
+      "Renewing a policy",
+      "Insurance purchased by insurers to transfer part of their risk",
+      "Insuring the same property twice",
+      "Canceling and reissuing coverage"
     ],
     correctAnswer: 1,
-    explanation: "Rental reimbursement coverage pays a specified daily amount (up to policy limits) for a rental vehicle while your covered auto is being repaired or replaced after a covered loss.",
-    category: "Auto Insurance"
+    explanation: "Reinsurance is insurance purchased by insurance companies to transfer portions of their risk portfolios to other companies, protecting against large losses and maintaining solvency.",
+    category: "General Insurance"
   },
   {
     id: 50,
-    question: "Under the PAP, 'newly acquired auto' coverage typically extends for:",
+    question: "What are the elements of a legally enforceable insurance contract?",
     options: [
-      "7 days",
-      "14 days for collision; automatic for liability",
-      "30 days",
-      "60 days"
+      "Premium and policy only",
+      "Offer and acceptance, consideration, competent parties, legal purpose",
+      "Application and approval only",
+      "Signatures and witnesses"
     ],
     correctAnswer: 1,
-    explanation: "The PAP automatically extends liability, medical payments, and UM coverage to a newly acquired vehicle. Collision and comprehensive extend for 14 days if any vehicle on the policy has that coverage.",
-    category: "Auto Insurance"
+    explanation: "A valid insurance contract requires: (1) Offer and acceptance (agreement), (2) Consideration (premium for coverage), (3) Competent parties, and (4) Legal purpose.",
+    category: "General Insurance"
   },
   {
     id: 51,
-    question: "What is the primary purpose of auto liability insurance?",
+    question: "What is 'consideration' in an insurance contract?",
     options: [
-      "Repair your own vehicle",
-      "Protect you from financial loss when you're legally liable for injury or damage to others",
-      "Provide medical care for passengers",
-      "Cover theft of the vehicle"
+      "Thoughtful behavior",
+      "Something of value exchanged - premium for coverage promise",
+      "The application",
+      "Policy conditions"
     ],
     correctAnswer: 1,
-    explanation: "Auto liability insurance protects the insured from financial loss when they are legally liable for bodily injury or property damage to others. It includes both defense costs and settlement/judgment payments.",
-    category: "Auto Insurance"
+    explanation: "Consideration is something of value exchanged by both parties. In insurance, the insured's consideration is the premium payment and application statements; the insurer's is the promise to pay covered losses.",
+    category: "General Insurance"
   },
   {
     id: 52,
-    question: "Which auto coverage would pay if you hit someone's fence?",
+    question: "What does 'utmost good faith' mean in insurance?",
     options: [
-      "Collision coverage",
-      "Property damage liability",
-      "Comprehensive coverage",
-      "Uninsured motorist coverage"
+      "Religious requirements",
+      "Both parties must deal honestly and disclose all material facts",
+      "Faith in the insurer",
+      "Maximum coverage limits"
     ],
     correctAnswer: 1,
-    explanation: "Property damage liability coverage pays for damage you cause to another person's property, such as their fence, mailbox, or vehicle. This is part of your liability coverage.",
-    category: "Auto Insurance"
+    explanation: "Utmost good faith (uberrimae fidei) means both the insurer and insured must act honestly, disclose all material facts, and not withhold information affecting the risk.",
+    category: "General Insurance"
   },
   {
     id: 53,
-    question: "What is 'towing and labor' coverage?",
+    question: "What is 'indemnity' in insurance?",
     options: [
-      "Covers injuries to tow truck operators",
-      "Pays for towing and on-scene labor costs when the vehicle is disabled",
-      "Provides unlimited towing",
-      "Only covers collision-related towing"
+      "Insurance pays more than the loss",
+      "Insurance restores the insured to their financial position before loss, no better or worse",
+      "Maximum coverage available",
+      "All losses covered"
     ],
     correctAnswer: 1,
-    explanation: "Towing and labor coverage reimburses towing costs and labor charges at the scene when the vehicle is disabled, up to policy limits. It applies regardless of the cause of breakdown.",
-    category: "Auto Insurance"
+    explanation: "Indemnity means insurance aims to restore the insured to their approximate financial position before the loss - no profit, no additional loss. The insured should not gain financially from insurance.",
+    category: "General Insurance"
   },
   {
     id: 54,
-    question: "How is actual cash value (ACV) calculated for an auto physical damage claim?",
+    question: "What is a 'representation' in insurance?",
     options: [
-      "Original purchase price",
-      "Replacement cost minus depreciation",
-      "Book value only",
-      "Market value plus sales tax"
+      "The insurance agent",
+      "Statements made by applicant believed to be true to best of their knowledge",
+      "A guarantee",
+      "The policy terms"
     ],
     correctAnswer: 1,
-    explanation: "Actual cash value is calculated as replacement cost (cost to replace with a similar vehicle) minus depreciation for age, wear, and tear. It represents the vehicle's fair market value.",
-    category: "Auto Insurance"
+    explanation: "Representations are statements made by the applicant that are believed to be true to the best of their knowledge. Material misrepresentations can void coverage.",
+    category: "General Insurance"
   },
   {
     id: 55,
-    question: "Under PAP collision coverage, you hit a tree. Who pays the deductible?",
+    question: "What is a 'warranty' in insurance?",
     options: [
-      "The insurance company pays it",
-      "The insured pays the deductible",
-      "The tree owner pays it",
-      "No deductible applies"
+      "Product guarantee",
+      "Statement guaranteed by the insured to be absolutely true",
+      "Extended coverage",
+      "Premium discount"
     ],
     correctAnswer: 1,
-    explanation: "The insured is responsible for paying the collision deductible. The insurance company pays the remainder of the covered loss up to the policy limit.",
-    category: "Auto Insurance"
+    explanation: "A warranty is a statement the insured guarantees to be absolutely and literally true. Breach of warranty can void coverage, even if it didn't contribute to the loss.",
+    category: "General Insurance"
   },
   {
     id: 56,
-    question: "What is 'split limit' liability coverage?",
+    question: "What is 'concealment' in insurance?",
     options: [
-      "Coverage split between two vehicles",
-      "Separate limits for bodily injury per person, per accident, and property damage (e.g., 50/100/25)",
-      "Shared coverage with another driver",
-      "Half liability, half collision"
+      "Privacy protection",
+      "Intentionally withholding material facts from the insurer",
+      "Hiding damaged property",
+      "A coverage type"
     ],
     correctAnswer: 1,
-    explanation: "Split limits provide separate coverage amounts for bodily injury per person, bodily injury per accident, and property damage per accident, such as Virginia's 50/100/25 requirement.",
-    category: "Auto Insurance"
+    explanation: "Concealment is intentionally withholding or hiding material facts that would affect the insurer's decision to issue coverage or set the premium. It can void the policy.",
+    category: "General Insurance"
   },
   {
     id: 57,
-    question: "What does 'combined single limit' (CSL) auto liability mean?",
+    question: "What is 'fraud' in insurance?",
     options: [
-      "Only covers one type of loss",
-      "One total limit that applies to all bodily injury and property damage claims in an accident",
-      "Lower than split limits",
-      "Only for commercial vehicles"
+      "Making honest mistakes",
+      "Intentional deception to gain unfair advantage or deny others their rights",
+      "Policy errors",
+      "Premium miscalculation"
     ],
     correctAnswer: 1,
-    explanation: "A combined single limit provides one total amount of coverage that applies to all bodily injury and property damage claims arising from a single accident, rather than separate per-person and per-accident limits.",
-    category: "Auto Insurance"
+    explanation: "Insurance fraud is intentional deception (lying, concealment, false statements) to gain unfair financial advantage or deny others their legal rights. It is a crime under state and federal law.",
+    category: "General Insurance"
   },
   {
     id: 58,
-    question: "Your car is vandalized while parked. Which coverage applies?",
+    question: "What is a 'waiver' in insurance?",
     options: [
-      "Liability",
-      "Collision",
-      "Comprehensive (Other than Collision)",
-      "Uninsured motorist"
+      "Policy cancellation",
+      "Voluntarily giving up a known right",
+      "Premium discount",
+      "Adding coverage"
     ],
-    correctAnswer: 2,
-    explanation: "Vandalism is covered under comprehensive (other than collision) coverage. This includes malicious mischief or damage to the vehicle by someone intentionally.",
-    category: "Auto Insurance"
+    correctAnswer: 1,
+    explanation: "A waiver is the voluntary, intentional relinquishment of a known right. Example: An insurer waives late payment penalties by accepting late premium without consequences.",
+    category: "General Insurance"
   },
   {
     id: 59,
-    question: "What is 'subrogation' in auto insurance?",
+    question: "What is 'estoppel' in insurance?",
     options: [
-      "Canceling the policy",
-      "The insurer's right to recover claim payments from the at-fault party",
-      "Increasing coverage limits",
-      "Adding additional drivers"
+      "Canceling coverage",
+      "Preventing a party from denying something previously stated or implied",
+      "Premium calculation",
+      "Adding insureds"
     ],
     correctAnswer: 1,
-    explanation: "Subrogation is the insurance company's right to recover the amount paid to its insured from the party responsible for the loss. This prevents the insured from collecting twice.",
-    category: "Auto Insurance"
+    explanation: "Estoppel prevents a party from contradicting previous statements or actions that another party relied upon. Example: If an insurer led someone to believe coverage exists, estoppel may prevent denial.",
+    category: "General Insurance"
   },
   {
     id: 60,
-    question: "What is a 'non-owned auto' under the PAP?",
+    question: "How are ambiguities in a contract of adhesion interpreted?",
     options: [
-      "A stolen vehicle",
-      "A vehicle the insured does not own but uses regularly (e.g., borrowed, rental)",
-      "A company vehicle",
-      "An uninsured vehicle"
+      "In favor of the insurer",
+      "In favor of the insured",
+      "By a judge only",
+      "Not interpreted"
     ],
     correctAnswer: 1,
-    explanation: "A non-owned auto is a vehicle the insured does not own but uses with permission, such as a borrowed car or rental vehicle. The PAP typically extends liability coverage to non-owned autos.",
-    category: "Auto Insurance"
+    explanation: "Insurance policies are contracts of adhesion (drafted by insurer, take-it-or-leave-it). Ambiguities are interpreted in favor of the insured (contra proferentem rule) since they didn't draft the contract.",
+    category: "General Insurance"
   },
+
+  // PROPERTY & CASUALTY BASICS (40 questions - 20% of 200)
   {
     id: 61,
-    question: "What is the 'other insurance' provision in auto policies?",
+    question: "What is 'insurable interest' in property insurance?",
     options: [
-      "You cannot have multiple policies",
-      "Explains how coverage applies when more than one policy covers the same loss",
-      "Requires purchasing additional coverage",
-      "Cancels all other policies"
+      "Financial interest rate",
+      "A legitimate financial interest in preservation of the property",
+      "The policy premium",
+      "Coverage limits"
     ],
     correctAnswer: 1,
-    explanation: "The 'other insurance' clause determines how the policy responds when multiple policies cover the same loss, typically providing that coverage will be prorated among the policies.",
-    category: "Auto Insurance"
+    explanation: "Insurable interest means you have a legitimate financial interest in the property's preservation and would suffer financial loss if it were damaged or destroyed. Required at time of loss for property insurance.",
+    category: "Property & Casualty Basics"
   },
   {
     id: 62,
-    question: "Under Virginia law, insurers must offer which coverage to all auto policyholders?",
+    question: "When must insurable interest exist for property insurance?",
     options: [
-      "Collision coverage",
-      "Uninsured/underinsured motorist coverage",
-      "Rental reimbursement",
-      "Towing coverage"
+      "At policy inception only",
+      "At the time of loss",
+      "Never required",
+      "Only when applying"
     ],
     correctAnswer: 1,
-    explanation: "Virginia Code § 38.2-2206 requires all auto insurers to offer uninsured/underinsured motorist coverage with limits equal to liability limits. Insureds may reject it in writing.",
-    category: "Auto Insurance"
+    explanation: "For property insurance, insurable interest must exist at the time of loss. You must own or have a financial stake in the property when it's damaged to collect on a claim.",
+    category: "Property & Casualty Basics"
   },
   {
     id: 63,
-    question: "What is 'supplementary payments' in auto liability coverage?",
+    question: "What is 'negligence'?",
     options: [
-      "Additional premium charges",
-      "Defense costs, court costs, and certain expenses paid in addition to policy limits",
-      "Payments to passengers",
-      "Physical damage payments"
+      "Criminal behavior",
+      "Failure to exercise reasonable care, resulting in injury or damage to another",
+      "Intentional harm",
+      "Strict liability"
     ],
     correctAnswer: 1,
-    explanation: "Supplementary payments include defense costs, court costs, bail bonds, and other specified expenses that the insurer pays in addition to the policy limits when defending a covered claim.",
-    category: "Auto Insurance"
+    explanation: "Negligence is the failure to exercise the degree of care that a reasonable person would exercise under similar circumstances, resulting in unintentional injury or damage to another.",
+    category: "Property & Casualty Basics"
   },
   {
     id: 64,
-    question: "Your teenage daughter who lives with you borrows your car. Is she covered under your PAP?",
+    question: "What are the four elements required to prove negligence?",
     options: [
-      "No, she needs her own policy",
-      "Yes, as a resident family member",
-      "Only if specifically listed",
-      "No, unless she's 18 or older"
+      "Duty, breach, causation, damages",
+      "Intent, act, harm, awareness",
+      "Crime, evidence, trial, verdict",
+      "Claim, proof, payment, settlement"
     ],
-    correctAnswer: 1,
-    explanation: "Resident family members, including your teenage daughter living at home, are automatically insured under your PAP for liability, medical payments, and UM/UIM coverage when using your vehicle.",
-    category: "Auto Insurance"
+    correctAnswer: 0,
+    explanation: "The four elements of negligence are: (1) Duty owed to another, (2) Breach of that duty, (3) Proximate causation - breach caused the injury, and (4) Actual damages or injury resulted.",
+    category: "Property & Casualty Basics"
   },
   {
     id: 65,
-    question: "What is the purpose of medical payments (MedPay) coverage in auto insurance?",
+    question: "What is 'proximate cause'?",
     options: [
-      "Pays medical bills for people you injure",
-      "Pays medical expenses for you and passengers, regardless of fault",
-      "Replaces health insurance",
-      "Only covers hospitalization"
+      "Nearest fire station",
+      "The dominant cause that sets in motion an unbroken chain of events",
+      "First event only",
+      "Location of loss"
     ],
     correctAnswer: 1,
-    explanation: "Medical payments coverage pays reasonable medical expenses for the insured and passengers in the covered vehicle, regardless of who was at fault, up to the policy limit per person.",
-    category: "Auto Insurance"
+    explanation: "Proximate cause is the dominant or efficient cause of loss that sets other events in motion in a natural, unbroken sequence, producing the loss without other intervening causes.",
+    category: "Property & Casualty Basics"
   },
-
-  // HOMEOWNERS INSURANCE (35 questions)
   {
     id: 66,
-    question: "Which HO form provides 'open perils' coverage on the dwelling and 'named perils' on personal property?",
+    question: "What are 'compensatory damages'?",
+    options: [
+      "Punishment for wrongdoing",
+      "Damages to compensate for actual losses (medical, lost wages, property damage)",
+      "Court fees",
+      "Insurance premiums"
+    ],
+    correctAnswer: 1,
+    explanation: "Compensatory damages are intended to make the injured party whole by reimbursing actual losses such as medical expenses, lost wages, pain and suffering, and property damage.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 67,
+    question: "What are 'punitive damages'?",
+    options: [
+      "Compensation for losses",
+      "Damages awarded to punish defendant for reckless or intentional conduct",
+      "Medical expenses",
+      "Property repair costs"
+    ],
+    correctAnswer: 1,
+    explanation: "Punitive (exemplary) damages are awarded in addition to compensatory damages to punish the defendant for particularly reckless, malicious, or intentional wrongful conduct and deter similar behavior.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 68,
+    question: "What is 'absolute (strict) liability'?",
+    options: [
+      "No liability exists",
+      "Liability without fault for inherently dangerous activities",
+      "Maximum liability limits",
+      "Liability with negligence"
+    ],
+    correctAnswer: 1,
+    explanation: "Absolute or strict liability holds a party liable for damages regardless of fault or negligence. Applied to inherently dangerous activities (dynamite blasting, keeping wild animals).",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 69,
+    question: "What is 'vicarious liability'?",
+    options: [
+      "Shared insurance",
+      "Being held liable for the negligent acts of another (employee, family member)",
+      "Criminal liability",
+      "Product liability"
+    ],
+    correctAnswer: 1,
+    explanation: "Vicarious liability holds one party liable for the negligent acts of another based on their relationship. Example: Employers liable for employees acting within scope of employment.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 70,
+    question: "What is 'actual cash value' (ACV)?",
+    options: [
+      "Original purchase price",
+      "Replacement cost minus depreciation",
+      "Market value only",
+      "Policy limit"
+    ],
+    correctAnswer: 1,
+    explanation: "Actual cash value is the replacement cost of property minus depreciation for age, wear, and tear. It represents the property's fair market value at the time of loss.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 71,
+    question: "What is 'replacement cost'?",
+    options: [
+      "Original cost",
+      "Cost to replace with new property of like kind and quality, no depreciation",
+      "Market value",
+      "Insured's estimate"
+    ],
+    correctAnswer: 1,
+    explanation: "Replacement cost is the amount needed to replace damaged property with new property of like kind and quality without any deduction for depreciation.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 72,
+    question: "What is 'functional replacement cost'?",
+    options: [
+      "Same as ACV",
+      "Cost to replace with functionally equivalent property using modern materials",
+      "Original cost",
+      "Market value"
+    ],
+    correctAnswer: 1,
+    explanation: "Functional replacement cost pays to replace property with functionally equivalent property using modern materials and methods. Used when exact replacement isn't feasible (antique fixtures).",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 73,
+    question: "What is 'guaranteed replacement cost'?",
+    options: [
+      "ACV coverage",
+      "Pays full cost to rebuild home even if it exceeds policy limit",
+      "Lower than actual cost",
+      "Only up to policy limit"
+    ],
+    correctAnswer: 1,
+    explanation: "Guaranteed replacement cost coverage pays the full cost to rebuild your home to its original condition, even if the cost exceeds the policy limit, typically up to a certain percentage over the limit.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 74,
+    question: "What is 'market value'?",
+    options: [
+      "Replacement cost",
+      "Price property would sell for on the open market",
+      "Original cost",
+      "Policy limit"
+    ],
+    correctAnswer: 1,
+    explanation: "Market value is the price property would likely sell for on the open market between a willing buyer and willing seller. Considers location, condition, and market conditions.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 75,
+    question: "What is an 'agreed value' policy?",
+    options: [
+      "ACV settlement",
+      "Insurer and insured agree on property value in advance",
+      "Market value settlement",
+      "No coinsurance"
+    ],
+    correctAnswer: 1,
+    explanation: "An agreed value policy means the insurer and insured agree on the property's value when the policy is written, eliminating disputes about value at claim time and suspending coinsurance requirements.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 76,
+    question: "What is 'subrogation'?",
+    options: [
+      "Canceling coverage",
+      "Insurer's right to recover from negligent third party after paying claim",
+      "Adding coverage",
+      "Premium refund"
+    ],
+    correctAnswer: 1,
+    explanation: "Subrogation allows the insurer to 'step into the shoes' of the insured and pursue recovery from negligent third parties after paying a claim, preventing the insured from collecting twice.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 77,
+    question: "What is the 'liberalization clause'?",
+    options: [
+      "Flexible premiums",
+      "Automatically provides broader coverage if insurer revises forms during policy period",
+      "Extended coverage",
+      "Premium discount"
+    ],
+    correctAnswer: 1,
+    explanation: "The liberalization clause automatically provides the insured with any broadened coverage if the insurer adopts broader forms or endorsements during the policy period, without additional premium.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 78,
+    question: "What is 'abandonment' in property insurance?",
+    options: [
+      "Canceling the policy",
+      "Relinquishing damaged property to the insurer",
+      "Vacating the premises",
+      "Moving property"
+    ],
+    correctAnswer: 1,
+    explanation: "Abandonment is when the insured tries to relinquish damaged property to the insurer and demand full payment. Most policies prohibit abandonment - the insured cannot force the insurer to take property.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 79,
+    question: "What is 'salvage'?",
+    options: [
+      "Covered property",
+      "Damaged property the insurer takes ownership of after paying total loss",
+      "Property saved from loss",
+      "Recovered stolen property"
+    ],
+    correctAnswer: 1,
+    explanation: "Salvage is damaged property remaining after a total loss that the insurer takes title to after paying the claim. The insurer may sell it to recover part of the claim payment.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 80,
+    question: "What does 'other insurance' provision address?",
+    options: [
+      "Adding more coverage",
+      "How coverage applies when multiple policies cover same loss",
+      "Requiring additional policies",
+      "Canceling coverage"
+    ],
+    correctAnswer: 1,
+    explanation: "The 'other insurance' clause determines how the policy responds when multiple policies cover the same loss, typically providing that coverage will be prorated among the policies.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 81,
+    question: "What is 'pro rata' other insurance?",
+    options: [
+      "Full payment from each policy",
+      "Each insurer pays proportionally based on their limit compared to total limits",
+      "Only one policy pays",
+      "No coverage applies"
+    ],
+    correctAnswer: 1,
+    explanation: "Pro rata (proportional) means each insurer pays a share of the loss based on the proportion their limit bears to the total coverage available from all applicable policies.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 82,
+    question: "What is 'excess' other insurance?",
+    options: [
+      "Covers all losses",
+      "Policy pays only after other insurance is exhausted",
+      "Primary coverage",
+      "No coverage"
+    ],
+    correctAnswer: 1,
+    explanation: "Excess other insurance means the policy pays only after other applicable insurance is exhausted. It provides secondary coverage above and beyond primary policies.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 83,
+    question: "What is 'primary' other insurance?",
+    options: [
+      "Policy pays after others",
+      "Policy pays first before other insurance applies",
+      "Equal sharing",
+      "No coverage"
+    ],
+    correctAnswer: 1,
+    explanation: "Primary insurance pays first up to its limits before any excess or secondary insurance applies. It is the first layer of coverage responding to a loss.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 84,
+    question: "What is a 'per occurrence' limit?",
+    options: [
+      "Annual maximum",
+      "Maximum paid for all claims from one accident/event",
+      "Per person limit",
+      "Monthly limit"
+    ],
+    correctAnswer: 1,
+    explanation: "A per occurrence limit is the maximum amount the insurer will pay for all claims arising from a single accident or occurrence, regardless of the number of injured parties.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 85,
+    question: "What is a 'per person' limit?",
+    options: [
+      "Total limit available",
+      "Maximum paid to any one person injured in an accident",
+      "Aggregate limit",
+      "Deductible amount"
+    ],
+    correctAnswer: 1,
+    explanation: "A per person limit is the maximum amount the insurer will pay for injuries to any one individual in an accident, even if occurrence limits are higher.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 86,
+    question: "What are 'split limits'?",
+    options: [
+      "One combined limit",
+      "Separate limits for bodily injury per person, per accident, and property damage",
+      "Divided premiums",
+      "Shared policies"
+    ],
+    correctAnswer: 1,
+    explanation: "Split limits provide separate coverage amounts for bodily injury per person, bodily injury per accident, and property damage per accident, such as 50/100/25.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 87,
+    question: "What is a 'combined single limit'?",
+    options: [
+      "Two separate limits",
+      "One total limit for all bodily injury and property damage in one accident",
+      "Per person limit only",
+      "No limit"
+    ],
+    correctAnswer: 1,
+    explanation: "A combined single limit (CSL) provides one total amount of coverage applying to all bodily injury and property damage claims from a single accident, with no separate per-person sublimit.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 88,
+    question: "What is 'coinsurance'?",
+    options: [
+      "Two policies",
+      "Requirement to insure property to specified percentage of value or face penalty",
+      "Premium sharing",
+      "The deductible"
+    ],
+    correctAnswer: 1,
+    explanation: "Coinsurance requires the insured to maintain coverage equal to a specified percentage (typically 80%) of property value. Failure to do so results in a penalty where the insured becomes a co-insurer.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 89,
+    question: "What is 'blanket coverage'?",
+    options: [
+      "No coverage",
+      "One limit applying to multiple buildings, locations, or types of property",
+      "Basic coverage",
+      "Temporary insurance"
+    ],
+    correctAnswer: 1,
+    explanation: "Blanket insurance applies a single limit to multiple buildings, locations, or types of property (building and contents), providing flexibility in claim settlement without individual item limits.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 90,
+    question: "What is 'specific coverage'?",
+    options: [
+      "Blanket coverage",
+      "Separate limits for each building, location, or type of property",
+      "Named perils only",
+      "Liability insurance"
+    ],
+    correctAnswer: 1,
+    explanation: "Specific insurance applies separate, individual limits to each building, location, or category of property listed in the policy, as opposed to one blanket limit.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 91,
+    question: "What is a 'named perils' policy?",
+    options: [
+      "Lists covered individuals",
+      "Covers only perils specifically listed in the policy",
+      "All-risk coverage",
+      "Liability only"
+    ],
+    correctAnswer: 1,
+    explanation: "Named perils coverage provides protection only for specific perils (causes of loss) listed in the policy, such as fire, lightning, windstorm, hail, theft, etc.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 92,
+    question: "What is 'open perils' (special form) coverage?",
+    options: [
+      "No exclusions",
+      "Covers all causes of loss except those specifically excluded",
+      "Named perils only",
+      "Limited coverage"
+    ],
+    correctAnswer: 1,
+    explanation: "Open perils (all-risk or special form) coverage protects against all causes of loss EXCEPT those specifically excluded in the policy, providing broader protection than named perils.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 93,
+    question: "What is a 'direct loss'?",
+    options: [
+      "Consequential loss",
+      "Physical loss or damage to property",
+      "Business income loss",
+      "Liability loss"
+    ],
+    correctAnswer: 1,
+    explanation: "A direct loss is physical loss or damage to property caused directly by a covered peril, such as fire burning a building or wind damaging a roof.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 94,
+    question: "What is a 'consequential (indirect) loss'?",
+    options: [
+      "Physical property damage",
+      "Loss resulting as a consequence of direct physical damage",
+      "Liability claim",
+      "No loss occurred"
+    ],
+    correctAnswer: 1,
+    explanation: "Consequential or indirect loss results as a consequence of direct physical damage but is not the direct physical damage itself. Example: Lost income when business closes due to fire.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 95,
+    question: "What is the difference between 'vacant' and 'unoccupied'?",
+    options: [
+      "No difference",
+      "Vacant has no contents; unoccupied has contents but no people",
+      "Same meaning",
+      "Vacant means for sale"
+    ],
+    correctAnswer: 1,
+    explanation: "Vacant means the property lacks both occupants and contents/furnishings. Unoccupied means the property contains furnishings but has no people present. Extended vacancy can restrict coverage.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 96,
+    question: "What is a 'standard mortgage clause'?",
+    options: [
+      "Loan agreement",
+      "Protects lender's interest even if insured's coverage is voided",
+      "Premium payment plan",
+      "Required coverage"
+    ],
+    correctAnswer: 1,
+    explanation: "The standard mortgage clause protects the mortgagee's (lender's) interest in the property even if the insured's coverage is voided due to fraud or policy violations. The lender receives payment for their interest.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 97,
+    question: "What is a 'loss payable clause'?",
+    options: [
+      "Same as standard mortgage clause",
+      "Makes loss payment to secured party, but their protection ends if insured's coverage is voided",
+      "Premium payment terms",
+      "Claims procedure"
+    ],
+    correctAnswer: 1,
+    explanation: "A loss payable clause directs payment to a secured party (lienholder) but does NOT provide the same protections as a standard mortgage clause. If the insured's coverage is voided, the loss payee's protection also ends.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 98,
+    question: "What is 'no benefit to bailee' clause?",
+    options: [
+      "Protects bailees",
+      "Prevents coverage from automatically extending to bailee having custody of property",
+      "Provides bailee coverage",
+      "Premium discount"
+    ],
+    correctAnswer: 1,
+    explanation: "The 'no benefit to bailee' clause states that insurance coverage does not automatically extend to protect a bailee (someone who has temporary custody) of the insured property.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 99,
+    question: "What is an 'appraisal' clause?",
+    options: [
+      "Property inspection",
+      "Dispute resolution process where each party selects an appraiser to determine loss value",
+      "Premium calculation",
+      "Policy renewal"
+    ],
+    correctAnswer: 1,
+    explanation: "The appraisal clause provides a dispute resolution process when the insured and insurer disagree on the value of loss. Each party selects an appraiser; if they disagree, an umpire decides.",
+    category: "Property & Casualty Basics"
+  },
+  {
+    id: 100,
+    question: "What is the insurer's 'duty to defend'?",
+    options: [
+      "Repair property",
+      "Provide legal defense for covered liability claims, even if groundless",
+      "Pay all claims",
+      "Investigate losses"
+    ],
+    correctAnswer: 1,
+    explanation: "Under liability coverage, the insurer has a duty to defend the insured against covered claims, even if the allegations are groundless, false, or fraudulent. Defense costs are typically paid in addition to policy limits.",
+    category: "Property & Casualty Basics"
+  },
+
+  // DWELLING POLICY (16 questions - 8% of 200)
+  {
+    id: 101,
+    question: "Who is the Dwelling Policy designed for?",
+    options: [
+      "Owner-occupied single family homes",
+      "Rental properties, vacation homes, and properties not eligible for homeowners",
+      "Commercial buildings",
+      "Mobile homes only"
+    ],
+    correctAnswer: 1,
+    explanation: "Dwelling policies are designed for rental properties, seasonal/vacation homes, homes under construction, and properties that don't meet homeowners eligibility (owner-occupied). They provide more limited coverage than homeowners policies.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 102,
+    question: "Which Dwelling form provides the most limited (basic) coverage?",
+    options: [
+      "DP-1 Basic Form",
+      "DP-2 Broad Form",
+      "DP-3 Special Form",
+      "All are equal"
+    ],
+    correctAnswer: 0,
+    explanation: "DP-1 Basic Form provides the most limited coverage with only basic named perils (fire, lightning, internal explosion, windstorm, hail, smoke, aircraft, vehicles, riot, volcanic eruption).",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 103,
+    question: "How many named perils does the DP-2 Broad Form cover?",
+    options: [
+      "10 perils",
+      "16 perils",
+      "18 perils",
+      "All perils"
+    ],
+    correctAnswer: 1,
+    explanation: "DP-2 Broad Form covers 16 named perils, including all DP-1 perils plus falling objects, weight of ice/snow/sleet, water damage, freezing, electrical damage, and volcanic eruption.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 104,
+    question: "How does DP-3 Special Form cover the dwelling?",
+    options: [
+      "Named perils only",
+      "Open perils (all risks except those excluded)",
+      "No coverage",
+      "Basic perils only"
+    ],
+    correctAnswer: 1,
+    explanation: "DP-3 covers the dwelling and other structures on an open perils (special form) basis - all causes of loss except those specifically excluded. Personal property is still covered on named perils basis.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 105,
+    question: "What is Coverage A in a Dwelling Policy?",
+    options: [
+      "Personal property",
+      "The dwelling building itself",
+      "Other structures",
+      "Liability"
+    ],
+    correctAnswer: 1,
+    explanation: "Coverage A insures the dwelling building itself - the house and structures attached to it. It does not cover the land the dwelling sits on.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 106,
+    question: "What is Coverage B in a Dwelling Policy?",
+    options: [
+      "The dwelling",
+      "Other structures separate from the dwelling (garage, shed)",
+      "Personal property",
+      "Liability"
+    ],
+    correctAnswer: 1,
+    explanation: "Coverage B insures other structures on the premises that are detached from the dwelling, such as a detached garage, shed, or fence. Typically 10% of Coverage A.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 107,
+    question: "What is Coverage C in a Dwelling Policy?",
+    options: [
+      "Dwelling",
+      "Other structures",
+      "Personal property (contents)",
+      "Liability"
+    ],
+    correctAnswer: 2,
+    explanation: "Coverage C insures personal property (contents) owned by the insured. In dwelling policies, this is typically optional coverage.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 108,
+    question: "What is Coverage D - Fair Rental Value?",
+    options: [
+      "Property value",
+      "Loss of rental income when dwelling is uninhabitable due to covered loss",
+      "Market rent rates",
+      "Tenant's coverage"
+    ],
+    correctAnswer: 1,
+    explanation: "Fair Rental Value pays for loss of rental income when the dwelling is uninhabitable due to a covered loss, minus expenses that don't continue.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 109,
+    question: "What is Coverage E - Additional Living Expense?",
+    options: [
+      "Extra insurance",
+      "Increased costs to maintain normal living standards when dwelling is uninhabitable",
+      "Rental income",
+      "Property damage"
+    ],
+    correctAnswer: 1,
+    explanation: "Additional Living Expense pays the increased costs to maintain your normal standard of living when the dwelling is uninhabitable due to a covered loss (hotel, meals, etc.).",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 110,
+    question: "Are liability coverages included automatically in Dwelling policies?",
+    options: [
+      "Yes, automatically included",
+      "No, must add separate Personal Liability Supplement",
+      "Only in DP-3",
+      "Only in DP-1"
+    ],
+    correctAnswer: 1,
+    explanation: "Dwelling policies do NOT automatically include liability coverage. You must add the separate Personal Liability Supplement (similar to homeowners Coverage E and F).",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 111,
+    question: "What does the Automatic Increase in Insurance endorsement (DP 04 11) do?",
+    options: [
+      "Lowers premiums",
+      "Automatically increases coverage limits annually to keep pace with inflation",
+      "Adds liability",
+      "Covers floods"
+    ],
+    correctAnswer: 1,
+    explanation: "The Automatic Increase in Insurance endorsement (Inflation Guard) automatically increases dwelling coverage limits annually by a specified percentage to keep pace with inflation and rising construction costs.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 112,
+    question: "How are losses typically settled under DP-1?",
+    options: [
+      "Replacement cost",
+      "Actual cash value",
+      "Agreed value",
+      "Market value"
+    ],
+    correctAnswer: 1,
+    explanation: "DP-1 Basic Form typically pays losses on an actual cash value basis (replacement cost minus depreciation). DP-2 and DP-3 can be endorsed for replacement cost.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 113,
+    question: "What does the Broad Theft Coverage endorsement (DP 05 72) add?",
+    options: [
+      "Fire coverage",
+      "Broader theft coverage for on and off-premises property",
+      "Liability coverage",
+      "Water damage"
+    ],
+    correctAnswer: 1,
+    explanation: "The Broad Theft Coverage endorsement provides broader theft coverage, including theft of property on and away from the premises, with higher limits than the basic policy.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 114,
+    question: "What is the Dwelling Under Construction endorsement (DP 11 43)?",
+    options: [
+      "Completed structures only",
+      "Covers dwelling while under construction or renovation",
+      "Commercial builders",
+      "Equipment coverage"
+    ],
+    correctAnswer: 1,
+    explanation: "The Dwelling Under Construction endorsement provides coverage for the dwelling while it's being built or substantially renovated, subject to specific conditions and inspections.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 115,
+    question: "What is typically NOT covered under a standard Dwelling Policy?",
+    options: [
+      "Fire",
+      "Theft",
+      "Flood",
+      "Windstorm"
+    ],
+    correctAnswer: 2,
+    explanation: "Flood damage is excluded from all standard dwelling policies. Flood insurance must be purchased separately through the National Flood Insurance Program (NFIP) or private insurers.",
+    category: "Dwelling Policy"
+  },
+  {
+    id: 116,
+    question: "In a Dwelling Policy, who can be the named insured?",
+    options: [
+      "Owner-occupants only",
+      "Property owners, whether they occupy it or not",
+      "Renters only",
+      "Commercial entities only"
+    ],
+    correctAnswer: 1,
+    explanation: "Dwelling policies can be written for property owners regardless of whether they occupy the dwelling. This includes landlords, owners of vacation homes, and owners of properties under construction.",
+    category: "Dwelling Policy"
+  },
+
+  // HOMEOWNERS POLICY (34 questions - 17% of 200)
+  {
+    id: 117,
+    question: "Which Homeowners form is the most popular?",
     options: [
       "HO-2",
-      "HO-3 (Special Form)",
+      "HO-3 Special Form",
       "HO-4",
       "HO-5"
     ],
     correctAnswer: 1,
-    explanation: "The HO-3 Special Form is the most popular homeowners policy. It provides open perils (all-risk) coverage on the dwelling (Coverage A) and other structures (Coverage B), but named perils coverage on personal property (Coverage C).",
-    category: "Homeowners Insurance"
+    explanation: "HO-3 Special Form is the most popular homeowners policy. It covers the dwelling on open perils (special form) and personal property on named perils (broad form) basis.",
+    category: "Homeowners Policy"
   },
   {
-    id: 67,
-    question: "What is Coverage A in a homeowners policy?",
+    id: 118,
+    question: "How does HO-3 cover the dwelling vs. personal property?",
     options: [
-      "Personal property",
-      "Dwelling coverage",
-      "Liability coverage",
-      "Loss of use"
+      "Both named perils",
+      "Dwelling: open perils; Personal property: named perils",
+      "Both open perils",
+      "No coverage"
     ],
     correctAnswer: 1,
-    explanation: "Coverage A insures the dwelling itself - the house and structures attached to it, such as an attached garage. It does not cover the land the dwelling sits on.",
-    category: "Homeowners Insurance"
+    explanation: "HO-3 covers the dwelling (Coverage A) and other structures (Coverage B) on an open perils basis, but personal property (Coverage C) on a named perils basis.",
+    category: "Homeowners Policy"
   },
   {
-    id: 68,
+    id: 119,
+    question: "What is HO-4?",
+    options: [
+      "Homeowners policy",
+      "Renters/Tenants policy",
+      "Condo policy",
+      "Mobile home policy"
+    ],
+    correctAnswer: 1,
+    explanation: "HO-4 is the Renters or Tenants policy covering personal property and liability for people who rent their residence. It does not cover the building structure (landlord's responsibility).",
+    category: "Homeowners Policy"
+  },
+  {
+    id: 120,
+    question: "What is HO-6?",
+    options: [
+      "Renters policy",
+      "Condominium Unit-Owners policy",
+      "Mobile home policy",
+      "Standard homeowners"
+    ],
+    correctAnswer: 1,
+    explanation: "HO-6 is the Condominium Unit-Owners policy covering the unit owner's personal property, interior improvements/betterments, loss assessment, and liability. The association insures the building and common areas.",
+    category: "Homeowners Policy"
+  },
+  {
+    id: 121,
+    question: "What is HO-5?",
+    options: [
+      "Renters policy",
+      "Comprehensive Form with open perils on dwelling AND personal property",
+      "Basic policy",
+      "Condo policy"
+    ],
+    correctAnswer: 1,
+    explanation: "HO-5 Comprehensive Form provides the broadest coverage with open perils (special form) coverage on both the dwelling AND personal property. Most expensive but most comprehensive.",
+    category: "Homeowners Policy"
+  },
+  {
+    id: 122,
     question: "Coverage B (Other Structures) is typically what percentage of Coverage A?",
     options: [
       "5%",
@@ -894,116 +1600,64 @@ export const questions: Question[] = [
       "20%"
     ],
     correctAnswer: 1,
-    explanation: "Coverage B for other structures (detached garage, shed, fence, etc.) is typically 10% of the Coverage A limit. This coverage applies to structures not attached to the dwelling.",
-    category: "Homeowners Insurance"
+    explanation: "Coverage B for other structures (detached garage, shed, fence) is typically 10% of the Coverage A dwelling limit.",
+    category: "Homeowners Policy"
   },
   {
-    id: 69,
-    question: "What is Coverage C in a homeowners policy?",
+    id: 123,
+    question: "Coverage C (Personal Property) is typically what percentage of Coverage A?",
     options: [
-      "Dwelling",
-      "Other structures",
-      "Personal property (contents)",
-      "Liability"
-    ],
-    correctAnswer: 2,
-    explanation: "Coverage C insures personal property (belongings/contents) owned or used by the insured. It typically provides coverage equal to 50-75% of the Coverage A dwelling limit.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 70,
-    question: "What does Coverage D (Loss of Use) provide?",
-    options: [
-      "Covers vehicle use",
-      "Additional living expenses when the home is uninhabitable due to a covered loss",
-      "Medical payments",
-      "Property damage"
-    ],
-    correctAnswer: 1,
-    explanation: "Coverage D pays for additional living expenses (hotel, meals, etc.) when the home is uninhabitable due to a covered loss. It may also cover fair rental value if you rent part of your home.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 71,
-    question: "What is Coverage E in a homeowners policy?",
-    options: [
-      "Personal property",
-      "Dwelling",
-      "Personal liability",
-      "Medical payments"
-    ],
-    correctAnswer: 2,
-    explanation: "Coverage E provides personal liability protection if you are legally liable for bodily injury or property damage to others. Common limits are $100,000 to $500,000.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 72,
-    question: "Coverage F provides:",
-    options: [
-      "Flood insurance",
-      "Medical payments to others injured on your property",
-      "Personal property coverage",
-      "Earthquake coverage"
-    ],
-    correctAnswer: 1,
-    explanation: "Coverage F pays medical expenses for others accidentally injured on your property or by your activities, regardless of liability. Typical limits are $1,000 to $5,000 per person.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 73,
-    question: "Under the HO-3, the dwelling is covered on what basis?",
-    options: [
-      "Named perils only",
-      "Open perils (all risks) except those specifically excluded",
-      "Actual cash value only",
-      "No coverage"
-    ],
-    correctAnswer: 1,
-    explanation: "The HO-3 covers the dwelling (Coverage A) on an open perils basis, meaning all causes of loss are covered except those specifically excluded (flood, earthquake, war, etc.).",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 74,
-    question: "Which of the following is typically excluded from all homeowners policies?",
-    options: [
-      "Fire",
-      "Theft",
-      "Flood",
-      "Windstorm"
-    ],
-    correctAnswer: 2,
-    explanation: "Flood damage is excluded from all standard homeowners policies. Flood insurance must be purchased separately through the National Flood Insurance Program (NFIP) or private insurers.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 75,
-    question: "What is the 'replacement cost' provision for dwelling coverage?",
-    options: [
-      "Pays market value",
-      "Pays cost to replace with materials of like kind and quality, without deduction for depreciation",
-      "Pays original purchase price",
-      "Pays only depreciated value"
-    ],
-    correctAnswer: 1,
-    explanation: "Replacement cost coverage pays to repair or replace the dwelling with materials of like kind and quality without deducting for depreciation, provided adequate insurance-to-value is maintained.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 76,
-    question: "To receive replacement cost on a dwelling, most policies require coverage of at least what percentage of replacement value?",
-    options: [
+      "25%",
       "50%",
-      "70%",
-      "80%",
+      "75%",
       "100%"
     ],
-    correctAnswer: 2,
-    explanation: "Most HO policies require dwelling coverage of at least 80% of replacement cost to avoid a coinsurance penalty and receive full replacement cost benefits (up to policy limits).",
-    category: "Homeowners Insurance"
+    correctAnswer: 1,
+    explanation: "Coverage C for personal property is typically 50% of the Coverage A dwelling limit. Example: $200,000 dwelling = $100,000 personal property.",
+    category: "Homeowners Policy"
   },
   {
-    id: 77,
-    question: "What is the special limit for money, bank notes, and coins under Coverage C?",
+    id: 124,
+    question: "What is Coverage D - Loss of Use typically?",
+    options: [
+      "10% of Coverage A",
+      "20% of Coverage A",
+      "30% of Coverage A",
+      "50% of Coverage A"
+    ],
+    correctAnswer: 1,
+    explanation: "Coverage D (Loss of Use) for additional living expenses is typically 20% of Coverage A, or actual loss sustained for up to 24 months.",
+    category: "Homeowners Policy"
+  },
+  {
+    id: 125,
+    question: "What is typical Coverage E (Personal Liability) limit?",
+    options: [
+      "$50,000",
+      "$100,000 to $300,000",
+      "$1,000,000",
+      "$25,000"
+    ],
+    correctAnswer: 1,
+    explanation: "Coverage E (Personal Liability) typically ranges from $100,000 to $300,000, with $100,000 being standard. Higher limits are available and recommended.",
+    category: "Homeowners Policy"
+  },
+  {
+    id: 126,
+    question: "What is typical Coverage F (Medical Payments to Others) limit?",
+    options: [
+      "$500",
+      "$1,000 to $5,000",
+      "$25,000",
+      "$50,000"
+    ],
+    correctAnswer: 1,
+    explanation: "Coverage F (Medical Payments to Others) typically ranges from $1,000 to $5,000 per person, with $1,000 or $2,000 being most common.",
+    category: "Homeowners Policy"
+  },
+  {
+    id: 127,
+    question: "What is the special limit for money, bank notes, and coins?",
     options: [
       "$100",
       "$200",
@@ -1011,12 +1665,12 @@ export const questions: Question[] = [
       "$1,000"
     ],
     correctAnswer: 1,
-    explanation: "The HO-3 typically limits coverage for money, bank notes, bullion, coins, and medals to $200 total. Higher limits require scheduling or a separate endorsement.",
-    category: "Homeowners Insurance"
+    explanation: "The HO-3 limits coverage for money, bank notes, bullion, gold, silver, and coins to $200 total. Higher limits require scheduling.",
+    category: "Homeowners Policy"
   },
   {
-    id: 78,
-    question: "What is the typical special limit for theft of jewelry, watches, and furs?",
+    id: 128,
+    question: "What is the special limit for theft of jewelry, watches, and furs?",
     options: [
       "$500",
       "$1,000",
@@ -1024,181 +1678,12 @@ export const questions: Question[] = [
       "$2,500"
     ],
     correctAnswer: 2,
-    explanation: "The standard HO-3 limits theft of jewelry, watches, furs, and precious stones to $1,500 total. These items should be scheduled on a Personal Articles Floater for full value coverage.",
-    category: "Homeowners Insurance"
+    explanation: "Theft of jewelry, watches, furs, and precious stones is limited to $1,500 total. Items should be scheduled on a Personal Articles Floater (HO 04 61) for full value.",
+    category: "Homeowners Policy"
   },
   {
-    id: 79,
-    question: "Which form is used to schedule high-value personal property (jewelry, fine arts)?",
-    options: [
-      "HO-2",
-      "HO-4",
-      "HO 04 61 (Scheduled Personal Property Endorsement)",
-      "HO 04 90"
-    ],
-    correctAnswer: 2,
-    explanation: "The HO 04 61 Scheduled Personal Property Endorsement allows specific high-value items to be listed with agreed values and broader coverage, often with no deductible.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 80,
-    question: "What does the HO 04 90 endorsement provide?",
-    options: [
-      "Flood coverage",
-      "Personal property replacement cost coverage",
-      "Earthquake coverage",
-      "Identity theft coverage"
-    ],
-    correctAnswer: 1,
-    explanation: "The HO 04 90 Personal Property Replacement Cost Loss Settlement endorsement pays replacement cost for personal property rather than actual cash value (depreciated value).",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 81,
-    question: "Is earthquake damage covered under a standard HO-3 policy?",
-    options: [
-      "Yes, automatically",
-      "No, it requires a separate endorsement (HO 04 54)",
-      "Only in high-risk areas",
-      "Yes, but only for the dwelling"
-    ],
-    correctAnswer: 1,
-    explanation: "Earthquake damage is excluded from standard homeowners policies. Coverage requires the HO 04 54 Earthquake Endorsement, which includes special deductibles.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 82,
-    question: "What is a 'standard mortgage clause'?",
-    options: [
-      "Requires a mortgage to buy insurance",
-      "Protects the mortgagee's (lender's) interest in the property",
-      "Cancels coverage if mortgage is paid",
-      "Increases coverage limits"
-    ],
-    correctAnswer: 1,
-    explanation: "The standard mortgage clause protects the lender's interest even if the insured's coverage is voided due to fraud or policy violations. The lender receives loss payment for their interest.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 83,
-    question: "What is the difference between 'vacant' and 'unoccupied'?",
-    options: [
-      "They are the same",
-      "Vacant has no contents; unoccupied has contents but no people",
-      "Vacant means for sale",
-      "Unoccupied means abandoned"
-    ],
-    correctAnswer: 1,
-    explanation: "Vacant means the property lacks both occupants and contents. Unoccupied means the property has contents but no people present. Extended vacancy can result in coverage restrictions.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 84,
-    question: "How much does HO-3 typically cover for trees, shrubs, and plants?",
-    options: [
-      "No coverage",
-      "5% of Coverage A, $500 per item",
-      "10% of Coverage A, $1,000 per item",
-      "Full replacement cost"
-    ],
-    correctAnswer: 1,
-    explanation: "Trees, shrubs, and plants are covered for up to 5% of Coverage A, with a limit of $500 per item, for loss caused by named perils such as fire, lightning, or vehicle damage (not wind or disease).",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 85,
-    question: "What is 'loss assessment' coverage?",
-    options: [
-      "Appraisal of the home",
-      "Covers assessments charged by a homeowners association for property losses",
-      "Determines claim value",
-      "Professional inspection"
-    ],
-    correctAnswer: 1,
-    explanation: "Loss assessment coverage pays the insured's share of assessments by a homeowners or condo association for covered losses to common property. Typical limits are $1,000, but higher limits are available.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 86,
-    question: "Under Coverage F (Medical Payments to Others), who is NOT covered?",
-    options: [
-      "A guest injured on your property",
-      "The named insured and resident family members",
-      "A delivery person injured on your property",
-      "A neighbor's child injured in your yard"
-    ],
-    correctAnswer: 1,
-    explanation: "Coverage F pays medical expenses for OTHERS injured on your property or by your activities. The named insured, resident relatives, and regular residents are excluded from Coverage F.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 87,
-    question: "What is the HO-4 policy designed for?",
-    options: [
-      "Homeowners",
-      "Renters/Tenants",
-      "Condo owners",
-      "Mobile home owners"
-    ],
-    correctAnswer: 1,
-    explanation: "The HO-4 Tenants/Renters policy covers the tenant's personal property and provides liability coverage. It does not cover the building structure, which is insured by the landlord.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 88,
-    question: "What is the HO-6 policy designed for?",
-    options: [
-      "Apartment renters",
-      "Condominium unit owners",
-      "Mobile home owners",
-      "Single-family homeowners"
-    ],
-    correctAnswer: 1,
-    explanation: "The HO-6 Condominium Unit-Owners policy covers the unit owner's personal property, interior improvements, loss assessment, and liability. The condo association insures the building and common areas.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 89,
-    question: "What is 'ordinance or law' coverage?",
-    options: [
-      "Legal expense coverage",
-      "Covers increased costs to rebuild to current building codes",
-      "Police protection",
-      "Zoning compliance"
-    ],
-    correctAnswer: 1,
-    explanation: "Ordinance or law coverage pays increased costs to rebuild to current building codes when older structures are damaged. Standard policies provide limited coverage; additional coverage is available by endorsement.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 90,
-    question: "What is the 'debris removal' additional coverage?",
-    options: [
-      "Removes trees from the yard",
-      "Pays to remove debris of covered property after a covered loss",
-      "Cleans gutters",
-      "Hauls away old furniture"
-    ],
-    correctAnswer: 1,
-    explanation: "Debris removal pays the cost to remove debris of covered property damaged by a covered cause of loss. It typically provides an additional 5% of the Coverage A limit if needed.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 91,
-    question: "Which peril is covered for personal property under the HO-3 named perils coverage?",
-    options: [
-      "Flood",
-      "Earthquake",
-      "Theft",
-      "Wear and tear"
-    ],
-    correctAnswer: 2,
-    explanation: "Theft is one of the 16 named perils covered for personal property under the HO-3. Flood, earthquake, and wear/tear are excluded.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 92,
-    question: "What is the typical special limit for firearms theft under Coverage C?",
+    id: 129,
+    question: "What is the special limit for theft of firearms?",
     options: [
       "$1,000",
       "$1,500",
@@ -1206,1415 +1691,934 @@ export const questions: Question[] = [
       "$5,000"
     ],
     correctAnswer: 2,
-    explanation: "The HO-3 typically limits theft of firearms to $2,500 total. Valuable gun collections should be scheduled on a Personal Articles Floater for full coverage.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 93,
-    question: "Does the HO-3 cover business property kept at home?",
-    options: [
-      "Yes, fully covered",
-      "Limited coverage - typically $2,500 on premises, $250 away from premises",
-      "No coverage at all",
-      "Only if you have a home office"
-    ],
-    correctAnswer: 1,
-    explanation: "Business property is covered with sub-limits: typically $2,500 on premises and $250 away from premises. Substantial business property requires a business insurance policy or endorsement.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 94,
-    question: "What is 'credit card coverage' under a homeowners policy?",
-    options: [
-      "Pays your credit card bills",
-      "Covers unauthorized use of credit cards up to $500",
-      "Protects your credit score",
-      "Provides identity theft services"
-    ],
-    correctAnswer: 1,
-    explanation: "Credit card, fund transfer card, and forgery coverage provides up to $500 protection against unauthorized use, with no deductible. This is an additional coverage under Section I.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 95,
-    question: "What does the 'pair or set' clause mean?",
-    options: [
-      "You must buy two policies",
-      "If part of a pair/set is damaged, the insurer may repair, replace the pair, or pay the difference in value",
-      "Doubles your coverage",
-      "Requires scheduling pairs"
-    ],
-    correctAnswer: 1,
-    explanation: "The pair or set clause allows the insurer to repair the damaged item, replace the pair/set, or pay the difference in value before and after the loss, rather than paying the full value of the pair/set.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 96,
-    question: "Is water damage from a burst pipe covered under HO-3?",
-    options: [
-      "No, never covered",
-      "Yes, if sudden and accidental",
-      "Only in winter",
-      "Only with an endorsement"
-    ],
-    correctAnswer: 1,
-    explanation: "Water damage from the sudden and accidental discharge or overflow of water or steam from plumbing, heating, or AC systems is covered under HO-3 dwelling and personal property coverage.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 97,
-    question: "What is the 'fire department service charge' coverage?",
-    options: [
-      "Pays your property taxes",
-      "Pays charges when the fire department is called to save covered property",
-      "Provides fire prevention services",
-      "Covers volunteer firefighter injuries"
-    ],
-    correctAnswer: 1,
-    explanation: "This additional coverage pays up to $500 (typically) when the fire department charges for responding to save or protect covered property from a covered peril.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 98,
-    question: "What is 'refrigerated products coverage'?",
-    options: [
-      "Covers the refrigerator itself",
-      "Covers food spoilage due to power outage or equipment failure, typically $500",
-      "Covers commercial refrigeration",
-      "Extends warranty on appliances"
-    ],
-    correctAnswer: 1,
-    explanation: "Refrigerated products coverage pays up to $500 (typically) for food spoilage due to power outage or mechanical failure of refrigeration equipment. No deductible applies.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 99,
-    question: "What is the HO 04 42 endorsement?",
-    options: [
-      "Earthquake coverage",
-      "Permitted Incidental Occupancies (home business)",
-      "Scheduled property",
-      "Flood coverage"
-    ],
-    correctAnswer: 1,
-    explanation: "The HO 04 42 Permitted Incidental Occupancies endorsement extends limited coverage for small home-based businesses, increasing the business property limits and adding some liability coverage.",
-    category: "Homeowners Insurance"
-  },
-  {
-    id: 100,
-    question: "Under the HO-3, is mold damage covered?",
-    options: [
-      "Always fully covered",
-      "Limited coverage if result of a covered peril (typically $10,000 limit)",
-      "Never covered",
-      "Only with separate endorsement"
-    ],
-    correctAnswer: 1,
-    explanation: "Mold (fungi) coverage is limited, typically to $10,000, and only if it results from a covered water damage cause of loss. Many policies require endorsements for broader mold coverage.",
-    category: "Homeowners Insurance"
-  },
-
-  // PROPERTY & CASUALTY PRINCIPLES (40 questions)
-  {
-    id: 101,
-    question: "What are the three elements required for a valid contract?",
-    options: [
-      "Offer, acceptance, and witnesses",
-      "Offer, acceptance, and consideration",
-      "Premium, policy, and claim",
-      "Application, underwriting, and approval"
-    ],
-    correctAnswer: 1,
-    explanation: "A valid contract requires: (1) Offer and acceptance (agreement), (2) Consideration (something of value exchanged - premium for coverage), and (3) Competent parties and legal purpose.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 102,
-    question: "What is 'insurable interest'?",
-    options: [
-      "The premium amount",
-      "A financial interest in the preservation of property or life being insured",
-      "The policy limits",
-      "The deductible amount"
-    ],
-    correctAnswer: 1,
-    explanation: "Insurable interest means the insured must have a legitimate financial interest in the preservation of the property or life being insured and would suffer financial loss if damage or death occurred.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 103,
-    question: "When must insurable interest exist for property insurance?",
-    options: [
-      "At policy inception only",
-      "At the time of loss",
-      "Throughout the policy period",
-      "Only when filing a claim"
-    ],
-    correctAnswer: 1,
-    explanation: "For property insurance, insurable interest must exist at the time of loss. The insured must own or have a financial stake in the property when it is damaged to collect on a claim.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 104,
-    question: "What is 'utmost good faith' (uberrimae fidei) in insurance?",
-    options: [
-      "The insurer always pays claims",
-      "Both parties are entitled to rely on the honesty and complete disclosure of the other",
-      "Faith-based insurance",
-      "Maximum coverage limits"
-    ],
-    correctAnswer: 1,
-    explanation: "Insurance contracts are based on utmost good faith, meaning both the insurer and insured must deal honestly, disclose all material facts, and not conceal information that affects the risk.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 105,
-    question: "What is 'subrogation'?",
-    options: [
-      "Canceling a policy",
-      "The insurer's right to recover from a negligent third party after paying a claim",
-      "Adding coverage",
-      "Transferring policies"
-    ],
-    correctAnswer: 1,
-    explanation: "Subrogation allows the insurer to 'step into the shoes' of the insured and pursue recovery from negligent third parties who caused the loss, after paying the insured's claim.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 106,
-    question: "What does the principle of 'indemnity' mean?",
-    options: [
-      "Insurance pays more than the loss",
-      "Insurance restores the insured to the same financial position as before the loss, no better or worse",
-      "Insurance always pays replacement cost",
-      "Insurance covers all losses"
-    ],
-    correctAnswer: 1,
-    explanation: "Indemnity means insurance aims to restore the insured to their approximate financial position before the loss - no profit, no loss. The insured should not gain financially from insurance.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 107,
-    question: "What is 'actual cash value' (ACV)?",
-    options: [
-      "Original purchase price",
-      "Replacement cost minus depreciation",
-      "Market value only",
-      "Insured's opinion of value"
-    ],
-    correctAnswer: 1,
-    explanation: "Actual cash value is replacement cost minus depreciation for age, wear, and tear. It represents the fair market value of the property at the time of loss.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 108,
-    question: "What is 'replacement cost'?",
-    options: [
-      "What the insured paid originally",
-      "Cost to replace with new property of like kind and quality, without depreciation",
-      "Market value",
-      "Always higher than policy limits"
-    ],
-    correctAnswer: 1,
-    explanation: "Replacement cost is the amount needed to replace damaged property with new property of like kind and quality, without any deduction for depreciation.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 109,
-    question: "What is 'coinsurance' in property insurance?",
-    options: [
-      "Two people insuring the same property",
-      "A requirement to insure property to a specified percentage of value to avoid a penalty",
-      "The deductible amount",
-      "Shared liability coverage"
-    ],
-    correctAnswer: 1,
-    explanation: "Coinsurance requires the insured to maintain coverage equal to a specified percentage (typically 80%) of the property's value. Underinsuring results in a penalty where the insured becomes a co-insurer.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 110,
-    question: "What is a 'peril'?",
-    options: [
-      "The property insured",
-      "The cause of loss (fire, windstorm, theft)",
-      "The amount of coverage",
-      "The insurance company"
-    ],
-    correctAnswer: 1,
-    explanation: "A peril is the cause of loss or damage, such as fire, windstorm, theft, vandalism, or hail. Insurance policies either name covered perils or cover all perils except those excluded.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 111,
-    question: "What is a 'hazard'?",
-    options: [
-      "The same as a peril",
-      "A condition that increases the likelihood or severity of a loss",
-      "The premium amount",
-      "A type of coverage"
-    ],
-    correctAnswer: 1,
-    explanation: "A hazard is a condition that increases the chance of loss or the potential severity of a loss. Examples include icy sidewalks (physical hazard) or carelessness (morale hazard).",
-    category: "Insurance Principles"
-  },
-  {
-    id: 112,
-    question: "What is 'proximate cause'?",
-    options: [
-      "The location of the loss",
-      "The dominant cause of loss that sets in motion an unbroken chain of events",
-      "The nearest fire station",
-      "The first responder"
-    ],
-    correctAnswer: 1,
-    explanation: "Proximate cause is the dominant or efficient cause of loss that sets other events in motion in a natural, unbroken sequence, producing the loss without other intervening causes.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 113,
-    question: "What are the three types of hazards?",
-    options: [
-      "Fire, water, and wind",
-      "Physical, moral, and morale",
-      "Small, medium, and large",
-      "Natural, man-made, and accidental"
-    ],
-    correctAnswer: 1,
-    explanation: "The three types of hazards are: Physical (tangible conditions like icy steps), Moral (dishonesty/intent to cause loss), and Morale (carelessness/indifference to loss).",
-    category: "Insurance Principles"
-  },
-  {
-    id: 114,
-    question: "What is 'adverse selection'?",
-    options: [
-      "The insurer denying all claims",
-      "The tendency for higher-risk individuals to seek insurance",
-      "Poor investment choices",
-      "Canceling policies"
-    ],
-    correctAnswer: 1,
-    explanation: "Adverse selection occurs when those most likely to suffer a loss are more likely to purchase insurance, creating an imbalance in the risk pool. Insurers combat this through underwriting.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 115,
-    question: "What is the 'law of large numbers'?",
-    options: [
-      "More coverage is always better",
-      "The larger the sample size, the more predictable the loss experience",
-      "Large properties cost more to insure",
-      "Big companies pay more claims"
-    ],
-    correctAnswer: 1,
-    explanation: "The law of large numbers states that as the number of exposure units increases, actual loss experience becomes more predictable and approaches the expected loss. This is the foundation of insurance.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 116,
-    question: "What is 'risk transfer'?",
-    options: [
-      "Moving property to a safer location",
-      "Shifting the financial burden of loss from the insured to the insurer",
-      "Canceling a policy",
-      "Increasing deductibles"
-    ],
-    correctAnswer: 1,
-    explanation: "Risk transfer occurs when the insured shifts the financial consequences of potential losses to the insurance company by purchasing a policy and paying premiums.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 117,
-    question: "What is 'retention' as a risk management technique?",
-    options: [
-      "Buying more insurance",
-      "Accepting and bearing the financial consequences of loss (self-insurance)",
-      "Transferring all risk",
-      "Avoiding all activities"
-    ],
-    correctAnswer: 1,
-    explanation: "Retention means the individual or business accepts responsibility for losses and bears the financial consequences. Examples include deductibles, self-insurance, and going without insurance.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 118,
-    question: "What is 'avoidance' as a risk management technique?",
-    options: [
-      "Buying insurance",
-      "Eliminating a risk by not engaging in the activity",
-      "Ignoring risks",
-      "Reducing losses"
-    ],
-    correctAnswer: 1,
-    explanation: "Avoidance eliminates risk by not engaging in the activity that creates the risk. For example, not owning a swimming pool avoids the liability risk associated with pool ownership.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 119,
-    question: "What is 'reduction' (loss control) as a risk management technique?",
-    options: [
-      "Lowering insurance premiums",
-      "Taking measures to reduce the frequency or severity of losses",
-      "Canceling coverage",
-      "Transferring risk"
-    ],
-    correctAnswer: 1,
-    explanation: "Reduction involves taking steps to minimize the frequency or severity of losses, such as installing sprinklers, burglar alarms, or safety training programs.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 120,
-    question: "What is a 'binder' in insurance?",
-    options: [
-      "The policy folder",
-      "Temporary evidence of coverage until the policy is issued",
-      "The underwriter's notes",
-      "The claims history"
-    ],
-    correctAnswer: 1,
-    explanation: "A binder is a temporary contract that provides immediate coverage until the formal policy is issued. It contains essential terms including coverage, limits, and effective date.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 121,
-    question: "What is the 'declarations page' of an insurance policy?",
-    options: [
-      "The legal disclaimers",
-      "A summary of who/what is insured, coverage limits, premiums, and policy period",
-      "The exclusions section",
-      "The definitions"
-    ],
-    correctAnswer: 1,
-    explanation: "The declarations page (dec page) provides a summary of key policy information including the insured's name, covered property, coverage limits, premiums, deductibles, and policy period.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 122,
-    question: "What are 'conditions' in an insurance policy?",
-    options: [
-      "Weather-related exclusions",
-      "Duties and obligations of both the insured and insurer",
-      "Types of coverage",
-      "Premium payment options"
-    ],
-    correctAnswer: 1,
-    explanation: "Policy conditions outline the rights and duties of both parties, such as reporting claims promptly, cooperating with investigations, and paying premiums on time.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 123,
-    question: "What are 'exclusions' in an insurance policy?",
-    options: [
-      "Discounts available",
-      "Perils, property, or situations not covered by the policy",
-      "Additional coverages",
-      "Optional endorsements"
-    ],
-    correctAnswer: 1,
-    explanation: "Exclusions specify what is NOT covered under the policy - certain perils (flood, earthquake), property (aircraft, business property), or situations (intentional acts, war).",
-    category: "Insurance Principles"
-  },
-  {
-    id: 124,
-    question: "What is an 'endorsement'?",
-    options: [
-      "The agent's signature",
-      "A written modification that adds, deletes, or changes coverage in the policy",
-      "An insurance license",
-      "A claim approval"
-    ],
-    correctAnswer: 1,
-    explanation: "An endorsement (also called a rider) is a written document that modifies the insurance policy by adding, deleting, or changing coverage terms. It becomes part of the policy.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 125,
-    question: "What is 'named perils' coverage?",
-    options: [
-      "Coverage for specific listed individuals",
-      "Coverage only for perils specifically listed in the policy",
-      "Liability coverage",
-      "All-risk coverage"
-    ],
-    correctAnswer: 1,
-    explanation: "Named perils coverage provides protection only for the specific perils (causes of loss) that are listed in the policy, such as fire, lightning, windstorm, hail, theft, etc.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 126,
-    question: "What is 'open perils' (special form) coverage?",
-    options: [
-      "No exclusions apply",
-      "Coverage for all causes of loss except those specifically excluded",
-      "Named perils only",
-      "Unlimited coverage"
-    ],
-    correctAnswer: 1,
-    explanation: "Open perils (all-risk or special form) coverage protects against all causes of loss EXCEPT those specifically excluded in the policy, providing broader protection than named perils.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 127,
-    question: "What is 'occurrence' coverage in liability insurance?",
-    options: [
-      "Coverage only for events that happen once",
-      "Coverage for accidents that occur during the policy period, regardless of when claims are filed",
-      "Coverage for repeated events",
-      "No coverage for accidents"
-    ],
-    correctAnswer: 1,
-    explanation: "Occurrence coverage provides liability protection for accidents that occur during the policy period, even if the claim is filed years later after the policy has expired.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 128,
-    question: "What is 'pro rata' cancellation?",
-    options: [
-      "No refund given",
-      "Premium refund calculated based on exact time coverage was in force",
-      "Full premium refunded",
-      "Penalty charged for cancellation"
-    ],
-    correctAnswer: 1,
-    explanation: "Pro rata cancellation returns unearned premium based on the exact time the policy was in force. If the insurer cancels, it's pro rata. Example: 6 months of a 12-month policy = 50% refund.",
-    category: "Insurance Principles"
-  },
-  {
-    id: 129,
-    question: "What is 'short-rate' cancellation?",
-    options: [
-      "Immediate cancellation",
-      "Premium refund with a penalty when the insured cancels",
-      "Full refund",
-      "Insurer-initiated cancellation"
-    ],
-    correctAnswer: 1,
-    explanation: "Short-rate cancellation applies when the insured cancels the policy. The refund is less than pro rata, including a penalty to cover the insurer's administrative costs.",
-    category: "Insurance Principles"
+    explanation: "Theft of firearms is limited to $2,500 total under standard homeowners policies. Valuable gun collections should be scheduled separately.",
+    category: "Homeowners Policy"
   },
   {
     id: 130,
-    question: "What is the purpose of a deductible?",
+    question: "What is the special limit for theft of silverware?",
     options: [
-      "Increase coverage limits",
-      "Reduce premiums and eliminate small claims, making the insured a co-insurer for small losses",
-      "Provide rebates",
-      "Extend the policy period"
+      "$1,500",
+      "$2,500",
+      "$5,000",
+      "$10,000"
     ],
     correctAnswer: 1,
-    explanation: "Deductibles reduce premiums by eliminating small claims and encouraging loss prevention. The insured pays the deductible amount, and the insurer pays the remainder of covered losses.",
-    category: "Insurance Principles"
+    explanation: "Theft of silverware, goldware, and pewterware is limited to $2,500 total. Valuable silver collections should be scheduled for full coverage.",
+    category: "Homeowners Policy"
   },
   {
     id: 131,
-    question: "What is a 'waiver'?",
+    question: "What does HO 04 90 provide?",
     options: [
-      "An increase in coverage",
-      "Voluntarily giving up a known right",
-      "A type of claim",
-      "An insurance application"
+      "Earthquake coverage",
+      "Personal Property Replacement Cost settlement",
+      "Flood coverage",
+      "Liability extension"
     ],
     correctAnswer: 1,
-    explanation: "A waiver is the voluntary, intentional relinquishment of a known right. For example, an insurer may waive a policy condition if it accepts late premium payment without consequences.",
-    category: "Insurance Principles"
+    explanation: "HO 04 90 Personal Property Replacement Cost Loss Settlement endorsement pays replacement cost for personal property rather than depreciated actual cash value.",
+    category: "Homeowners Policy"
   },
   {
     id: 132,
-    question: "What is 'estoppel' in insurance?",
+    question: "What does HO 04 61 provide?",
     options: [
-      "Canceling coverage",
-      "Preventing a party from denying something previously stated or implied",
-      "Adding coverage",
-      "Premium calculation"
+      "Flood coverage",
+      "Scheduled Personal Property coverage for high-value items",
+      "Earthquake coverage",
+      "Liability increase"
     ],
     correctAnswer: 1,
-    explanation: "Estoppel prevents a party from contradicting previous statements or actions that another party relied upon. Example: If an insurer led the insured to believe coverage exists, estoppel may prevent denial.",
-    category: "Insurance Principles"
+    explanation: "HO 04 61 Scheduled Personal Property Endorsement allows high-value items to be listed individually with agreed values and broader coverage, often with no deductible.",
+    category: "Homeowners Policy"
   },
   {
     id: 133,
-    question: "What is 'concealment' in insurance?",
+    question: "What does HO 04 54 provide?",
     options: [
-      "Privacy protection",
-      "Failure to disclose known material facts",
-      "Hiding damaged property",
-      "A type of coverage"
+      "Flood coverage",
+      "Earthquake coverage",
+      "Wind coverage",
+      "Theft coverage"
     ],
     correctAnswer: 1,
-    explanation: "Concealment is intentionally withholding or hiding material facts that would affect the insurer's decision to issue a policy or the premium charged. It can void coverage.",
-    category: "Insurance Principles"
+    explanation: "HO 04 54 is the Earthquake Endorsement adding coverage for earthquake damage, which is excluded from standard policies. It includes a separate percentage deductible.",
+    category: "Homeowners Policy"
   },
   {
     id: 134,
-    question: "What is 'misrepresentation' in insurance?",
+    question: "What does HO 04 42 provide?",
     options: [
-      "False advertising",
-      "Providing false or misleading information on an application",
-      "Incorrect claim amount",
-      "Policy errors"
+      "Flood coverage",
+      "Permitted Incidental Occupancies (home business) coverage",
+      "Earthquake coverage",
+      "Rental property coverage"
     ],
     correctAnswer: 1,
-    explanation: "Misrepresentation is providing false, incomplete, or misleading information on an insurance application. Material misrepresentation (affecting risk or premium) can void the policy.",
-    category: "Insurance Principles"
+    explanation: "HO 04 42 Permitted Incidental Occupancies endorsement extends limited coverage for small home-based businesses, increasing business property limits and adding some liability.",
+    category: "Homeowners Policy"
   },
   {
     id: 135,
-    question: "What is 'material fact' in underwriting?",
+    question: "To receive replacement cost on dwelling coverage, most policies require insuring to at least what percentage of replacement value?",
     options: [
-      "Information about building materials",
-      "Information that would influence an underwriter's decision to accept risk or determine premium",
-      "Physical property characteristics",
-      "The policy fabric"
+      "50%",
+      "70%",
+      "80%",
+      "100%"
     ],
-    correctAnswer: 1,
-    explanation: "A material fact is any information that would affect an underwriter's decision to accept the risk, set the premium, or determine policy terms. Material facts must be disclosed.",
-    category: "Insurance Principles"
+    correctAnswer: 2,
+    explanation: "Most homeowners policies require dwelling coverage of at least 80% of replacement cost to avoid coinsurance penalty and receive full replacement cost benefits up to policy limits.",
+    category: "Homeowners Policy"
   },
   {
     id: 136,
-    question: "What is the purpose of underwriting?",
+    question: "Trees, shrubs, and plants coverage is limited to what percent of Coverage A?",
     options: [
-      "Writing policies",
-      "Evaluating and selecting risks to ensure profitable operation",
-      "Paying claims",
-      "Marketing insurance"
+      "2%",
+      "5%",
+      "10%",
+      "15%"
     ],
     correctAnswer: 1,
-    explanation: "Underwriting is the process of evaluating risks, selecting which to insure, classifying them appropriately, and determining proper premiums to ensure the insurer's profitability and solvency.",
-    category: "Insurance Principles"
+    explanation: "Trees, shrubs, and plants are covered up to 5% of Coverage A, with a $500 per-item limit, for loss from named perils like fire or vehicle damage (not wind or disease).",
+    category: "Homeowners Policy"
   },
   {
     id: 137,
-    question: "What is 'salvage' in property insurance?",
+    question: "What is the typical fire department service charge coverage limit?",
     options: [
-      "Covered property destroyed in a loss",
-      "Damaged property the insurer takes ownership of after paying a claim",
-      "Property saved from a loss",
-      "Recovered stolen property"
+      "$250",
+      "$500",
+      "$1,000",
+      "$2,000"
     ],
     correctAnswer: 1,
-    explanation: "Salvage is the damaged property remaining after a loss that the insurer takes title to after paying a total loss claim. The insurer may sell the salvage to reduce claim costs.",
-    category: "Insurance Principles"
+    explanation: "Fire department service charge coverage typically pays up to $500 when the fire department charges for responding to save or protect covered property from a covered peril.",
+    category: "Homeowners Policy"
   },
   {
     id: 138,
-    question: "What is a 'reservation of rights' letter?",
+    question: "What is the typical loss assessment coverage limit?",
     options: [
-      "A policy renewal notice",
-      "Notification from the insurer that it will defend a claim but may deny coverage later",
-      "A premium increase notice",
-      "A claim approval"
+      "$500",
+      "$1,000",
+      "$2,500",
+      "$5,000"
     ],
     correctAnswer: 1,
-    explanation: "A reservation of rights letter informs the insured that the insurer will investigate or defend a claim but reserves the right to deny coverage if investigation reveals the claim is not covered.",
-    category: "Insurance Principles"
+    explanation: "Loss assessment coverage typically provides $1,000 to pay the insured's share of assessments by a homeowners association for covered losses to common property. Higher limits available.",
+    category: "Homeowners Policy"
   },
   {
     id: 139,
-    question: "What does 'first-party coverage' mean?",
+    question: "Credit card coverage provides up to what limit?",
     options: [
-      "Coverage for the named insured",
-      "Coverage for the insured's own property or injuries (e.g., collision, comprehensive)",
-      "Liability coverage",
-      "Medical payments to others"
+      "$250",
+      "$500",
+      "$1,000",
+      "$2,000"
     ],
     correctAnswer: 1,
-    explanation: "First-party coverage protects the insured's own property or person, such as collision, comprehensive, medical payments, and homeowners property coverage.",
-    category: "Insurance Principles"
+    explanation: "Credit card, fund transfer card, and forgery coverage provides up to $500 protection against unauthorized use, with no deductible.",
+    category: "Homeowners Policy"
   },
   {
     id: 140,
-    question: "What does 'third-party coverage' mean?",
+    question: "What is the typical limit for refrigerated products coverage?",
     options: [
-      "Three insureds on one policy",
-      "Liability coverage that protects against claims by others",
-      "Additional coverage",
-      "Excess coverage"
+      "$250",
+      "$500",
+      "$1,000",
+      "$2,000"
     ],
     correctAnswer: 1,
-    explanation: "Third-party coverage is liability insurance that protects the insured against claims made by others (third parties) for bodily injury or property damage the insured causes.",
-    category: "Insurance Principles"
+    explanation: "Refrigerated products coverage typically pays up to $500 for food spoilage due to power outage or mechanical failure of refrigeration equipment, with no deductible.",
+    category: "Homeowners Policy"
   },
-
-  // COMMERCIAL INSURANCE & ADDITIONAL TOPICS (60 questions)
   {
     id: 141,
-    question: "What is workers' compensation insurance?",
+    question: "Who is excluded from Coverage F (Medical Payments to Others)?",
     options: [
-      "Health insurance for workers",
-      "Mandatory coverage providing benefits to employees injured on the job, regardless of fault",
-      "Unemployment insurance",
-      "Retirement benefits"
+      "Guests",
+      "Named insured and resident relatives",
+      "Delivery persons",
+      "Neighbors"
     ],
     correctAnswer: 1,
-    explanation: "Workers' compensation is a no-fault system that provides medical benefits, wage replacement, and death benefits to employees injured or killed in the course of employment.",
-    category: "Commercial Insurance"
+    explanation: "Coverage F pays medical expenses for OTHERS injured on your property or by your activities. The named insured, resident relatives, and regular residents are excluded.",
+    category: "Homeowners Policy"
   },
   {
     id: 142,
-    question: "In Virginia, at what employee threshold is workers' compensation insurance generally required?",
+    question: "Is flood damage covered under a standard HO-3?",
     options: [
-      "1 or more employees",
-      "2 or more employees",
-      "More than 2 (3 or more) employees",
-      "5 or more employees"
+      "Yes, automatically",
+      "No, requires separate flood insurance",
+      "Yes, but limited",
+      "Only if endorsed"
     ],
-    correctAnswer: 2,
-    explanation: "Virginia generally requires workers' compensation insurance when a business regularly employs more than two employees (3 or more), though some exceptions and special rules apply.",
-    category: "Commercial Insurance"
+    correctAnswer: 1,
+    explanation: "Flood damage is excluded from all standard homeowners policies. Flood insurance must be purchased separately through the National Flood Insurance Program (NFIP) or private insurers.",
+    category: "Homeowners Policy"
   },
   {
     id: 143,
-    question: "What does 'professional liability' insurance cover?",
+    question: "Is earthquake damage covered under a standard HO-3?",
     options: [
-      "General business liability",
-      "Liability for negligent professional services or advice (errors & omissions)",
-      "Product defects",
-      "Auto accidents"
+      "Yes, automatically",
+      "No, requires HO 04 54 Earthquake Endorsement",
+      "Yes, but limited",
+      "Only for minor damage"
     ],
     correctAnswer: 1,
-    explanation: "Professional liability (E&O - Errors & Omissions) insurance covers liability arising from negligent professional services, errors, mistakes, or failure to perform professional duties.",
-    category: "Commercial Insurance"
+    explanation: "Earthquake damage is excluded from standard homeowners policies. Coverage requires the HO 04 54 Earthquake Endorsement with a separate percentage deductible.",
+    category: "Homeowners Policy"
   },
   {
     id: 144,
-    question: "What is a 'Commercial General Liability' (CGL) policy?",
+    question: "What does the 'debris removal' additional coverage provide?",
     options: [
-      "Auto liability for businesses",
-      "Broad liability coverage for businesses including premises, operations, and products",
-      "Workers' compensation",
-      "Property insurance"
+      "Landscaping services",
+      "Pays to remove debris of covered property after a covered loss",
+      "Garbage collection",
+      "Tree trimming"
     ],
     correctAnswer: 1,
-    explanation: "The CGL policy provides broad liability coverage for businesses including bodily injury and property damage arising from premises, operations, products, and completed operations.",
-    category: "Commercial Insurance"
+    explanation: "Debris removal pays costs to remove debris of covered property damaged by a covered cause of loss. Provides additional 5% of Coverage A limit if the dwelling limit plus debris removal exceeds policy limits.",
+    category: "Homeowners Policy"
   },
   {
     id: 145,
-    question: "What is 'products liability' coverage?",
+    question: "What does 'reasonable repairs' additional coverage pay for?",
     options: [
-      "Insuring products in inventory",
-      "Liability for injury or damage caused by products manufactured or sold",
-      "Theft of products",
-      "Product warranties"
+      "All home repairs",
+      "Repairs made solely to protect property from further damage after a loss",
+      "Regular maintenance",
+      "Upgrades"
     ],
     correctAnswer: 1,
-    explanation: "Products liability coverage protects manufacturers, distributors, and sellers against claims for bodily injury or property damage caused by their products.",
-    category: "Commercial Insurance"
+    explanation: "Reasonable repairs coverage pays for temporary repairs made solely to protect property from further damage after a covered loss, such as covering a damaged roof.",
+    category: "Homeowners Policy"
   },
   {
     id: 146,
-    question: "What is 'completed operations' coverage?",
+    question: "What does 'property removed' additional coverage do?",
     options: [
-      "Covers work in progress",
-      "Liability for injury or damage arising from completed work after the contractor leaves",
-      "Property insurance",
-      "Employee injuries"
+      "Moving expenses",
+      "Extends coverage to property removed from premises to protect from a peril",
+      "Theft coverage",
+      "Storage unit coverage"
     ],
     correctAnswer: 1,
-    explanation: "Completed operations coverage protects contractors and service providers against liability for injury or damage that occurs after they complete work and leave the premises.",
-    category: "Commercial Insurance"
+    explanation: "Property removed coverage extends protection for up to 30 days to property removed from the premises to protect it from a covered peril.",
+    category: "Homeowners Policy"
   },
   {
     id: 147,
-    question: "What is a 'Business Owners Policy' (BOP)?",
+    question: "What is the typical special limit for business property on-premises?",
     options: [
-      "Life insurance for business owners",
-      "A package policy combining property, liability, and business income coverage for small businesses",
-      "Workers' compensation",
-      "Key person insurance"
+      "$1,000",
+      "$2,500",
+      "$5,000",
+      "$10,000"
     ],
     correctAnswer: 1,
-    explanation: "A BOP is a package policy designed for small to medium-sized businesses that combines property, general liability, and business income coverage at a reduced premium.",
-    category: "Commercial Insurance"
+    explanation: "Business property kept at home is limited to $2,500 on premises and $250 away from premises. Substantial business property requires separate business insurance.",
+    category: "Homeowners Policy"
   },
   {
     id: 148,
-    question: "What does 'business income' (business interruption) insurance cover?",
+    question: "What does HO 04 97 provide?",
     options: [
-      "Daily operating expenses",
-      "Lost income and continuing expenses when business is suspended due to a covered loss",
-      "Employee salaries only",
-      "Marketing costs"
+      "Earthquake coverage",
+      "Home Daycare endorsement",
+      "Flood coverage",
+      "Umbrella liability"
     ],
     correctAnswer: 1,
-    explanation: "Business income insurance covers lost net income and continuing expenses when a covered property loss forces a business to suspend operations. It helps maintain financial stability during recovery.",
-    category: "Commercial Insurance"
+    explanation: "HO 04 97 Home Daycare endorsement provides limited coverage for home-based daycare operations, which would otherwise be excluded under standard policies.",
+    category: "Homeowners Policy"
   },
   {
     id: 149,
-    question: "What is 'extra expense' coverage?",
+    question: "What is 'ordinance or law' coverage?",
     options: [
-      "Additional advertising costs",
-      "Covers extra costs to continue operations after a covered loss",
-      "Overtime pay",
-      "Equipment upgrades"
+      "Legal expense coverage",
+      "Covers increased costs to rebuild to current building codes",
+      "Zoning compliance",
+      "Permit fees"
     ],
     correctAnswer: 1,
-    explanation: "Extra expense coverage pays additional costs incurred to continue business operations following a covered loss, such as renting temporary facilities or equipment.",
-    category: "Commercial Insurance"
+    explanation: "Ordinance or law coverage pays increased costs to rebuild to current building codes when older structures are damaged. Standard policies provide limited coverage; additional available by endorsement.",
+    category: "Homeowners Policy"
   },
   {
     id: 150,
-    question: "What is 'bailees customers' insurance?",
+    question: "Is mold damage covered under HO-3?",
     options: [
-      "Landlord liability",
-      "Covers customer property in the care, custody, or control of a business (dry cleaners, repair shops)",
-      "Employee property",
-      "Business inventory"
+      "Always fully covered",
+      "Limited coverage if it results from a covered peril (typically $10,000)",
+      "Never covered",
+      "Only with endorsement"
     ],
     correctAnswer: 1,
-      "explanation": "Bailees customers insurance covers a business's legal liability for damage to customers' property while in the business's care, custody, or control, such as clothing at a dry cleaner or vehicles at a repair shop.",
-    category: "Commercial Insurance"
+    explanation: "Mold (fungi) coverage is limited, typically to $10,000, and only if it results from a covered water damage cause of loss. Broader mold coverage requires endorsements.",
+    category: "Homeowners Policy"
   },
+
+  // AUTO INSURANCE (40 questions - 20% of 200)
   {
     id: 151,
-    question: "What is 'garage liability' insurance?",
+    question: "What are Virginia's minimum auto liability limits effective January 1, 2025?",
     options: [
-      "Personal auto liability",
-      "Specialized coverage for auto dealers, repair shops, and parking facilities",
-      "Homeowners garage coverage",
-      "Storage unit insurance"
+      "$25,000/$50,000/$20,000",
+      "$30,000/$60,000/$20,000",
+      "$50,000/$100,000/$25,000",
+      "$100,000/$300,000/$50,000"
     ],
-    correctAnswer: 1,
-    explanation: "Garage liability provides coverage for businesses in the auto business, including dealers, repair shops, and service stations, covering both operations and autos.",
-    category: "Commercial Insurance"
+    correctAnswer: 2,
+    explanation: "Virginia Code § 46.2-472 requires minimum auto liability of $50,000 per person, $100,000 per accident for bodily injury, and $25,000 for property damage (50/100/25) for policies effective on or after January 1, 2025.",
+    category: "Auto Insurance"
   },
   {
     id: 152,
-    question: "What is 'inland marine' insurance?",
+    question: "What happened to Virginia's $500 uninsured motor vehicle fee?",
     options: [
-      "Ocean cargo insurance",
-      "Coverage for movable property, goods in transit, instrumentalities of transportation",
-      "Boat insurance on lakes",
-      "Marine life coverage"
+      "Increased to $750",
+      "Eliminated July 1, 2024 - insurance now mandatory",
+      "Reduced to $250",
+      "Still available"
     ],
     correctAnswer: 1,
-    explanation: "Inland marine insurance covers movable property, property in transit, instrumentalities of transportation (bridges, tunnels), and property of certain dealers (jewelers, furriers).",
-    category: "Commercial Insurance"
+    explanation: "Virginia eliminated the $500 uninsured motor vehicle (UMV) fee on July 1, 2024. Auto insurance is now mandatory for all registered vehicles.",
+    category: "Auto Insurance"
   },
   {
     id: 153,
-    question: "What does 'builders risk' insurance cover?",
+    question: "Is uninsured motorist (UM) coverage mandatory in Virginia?",
     options: [
-      "Contractor liability",
-      "Property insurance for buildings under construction",
-      "Architect errors",
-      "Worker injuries"
+      "No, completely optional",
+      "Yes, must be offered with limits equal to liability unless rejected in writing",
+      "Only for new cars",
+      "Only if required by lender"
     ],
     correctAnswer: 1,
-    explanation: "Builders risk insurance provides property coverage for buildings under construction or renovation, protecting against damage from covered perils during the construction period.",
-    category: "Commercial Insurance"
+    explanation: "Virginia Code § 38.2-2206 requires insurers to offer uninsured/underinsured motorist coverage with limits equal to liability limits unless the insured rejects or reduces coverage in writing.",
+    category: "Auto Insurance"
   },
   {
     id: 154,
-    question: "What is a 'surety bond'?",
+    question: "What is the minimum property damage coverage in Virginia UM coverage?",
     options: [
-      "Insurance policy",
-      "A three-party agreement guaranteeing performance or payment",
-      "Retirement plan",
-      "Investment"
+      "$10,000",
+      "$15,000",
+      "$20,000",
+      "$25,000"
     ],
-    correctAnswer: 1,
-    explanation: "A surety bond is a three-party agreement where the surety guarantees the principal's performance or payment to the obligee. If the principal defaults, the surety must perform or compensate.",
-    category: "Commercial Insurance"
+    correctAnswer: 2,
+    explanation: "Virginia UM coverage must include at least $20,000 for property damage caused by uninsured motorists, and may include a $200 deductible for hit-and-run accidents.",
+    category: "Auto Insurance"
   },
   {
     id: 155,
-    question: "What is 'employment practices liability' (EPL) insurance?",
+    question: "Who is covered under a Personal Auto Policy (PAP)?",
     options: [
-      "Workers' compensation",
-      "Covers claims of discrimination, harassment, wrongful termination by employees",
-      "General liability",
-      "Professional liability"
+      "Named insured only",
+      "Named insured, resident family members, and permissive users",
+      "Anyone who drives",
+      "Licensed drivers only"
     ],
     correctAnswer: 1,
-    explanation: "EPL insurance protects employers against employee claims of discrimination, sexual harassment, wrongful termination, retaliation, and other employment-related issues.",
-    category: "Commercial Insurance"
+    explanation: "The PAP covers the named insured, resident relatives/family members, and any person using the covered auto with permission (permissive user).",
+    category: "Auto Insurance"
   },
   {
     id: 156,
-    question: "What is 'cyber liability' insurance?",
+    question: "What is collision coverage?",
     options: [
-      "Computer equipment coverage",
-      "Coverage for data breaches, cyber attacks, and privacy violations",
-      "Internet service interruption",
-      "Website hosting"
+      "All physical damage",
+      "Damage from impact with vehicle or object, or vehicle overturn",
+      "Theft and vandalism",
+      "Mechanical breakdown"
     ],
     correctAnswer: 1,
-    explanation: "Cyber liability insurance covers losses from data breaches, cyber attacks, privacy violations, and related expenses including notification costs, credit monitoring, and legal defense.",
-    category: "Commercial Insurance"
+    explanation: "Collision coverage pays for damage to your vehicle from impact with another vehicle or object, or from your vehicle rolling over. Subject to a deductible.",
+    category: "Auto Insurance"
   },
   {
     id: 157,
-    question: "What is 'umbrella liability' coverage?",
+    question: "What is comprehensive (other than collision) coverage?",
     options: [
-      "Weather-related coverage",
-      "Excess liability coverage above underlying policies",
-      "Property coverage",
-      "Auto coverage only"
+      "All damage",
+      "Damage from non-collision perils like theft, vandalism, fire, hitting animal",
+      "Collision only",
+      "Liability only"
     ],
     correctAnswer: 1,
-    explanation: "Umbrella liability provides excess liability coverage above underlying policies (auto, homeowners, CGL) and may also cover some claims excluded by underlying policies, subject to a self-insured retention.",
-    category: "Commercial Insurance"
+    explanation: "Comprehensive or 'other than collision' coverage pays for damage from non-collision perils including theft, vandalism, fire, hail, flood, glass, hitting animals, etc.",
+    category: "Auto Insurance"
   },
   {
     id: 158,
-    question: "What is the difference between 'occurrence' and 'claims-made' coverage?",
+    question: "If you hit a deer, which coverage applies?",
     options: [
-      "No difference",
-      "Occurrence covers accidents during policy period regardless of when claimed; claims-made requires both accident and claim during policy period",
-      "Claims-made is broader",
-      "Only applies to property coverage"
+      "Collision",
+      "Comprehensive",
+      "Liability",
+      "Uninsured motorist"
     ],
     correctAnswer: 1,
-    explanation: "Occurrence coverage responds to accidents that occur during the policy period, whenever the claim is made. Claims-made coverage requires both the incident and claim to occur during the policy period or extended reporting period.",
-    category: "Commercial Insurance"
+    explanation: "Hitting an animal (such as a deer) is covered under comprehensive (other than collision) coverage, not collision coverage.",
+    category: "Auto Insurance"
   },
   {
     id: 159,
-    question: "What is an 'extended reporting period' (tail coverage)?",
+    question: "What does medical payments (MedPay) coverage pay for?",
     options: [
-      "Extension of property coverage",
-      "Extends time to report claims for incidents that occurred during a claims-made policy",
-      "Longer policy period",
-      "Auto coverage extension"
+      "Injuries to others you hit",
+      "Medical expenses for you and passengers, regardless of fault",
+      "Vehicle repairs",
+      "Only if at fault"
     ],
     correctAnswer: 1,
-    explanation: "An extended reporting period (tail) allows an insured to report claims after a claims-made policy expires for incidents that occurred during the policy period, providing continued protection.",
-    category: "Commercial Insurance"
+    explanation: "Medical payments coverage pays reasonable medical expenses for the insured and passengers in the covered vehicle, regardless of who was at fault in the accident.",
+    category: "Auto Insurance"
   },
   {
     id: 160,
-    question: "What does 'directors and officers' (D&O) liability insurance cover?",
+    question: "What is a 'permissive user'?",
     options: [
-      "Property damage",
-      "Personal liability of corporate directors and officers for wrongful acts in managing the company",
-      "Workers' compensation",
-      "General liability"
+      "Licensed driver only",
+      "Someone using the vehicle with owner's permission",
+      "Family member only",
+      "Named insured only"
     ],
     correctAnswer: 1,
-    explanation: "D&O insurance protects directors and officers from personal liability for alleged wrongful acts (errors, omissions, breach of duty) in managing the corporation.",
-    category: "Commercial Insurance"
+    explanation: "A permissive user is any person using the covered auto with the express or implied permission of the named insured. Generally covered under the owner's policy.",
+    category: "Auto Insurance"
   },
   {
     id: 161,
-    question: "What is 'boiler and machinery' (equipment breakdown) insurance?",
+    question: "Under PAP, 'newly acquired auto' physical damage coverage typically extends for:",
     options: [
-      "General property coverage",
-      "Coverage for breakdown of mechanical and electrical equipment",
-      "Auto coverage",
-      "Workers' compensation"
+      "7 days",
+      "14 days if any vehicle has that coverage",
+      "30 days",
+      "60 days"
     ],
     correctAnswer: 1,
-    explanation: "Boiler and machinery (now often called equipment breakdown) insurance covers sudden and accidental breakdown of mechanical and electrical equipment, including repair costs and business income loss.",
-    category: "Commercial Insurance"
+    explanation: "The PAP automatically extends collision and comprehensive to a newly acquired vehicle for 14 days if any vehicle on the policy already has that coverage. Liability extends automatically.",
+    category: "Auto Insurance"
   },
   {
     id: 162,
-    question: "What is 'crime insurance' (commercial crime coverage)?",
+    question: "Which coverage pays if you damage someone's fence with your car?",
     options: [
-      "Liability for criminal acts",
-      "Covers employee theft, forgery, robbery, and other crimes against the business",
-      "Bail bonds",
-      "Legal defense"
+      "Collision",
+      "Property damage liability",
+      "Comprehensive",
+      "Uninsured motorist"
     ],
     correctAnswer: 1,
-    explanation: "Commercial crime insurance covers losses from employee dishonesty, forgery, theft, robbery, burglary, and other criminal acts against the business, both inside and outside premises.",
-    category: "Commercial Insurance"
+    explanation: "Property damage liability coverage pays for damage you cause to another person's property, such as their fence, vehicle, or building.",
+    category: "Auto Insurance"
   },
   {
     id: 163,
-    question: "What is 'fidelity bond' coverage?",
+    question: "What is 'underinsured motorist' (UIM) coverage?",
     options: [
-      "Surety bond for contracts",
-      "Covers employee dishonesty and theft",
-      "Investment guarantee",
-      "Loan insurance"
+      "For drivers without a license",
+      "Pays when at-fault driver's limits are insufficient to cover your damages",
+      "Covers your vehicle",
+      "Lowers your liability"
     ],
     correctAnswer: 1,
-    explanation: "A fidelity bond protects employers against losses from employee dishonesty, theft, or embezzlement. It covers direct loss of money, securities, and property.",
-    category: "Commercial Insurance"
+    explanation: "Underinsured motorist coverage pays when the at-fault driver's liability limits are insufficient to cover your injuries or damages. It bridges the gap between their coverage and your actual losses.",
+    category: "Auto Insurance"
   },
   {
     id: 164,
-    question: "What is a 'liquor liability' policy?",
+    question: "What is 'stacking' of UM coverage?",
     options: [
-      "Product liability",
-      "Covers liability for businesses that serve or sell alcohol",
-      "Property damage",
-      "Auto liability"
+      "Two separate policies",
+      "Combining UM limits from multiple vehicles on same policy",
+      "Increasing limits annually",
+      "Adding UM to collision"
     ],
     correctAnswer: 1,
-    explanation: "Liquor liability insurance covers businesses that manufacture, sell, or serve alcoholic beverages against liability for injuries or damages caused by intoxicated patrons.",
-    category: "Commercial Insurance"
+    explanation: "Stacking allows combining or 'stacking' uninsured motorist coverage limits from multiple vehicles on the same policy to provide higher total coverage for a single claim.",
+    category: "Auto Insurance"
   },
   {
     id: 165,
-    question: "What does 'business personal property' include in commercial property insurance?",
+    question: "What does 'towing and labor' coverage pay for?",
     options: [
-      "The building structure",
-      "Furniture, equipment, inventory, supplies, and improvements owned by the tenant",
-      "Land",
-      "Vehicles"
+      "Collision repairs only",
+      "Towing and on-scene labor when vehicle is disabled",
+      "Regular maintenance",
+      "Fuel delivery only"
     ],
     correctAnswer: 1,
-    explanation: "Business personal property includes furniture, fixtures, equipment, inventory, stock, supplies, and tenant improvements and betterments. It does not include the building itself or land.",
-    category: "Commercial Insurance"
+    explanation: "Towing and labor coverage reimburses towing costs and labor charges at the scene when the vehicle is disabled, up to policy limits, regardless of cause.",
+    category: "Auto Insurance"
   },
   {
     id: 166,
-    question: "What is the 'coinsurance clause' in commercial property insurance?",
+    question: "What is 'rental reimbursement' coverage?",
     options: [
-      "The deductible",
-      "Requires insuring property to a specified percentage (typically 80%) of value to avoid a penalty",
-      "Shared ownership",
-      "Premium calculation"
+      "Pays for rental car damage",
+      "Pays daily rental costs while your car is repaired after covered loss",
+      "Permanent replacement",
+      "Ride-share expenses"
     ],
     correctAnswer: 1,
-    explanation: "The coinsurance clause requires the insured to carry insurance equal to a specified percentage (80%, 90%, or 100%) of the property's value. Failure to do so results in a penalty where the insured becomes a co-insurer.",
-    category: "Commercial Insurance"
+    explanation: "Rental reimbursement pays a specified daily amount (up to policy limits) for a rental vehicle while your covered auto is being repaired or replaced after a covered loss.",
+    category: "Auto Insurance"
   },
   {
     id: 167,
-    question: "What is 'agreed value' coverage in property insurance?",
+    question: "How is actual cash value (ACV) calculated for an auto total loss?",
     options: [
-      "The insurer decides the value",
-      "The insurer and insured agree on property value, suspending the coinsurance clause",
-      "Actual cash value",
-      "Market value"
+      "Original purchase price",
+      "Replacement cost minus depreciation",
+      "Book value only",
+      "Trade-in value"
     ],
     correctAnswer: 1,
-    explanation: "Agreed value coverage suspends the coinsurance clause. The insurer and insured agree on the property's value, and claims are paid based on that agreed value, eliminating penalty risk.",
-    category: "Commercial Insurance"
+    explanation: "Actual cash value is calculated as the cost to replace the vehicle with a similar one (replacement cost) minus depreciation for age, wear, and condition.",
+    category: "Auto Insurance"
   },
   {
     id: 168,
-    question: "What is a 'Commercial Package Policy' (CPP)?",
+    question: "What is GAP insurance?",
     options: [
-      "Life and health combination",
-      "Customizable policy combining multiple commercial coverages",
-      "Auto insurance only",
-      "Workers' compensation"
+      "Geographic coverage",
+      "Covers difference between ACV and amount owed on financed/leased vehicle",
+      "Collision coverage",
+      "Liability extension"
     ],
     correctAnswer: 1,
-    explanation: "A Commercial Package Policy allows businesses to combine multiple coverages (property, liability, crime, inland marine, etc.) into one policy with common declarations, conditions, and potentially lower premiums.",
-    category: "Commercial Insurance"
+    explanation: "Guaranteed Auto Protection (GAP) insurance covers the difference between what you owe on a financed or leased vehicle and its actual cash value if it's totaled.",
+    category: "Auto Insurance"
   },
   {
     id: 169,
-    question: "What does 'valuable papers' coverage insure?",
+    question: "Virginia Amendment of Policy Provisions endorsement (PP 01 99 01 25) does what?",
     options: [
-      "Money and coins",
-      "Cost to research and replace important documents and records",
-      "Jewelry",
-      "Securities"
+      "Increases coverage",
+      "Modifies policy to comply with Virginia law and regulations",
+      "Adds vehicles",
+      "Lowers premiums"
     ],
     correctAnswer: 1,
-    explanation: "Valuable papers and records coverage pays the cost to research, replace, or restore important business documents, records, and data that are lost or damaged.",
-    category: "Commercial Insurance"
+    explanation: "The Virginia Amendment endorsement (PP 01 99) modifies the standard PAP to comply with Virginia-specific laws and regulations.",
+    category: "Auto Insurance"
   },
   {
     id: 170,
-    question: "What is 'accounts receivable' coverage?",
+    question: "Virginia Medical Expense and Income Loss Benefits endorsement (PP 05 96 01 20) provides what?",
     options: [
-      "Collection services",
-      "Covers inability to collect from customers due to loss of records",
-      "Bad debt expense",
-      "Banking insurance"
+      "Replaces MedPay",
+      "Optional PIP-type coverage for medical expenses and lost income",
+      "Liability coverage",
+      "Property coverage"
     ],
     correctAnswer: 1,
-    explanation: "Accounts receivable coverage pays for amounts the business cannot collect from customers due to destruction of records in a covered loss, plus collection costs and interest.",
-    category: "Commercial Insurance"
+    explanation: "This Virginia endorsement provides optional Personal Injury Protection (PIP) style coverage for medical expenses and income loss, similar to no-fault benefits.",
+    category: "Auto Insurance"
   },
   {
     id: 171,
-    question: "What is the purpose of a 'business income worksheet'?",
+    question: "What must insurers do when they cancel or nonrenew a Virginia auto policy?",
     options: [
-      "Tax preparation",
-      "Determines appropriate business income coverage limit",
-      "Employee payroll",
-      "Budget planning"
+      "No notice required",
+      "Provide specific notice requirements and timing per Virginia law",
+      "Email only",
+      "Verbal notice acceptable"
     ],
     correctAnswer: 1,
-    explanation: "A business income worksheet helps calculate the proper amount of business income coverage by estimating potential lost net income and continuing expenses if operations were suspended.",
-    category: "Commercial Insurance"
+    explanation: "Virginia Code § 38.2-231, 2208, 2212 requires specific written notice with stated reasons and timing when canceling or nonrenewing auto insurance, including notice of assigned risk plan eligibility.",
+    category: "Auto Insurance"
   },
   {
     id: 172,
-    question: "What is 'spoilage coverage'?",
+    question: "Can Virginia insurers use after-market parts in repairs?",
     options: [
-      "Food safety inspection",
-      "Covers loss of perishable goods due to equipment breakdown or power failure",
-      "Product liability",
-      "Waste disposal"
+      "Yes, without disclosure",
+      "Only with advance disclosure to insured",
+      "Never allowed",
+      "Only for cosmetic parts"
     ],
     correctAnswer: 1,
-    explanation: "Spoilage coverage pays for loss of perishable goods (food, medicine, etc.) that spoil due to breakdown of refrigeration equipment or contamination from a covered cause of loss.",
-    category: "Commercial Insurance"
+    explanation: "Virginia Code § 38.2-510(C) requires insurers to disclose in advance if after-market (non-OEM) parts will be used in repairs.",
+    category: "Auto Insurance"
   },
   {
     id: 173,
-    question: "What is 'tenant improvements and betterments'?",
+    question: "Can drivers be excluded from Virginia auto policies?",
     options: [
-      "Building renovations by owner",
-      "Alterations, additions, or improvements made by a tenant to a rented building",
-      "Landscaping",
-      "Equipment purchases"
+      "No, never",
+      "Yes, with named driver exclusion endorsement per Virginia Code § 38.2-2204",
+      "Yes, verbally",
+      "Only unlicensed drivers"
     ],
     correctAnswer: 1,
-    explanation: "Tenant improvements and betterments are alterations, fixtures, or improvements made by a tenant at their expense to a building they do not own. These are covered as business personal property.",
-    category: "Commercial Insurance"
+    explanation: "Virginia Code § 38.2-2204 allows insurers to exclude named drivers from coverage by endorsement, typically used for high-risk household members.",
+    category: "Auto Insurance"
   },
   {
     id: 174,
-    question: "What is 'contingent business income' coverage?",
+    question: "What is the Virginia Automobile Insurance Plan?",
     options: [
-      "Future income projections",
-      "Covers lost income when a key supplier or customer suffers a covered loss",
-      "Investment income",
-      "Interest income"
+      "Discount program",
+      "Assigned risk plan for drivers unable to obtain coverage in voluntary market",
+      "Government insurance",
+      "Group policy"
     ],
     correctAnswer: 1,
-    explanation: "Contingent business income coverage pays for income loss when a covered peril damages property of a key supplier, customer, or other business the insured depends on.",
-    category: "Commercial Insurance"
+    explanation: "The Virginia Automobile Insurance Plan (RL 46.2-464-471) is the assigned risk plan that provides insurance to drivers who cannot obtain coverage in the voluntary market.",
+    category: "Auto Insurance"
   },
   {
     id: 175,
-    question: "What is the 'hired and non-owned auto' endorsement?",
+    question: "What are 'supplementary payments' under auto liability?",
     options: [
-      "Covers stolen vehicles",
-      "Provides liability coverage for vehicles the business rents or employees use for business",
-      "Physical damage coverage",
-      "Passenger coverage"
+      "Extra premiums",
+      "Defense costs, court costs, bail bonds paid in addition to limits",
+      "Physical damage payments",
+      "Premium refunds"
     ],
     correctAnswer: 1,
-    explanation: "Hired and non-owned auto coverage provides liability protection when the business uses rented vehicles or employees use their personal vehicles for business purposes.",
-    category: "Commercial Insurance"
+    explanation: "Supplementary payments include defense costs, court costs, bail bonds (up to $250), and other specified expenses paid by the insurer in addition to the policy limits.",
+    category: "Auto Insurance"
   },
   {
     id: 176,
-    question: "What is 'medical payments' coverage under a CGL policy?",
+    question: "What is a 'non-owned auto'?",
     options: [
-      "Employee health insurance",
-      "Pays medical expenses for others injured on premises or by operations, regardless of fault",
-      "Workers' compensation",
-      "Liability coverage"
+      "Stolen vehicle",
+      "Vehicle the insured doesn't own but uses regularly (borrowed, rental)",
+      "Company car",
+      "Uninsured vehicle"
     ],
     correctAnswer: 1,
-    explanation: "Medical payments coverage under a CGL policy pays reasonable medical expenses for others injured on the insured's premises or by the insured's operations, regardless of liability (typically $5,000 limit).",
-    category: "Commercial Insurance"
+    explanation: "A non-owned auto is a vehicle the insured does not own but uses with permission, such as a borrowed car or rental. PAP typically extends liability coverage to non-owned autos.",
+    category: "Auto Insurance"
   },
   {
     id: 177,
-    question: "What does 'personal and advertising injury' cover under a CGL?",
+    question: "What is the 'other insurance' provision in auto policies?",
     options: [
-      "Physical injuries only",
-      "False arrest, libel, slander, copyright infringement, invasion of privacy",
-      "Property damage",
-      "Auto accidents"
+      "Cannot have multiple policies",
+      "Explains how coverage applies when more than one policy covers same loss",
+      "Requires additional coverage",
+      "Cancels all other policies"
     ],
     correctAnswer: 1,
-    explanation: "Personal and advertising injury coverage protects against non-physical injuries including false arrest, defamation (libel/slander), copyright infringement, invasion of privacy, and wrongful eviction.",
-    category: "Commercial Insurance"
+    explanation: "The 'other insurance' clause determines how the policy responds when multiple policies cover the same loss, typically providing that coverage will be prorated or one policy is excess.",
+    category: "Auto Insurance"
   },
   {
     id: 178,
-    question: "What is 'fire legal liability' coverage?",
+    question: "Your teenage daughter living with you borrows your car. Is she covered?",
     options: [
-      "Building owner's coverage",
-      "Covers tenant's liability for fire damage to rented premises",
-      "Arson investigation",
-      "Fire department costs"
+      "No, needs own policy",
+      "Yes, as a resident family member",
+      "Only if listed",
+      "No, unless 18+"
     ],
     correctAnswer: 1,
-    explanation: "Fire legal liability coverage protects tenants against liability for fire damage to buildings or premises they rent or occupy, which would otherwise be excluded under the CGL policy.",
-    category: "Commercial Insurance"
+    explanation: "Resident family members, including your teenage daughter living at home, are automatically insured under your PAP for liability, medical payments, and UM/UIM coverage.",
+    category: "Auto Insurance"
   },
   {
     id: 179,
-    question: "What is 'incidental medical malpractice' coverage?",
+    question: "What is 'betterment' in auto physical damage claims?",
     options: [
-      "Full professional liability",
-      "Limited coverage for minor medical services provided by non-medical businesses (first aid)",
-      "Hospital insurance",
-      "Doctor's E&O"
+      "Upgrading to newer model",
+      "Increased value when old parts are replaced with new",
+      "Higher coverage limits",
+      "Safe driver discount"
     ],
     correctAnswer: 1,
-    explanation: "Incidental medical malpractice coverage provides limited protection for businesses that provide minor medical services (first aid, blood pressure checks) as an incidental part of their operations.",
-    category: "Commercial Insurance"
+    explanation: "Betterment is the increased value when worn or damaged parts are replaced with new ones. Insurers may reduce claim payments to account for this improvement in the vehicle's condition.",
+    category: "Auto Insurance"
   },
   {
     id: 180,
-    question: "What is a 'schedule' in commercial insurance?",
+    question: "Can you use your personal auto for ride-sharing (Uber, Lyft) without special coverage?",
     options: [
-      "Premium payment plan",
-      "A list of covered property, locations, or operations with specific values or limits",
-      "Claims history",
-      "Loss ratio"
+      "Yes, fully covered",
+      "No, requires ride-sharing endorsement or commercial policy",
+      "Yes, if you notify insurer",
+      "Only on weekends"
     ],
     correctAnswer: 1,
-    explanation: "A schedule is a detailed list attached to a policy showing specific covered items (buildings, locations, equipment) with individual values, descriptions, or limits for each.",
-    category: "Commercial Insurance"
+    explanation: "Using a personal auto for commercial transportation like ride-sharing is excluded under standard PAP. Requires a ride-sharing endorsement or commercial policy.",
+    category: "Auto Insurance"
   },
   {
     id: 181,
-    question: "What is 'ordinance or law' coverage in commercial property insurance?",
+    question: "What is the Virginia Transportation Expenses Coverage endorsement (PP 13 52 10 20)?",
     options: [
-      "Legal compliance costs",
-      "Covers increased costs to rebuild to current codes after a covered loss",
-      "Zoning disputes",
-      "Building permits"
+      "Towing coverage",
+      "Rental reimbursement coverage specific to Virginia",
+      "Fuel coverage",
+      "Uber/taxi coverage"
     ],
     correctAnswer: 1,
-    explanation: "Ordinance or law coverage pays increased reconstruction costs due to enforcement of building codes, costs to demolish undamaged portions, and loss of undamaged value when rebuilding is required.",
-    category: "Commercial Insurance"
+    explanation: "This Virginia-specific endorsement provides rental reimbursement coverage, paying daily transportation expenses while your vehicle is repaired.",
+    category: "Auto Insurance"
   },
   {
     id: 182,
-    question: "What is 'pollutant cleanup and removal' coverage?",
+    question: "What is the Virginia Joint Ownership Coverage endorsement (PP 13 53 01 20)?",
     options: [
-      "Environmental liability",
-      "Limited coverage for cleanup of pollutants at the covered premises",
-      "Hazardous waste insurance",
-      "EPA fines"
+      "Covers co-signers",
+      "Provides coverage when vehicle is jointly owned by insureds on separate policies",
+      "Community property",
+      "Business partnerships"
     ],
     correctAnswer: 1,
-    explanation: "Pollutant cleanup and removal provides limited coverage (typically $10,000) for expenses to clean up pollutants at the insured's premises that result from a covered cause of loss.",
-    category: "Commercial Insurance"
+    explanation: "The Joint Ownership endorsement addresses coverage when a vehicle is jointly owned by insureds who have separate auto policies, clarifying which policy is primary.",
+    category: "Auto Insurance"
   },
   {
     id: 183,
-    question: "What is the 'liberalization clause' in insurance policies?",
+    question: "What is the Virginia Extended Non-Owned Coverage endorsement (PP 13 56 01 20)?",
     options: [
-      "Lower premiums",
-      "Automatically provides broader coverage if the insurer revises forms during the policy period",
-      "Flexible payment terms",
-      "Extended policy period"
+      "Stolen vehicle coverage",
+      "Extends coverage to regularly used non-owned vehicles",
+      "Adds vehicles",
+      "Commercial coverage"
     ],
     correctAnswer: 1,
-    explanation: "The liberalization clause automatically provides the insured with broader coverage if the insurer adopts broader forms or endorsements during the policy period, without additional premium.",
-    category: "Commercial Insurance"
+    explanation: "This endorsement extends coverage to non-owned vehicles the named insured uses on a regular basis, beyond the standard PAP non-owned auto coverage.",
+    category: "Auto Insurance"
   },
   {
     id: 184,
-    question: "What is 'peak season' endorsement in business income coverage?",
+    question: "What is Virginia Uninsured Motorist Alternative Coverage (PP 14 34 07 23)?",
     options: [
-      "Seasonal discounts",
-      "Increases business income limit during high-revenue periods",
-      "Holiday coverage",
-      "Weather-related coverage"
+      "Replaces UM",
+      "Optional alternative UM coverage structure for Virginia",
+      "Eliminates UM",
+      "Increases liability"
     ],
     correctAnswer: 1,
-    explanation: "A peak season endorsement automatically increases business income coverage limits during specified high-revenue periods (holiday season, harvest time) to match increased exposure.",
-    category: "Commercial Insurance"
+    explanation: "This endorsement provides an alternative uninsured motorist coverage structure that may offer different terms or options while meeting Virginia requirements.",
+    category: "Auto Insurance"
   },
   {
     id: 185,
-    question: "What is 'joint loss agreement'?",
+    question: "What does the Loss Payable Clause (PP 03 05 09 18) do?",
     options: [
-      "Shared policy between partners",
-      "Agreement between insurers on how to share payment of a loss covered by multiple policies",
-      "Co-insurance",
-      "Reinsurance"
+      "Increases coverage",
+      "Directs physical damage loss payments to lienholder",
+      "Lowers premiums",
+      "Extends liability"
     ],
     correctAnswer: 1,
-    explanation: "A joint loss agreement is a contract between two or more insurers specifying how they will share the payment of losses when multiple policies cover the same property or risk.",
-    category: "Commercial Insurance"
+    explanation: "The Loss Payable Clause directs the insurer to pay physical damage claims to the loss payee (lienholder/lender) who has a financial interest in the vehicle.",
+    category: "Auto Insurance"
   },
   {
     id: 186,
-    question: "What is a 'protective safeguard endorsement'?",
+    question: "What is 'split limit' auto liability?",
     options: [
-      "Security services",
-      "Requires the insured to maintain specified protective devices (sprinklers, alarms)",
-      "Watchdog coverage",
-      "Surveillance insurance"
+      "One combined limit",
+      "Separate limits for bodily injury per person, per accident, and property damage",
+      "Half coverage",
+      "Divided deductibles"
     ],
     correctAnswer: 1,
-    explanation: "A protective safeguard endorsement requires the insured to maintain specified safety systems (automatic sprinklers, burglar alarms, security guards). Failure to maintain them may result in reduced or denied claims.",
-    category: "Commercial Insurance"
+    explanation: "Split limits provide separate coverage amounts for bodily injury per person, bodily injury per accident, and property damage per accident, such as Virginia's required 50/100/25.",
+    category: "Auto Insurance"
   },
   {
     id: 187,
-    question: "What is 'blanket insurance'?",
+    question: "What is the Miscellaneous Type Vehicle endorsement (PP 13 63 01 20)?",
     options: [
-      "Covers everything",
-      "One limit applies to multiple buildings, locations, or types of property",
-      "Basic coverage",
-      "Temporary insurance"
+      "Commercial vehicles",
+      "Modifies coverage for motorcycles, ATVs, and similar vehicles",
+      "Rental cars",
+      "Classic cars"
     ],
     correctAnswer: 1,
-    explanation: "Blanket insurance applies a single limit to multiple buildings, locations, or types of property (building and contents), providing flexibility in claim settlement without individual item limits.",
-    category: "Commercial Insurance"
+    explanation: "This Virginia endorsement modifies the PAP to cover miscellaneous type vehicles like motorcycles, golf carts, or ATVs with appropriate adjustments to coverage.",
+    category: "Auto Insurance"
   },
   {
     id: 188,
-    question: "What is 'specific insurance'?",
+    question: "When must drivers provide proof of insurance in Virginia?",
     options: [
-      "Named perils only",
-      "Separate limits apply to each building, location, or type of property",
-      "Specialty insurance",
-      "High-value items"
+      "Only if asked by police",
+      "When registering vehicle, renewing registration, and upon request",
+      "Never required",
+      "Only for new vehicles"
     ],
     correctAnswer: 1,
-    explanation: "Specific insurance applies separate limits to each individual building, location, or category of property listed in the policy, as opposed to one blanket limit covering multiple items.",
-    category: "Commercial Insurance"
+    explanation: "Virginia law requires proof of insurance when registering a vehicle, renewing registration, and upon request by law enforcement. Driving without insurance can result in license suspension.",
+    category: "Auto Insurance"
   },
   {
     id: 189,
-    question: "What is 'per occurrence' limit in liability insurance?",
+    question: "What is the Virginia Towing and Labor Costs endorsement (PP 13 55 01 20)?",
     options: [
-      "Annual maximum",
-      "Maximum the insurer will pay for all claims arising from a single accident or event",
-      "Per person limit",
-      "Deductible"
+      "Free towing",
+      "Virginia-specific towing and labor coverage",
+      "Unlimited towing",
+      "Roadside assistance"
     ],
     correctAnswer: 1,
-    explanation: "Per occurrence limit is the maximum amount the insurer will pay for all claims (multiple claimants) arising from a single accident, event, or occurrence, regardless of how many people are injured.",
-    category: "Commercial Insurance"
+    explanation: "This Virginia-specific endorsement provides towing and labor coverage, paying for towing and labor costs when the vehicle is disabled.",
+    category: "Auto Insurance"
   },
   {
     id: 190,
-    question: "What is an 'aggregate limit' in liability insurance?",
+    question: "What happens if you let an excluded driver use your vehicle?",
     options: [
-      "Per claim limit",
-      "Maximum total amount the insurer will pay for all claims during the policy period",
-      "Deductible total",
-      "Premium cap"
+      "Full coverage applies",
+      "No coverage for that accident",
+      "Reduced coverage only",
+      "Deductible doubles"
     ],
     correctAnswer: 1,
-    explanation: "The aggregate limit is the maximum total amount the insurer will pay for all covered claims during the entire policy period, regardless of the number of occurrences.",
-    category: "Commercial Insurance"
+    explanation: "If you allow a driver who is specifically excluded by endorsement to use your vehicle, there will be no coverage for any accident involving that excluded driver.",
+    category: "Auto Insurance"
   },
+
+  // OTHER COVERAGES (10 questions - 5% of 200)
   {
     id: 191,
-    question: "What is 'products-completed operations aggregate'?",
+    question: "What is a personal umbrella liability policy?",
     options: [
-      "Inventory coverage",
-      "Separate aggregate limit for products and completed work liability",
-      "Sales totals",
-      "Manufacturing coverage"
+      "Weather coverage",
+      "Excess liability coverage above underlying auto and homeowners policies",
+      "Property coverage",
+      "Health insurance"
     ],
     correctAnswer: 1,
-    explanation: "The products-completed operations aggregate is a separate aggregate limit that applies specifically to liability arising from products manufactured/sold or work completed and turned over to others.",
-    category: "Commercial Insurance"
+    explanation: "A personal umbrella policy provides excess liability coverage above underlying policies (auto, homeowners) and may cover some claims excluded by underlying policies, subject to a self-insured retention.",
+    category: "Other Coverages"
   },
   {
     id: 192,
-    question: "What is a 'buffer layer' in excess liability coverage?",
+    question: "What is the National Flood Insurance Program (NFIP)?",
     options: [
-      "Protective endorsement",
-      "An intermediate layer of excess coverage between underlying policy and umbrella",
-      "Deductible",
-      "Self-insured retention"
+      "Private insurance only",
+      "Federal program providing flood insurance through participating insurers",
+      "State program",
+      "Only for coastal areas"
     ],
     correctAnswer: 1,
-    explanation: "A buffer layer is an intermediate excess liability policy that sits between the primary/underlying coverage and the umbrella policy, providing additional limits before the umbrella attaches.",
-    category: "Commercial Insurance"
+    explanation: "The NFIP is a federal program administered by FEMA that provides flood insurance through participating private insurers or the 'Write Your Own' program, as flood is excluded from standard policies.",
+    category: "Other Coverages"
   },
   {
     id: 193,
-    question: "What is 'follow form' excess coverage?",
+    question: "What is 'Write Your Own' flood insurance?",
     options: [
-      "Copies the application",
-      "Excess policy that follows the terms and conditions of the underlying policy",
-      "Sequential coverage",
-      "Tracking forms"
+      "Self-insurance",
+      "Private insurers issue NFIP flood policies under their own name",
+      "Manuscript policies",
+      "No government backing"
     ],
     correctAnswer: 1,
-    explanation: "Follow form excess coverage adopts the same terms, conditions, and exclusions as the underlying policy, providing additional limits above the primary without changing coverage grants.",
-    category: "Commercial Insurance"
+    explanation: "Write Your Own allows private insurers to issue and service NFIP flood insurance policies under their own names, while the federal government retains the risk and sets rates.",
+    category: "Other Coverages"
   },
   {
     id: 194,
-    question: "What is 'drop down' coverage in an umbrella policy?",
+    question: "Is flood insurance available for non-NFIP participants?",
     options: [
-      "Reduced limits",
-      "Provides coverage below scheduled underlying limits if underlying policy doesn't cover the loss",
-      "Falling object coverage",
-      "Gravity-related claims"
+      "No, NFIP only",
+      "Yes, private flood insurance is available",
+      "Only for commercial",
+      "Only coastal areas"
     ],
     correctAnswer: 1,
-    explanation: "Drop down coverage allows the umbrella to provide primary coverage (subject to a retention) for claims not covered by underlying policies, rather than only providing excess coverage.",
-    category: "Commercial Insurance"
+    explanation: "Private flood insurance is available outside the NFIP, often with broader coverage and potentially better pricing, though NFIP remains the primary source for flood coverage.",
+    category: "Other Coverages"
   },
   {
     id: 195,
-    question: "What is a 'manuscript policy'?",
+    question: "What is the Virginia Property Insurance Association (FAIR Plan)?",
     options: [
-      "Handwritten policy",
-      "Custom-drafted policy for unique or complex risks",
-      "Standard form",
-      "Draft policy"
+      "Discount program",
+      "Residual market providing property insurance when coverage unavailable in voluntary market",
+      "Group insurance",
+      "Government insurance"
     ],
     correctAnswer: 1,
-    explanation: "A manuscript policy is a custom-drafted insurance contract tailored to the specific needs and risks of a particular insured, rather than using standardized forms.",
-    category: "Commercial Insurance"
+    explanation: "The Virginia FAIR Plan (Virginia Code § 38.2-2700-2707) is the basic property residual market providing fire and extended coverage when insurance cannot be obtained in the voluntary market.",
+    category: "Other Coverages"
   },
   {
     id: 196,
-    question: "What does 'notice of occurrence' mean in claims-made coverage?",
+    question: "What does a Personal Articles Floater cover?",
     options: [
-      "Claim filing",
-      "Insured must report potential claims or circumstances that might give rise to claims",
-      "Loss notification",
-      "Premium notice"
+      "Homes only",
+      "Scheduled high-value personal property with broader coverage",
+      "Auto accessories",
+      "Business equipment"
     ],
     correctAnswer: 1,
-    explanation: "Notice of occurrence provisions require the insured to report not just claims, but also circumstances or incidents that might reasonably result in a claim, to preserve coverage under claims-made policies.",
-    category: "Commercial Insurance"
+    explanation: "A Personal Articles Floater provides broader, often all-risk coverage for scheduled high-value items like jewelry, fine arts, cameras, and musical instruments, typically with no deductible.",
+    category: "Other Coverages"
   },
   {
     id: 197,
-    question: "What is 'fronting' in insurance?",
+    question: "Virginia requires uninsured private pleasure watercraft coverage. What does this mean?",
     options: [
-      "First-party coverage",
-      "An insurer issues a policy but reinsures most/all of the risk to another insurer",
-      "Entrance coverage",
-      "Premium advance"
+      "Covers your boat",
+      "Liability for boats under specified size not requiring liability coverage",
+      "Jet ski insurance",
+      "Marina coverage"
     ],
     correctAnswer: 1,
-    explanation: "Fronting occurs when a licensed insurer issues a policy (the 'fronting company') but transfers most or all of the risk to another insurer or captive through reinsurance.",
-    category: "Commercial Insurance"
+    explanation: "Virginia Code § 38.2-2232 requires insurers to offer coverage for liability assumed under a rental agreement for small watercraft that don't require separate liability insurance.",
+    category: "Other Coverages"
   },
   {
     id: 198,
-    question: "What is a 'captive insurer'?",
+    question: "What does a personal umbrella policy's 'self-insured retention' (SIR) mean?",
     options: [
-      "Insurance company in financial difficulty",
-      "Insurance company owned by the businesses it insures",
-      "Hostage insurance",
-      "Forced placement"
-    ],
-    correctAnswer: 1,
-    explanation: "A captive insurer is an insurance company established and owned by one or more non-insurance businesses to insure the risks of its parent companies, providing cost control and potential tax benefits.",
-    category: "Commercial Insurance"
-  },
-  {
-    id: 199,
-    question: "What is 'self-insured retention' (SIR)?",
-    options: [
-      "The premium",
-      "The amount the insured must pay before excess/umbrella coverage applies",
-      "Saved premiums",
+      "No deductible",
+      "Amount insured must pay before umbrella pays for claims not covered by underlying policy",
+      "Premium amount",
       "Policy limit"
     ],
     correctAnswer: 1,
-    explanation: "SIR is similar to a deductible but typically larger. The insured must pay this amount (including defense costs) before excess or umbrella liability coverage begins to pay.",
-    category: "Commercial Insurance"
+    explanation: "SIR is similar to a deductible. For claims not covered by underlying policies (but covered by umbrella), the insured must pay the SIR amount before the umbrella pays.",
+    category: "Other Coverages"
+  },
+  {
+    id: 199,
+    question: "Do typical homeowners policies cover watercraft?",
+    options: [
+      "Yes, all watercraft",
+      "Limited - small boats and outboard motors up to specified limits",
+      "No watercraft coverage",
+      "Only canoes"
+    ],
+    correctAnswer: 1,
+    explanation: "Homeowners policies provide limited coverage for small boats, canoes, and outboard motors up to specified limits. Larger boats and watercraft with higher-horsepower motors require separate boat insurance.",
+    category: "Other Coverages"
   },
   {
     id: 200,
-    question: "What is the difference between 'primary' and 'excess' insurance?",
+    question: "What is required to obtain NFIP flood insurance?",
     options: [
-      "No difference",
-      "Primary pays first up to its limits; excess pays above primary limits",
-      "Excess is more expensive",
-      "Primary is optional"
+      "Live in flood zone only",
+      "Property must be in NFIP-participating community",
+      "Own waterfront property",
+      "Coastal location only"
     ],
     correctAnswer: 1,
-    explanation: "Primary insurance responds first to a covered loss up to its policy limits. Excess insurance provides additional coverage above the primary limits once the primary policy is exhausted.",
-    category: "Commercial Insurance"
+    explanation: "To obtain NFIP flood insurance, the property must be located in a community that participates in the National Flood Insurance Program, which requires the community to adopt and enforce floodplain management ordinances.",
+    category: "Other Coverages"
   }
 ];
