@@ -1,0 +1,143 @@
+.tf-statement {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  text-align: center;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.tf-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.tf-button {
+  padding: 3rem 2rem;
+  border: 3px solid transparent;
+  border-radius: 1rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.tf-button:not(:disabled):hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.tf-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.tf-button.true-button {
+  border-color: var(--success-color);
+}
+
+.tf-button.false-button {
+  border-color: var(--error-color);
+}
+
+.tf-button:not(:disabled):hover.true-button {
+  background: #d4edda;
+  border-color: var(--success-color);
+}
+
+.tf-button:not(:disabled):hover.false-button {
+  background: #f8d7da;
+  border-color: var(--error-color);
+}
+
+.tf-button.correct {
+  background: var(--success-light);
+  border-color: var(--success-color);
+  border-width: 4px;
+}
+
+.tf-button.incorrect {
+  background: var(--error-light);
+  border-color: var(--error-color);
+  border-width: 4px;
+}
+
+.tf-icon {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.true-button .tf-icon {
+  color: var(--success-color);
+}
+
+.false-button .tf-icon {
+  color: var(--error-color);
+}
+
+.tf-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.true-button .tf-label {
+  color: var(--success-color);
+}
+
+.false-button .tf-label {
+  color: var(--error-color);
+}
+
+.scenario-box {
+  background: #f0f4ff;
+  border-left: 4px solid var(--primary-color);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.scenario-title {
+  margin: 0 0 1rem 0;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+}
+
+.scenario-text {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .tf-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .tf-button {
+    padding: 2rem 1.5rem;
+  }
+
+  .tf-icon {
+    font-size: 3rem;
+  }
+
+  .tf-label {
+    font-size: 1.25rem;
+  }
+
+  .tf-statement {
+    font-size: 1.25rem;
+    padding: 1.5rem;
+  }
+}

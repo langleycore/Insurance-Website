@@ -1,40 +1,90 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Login from './components/Login';
 import PracticeTest from './components/PracticeTest';
 import Flashcards from './components/Flashcards';
+import Scenarios from './components/Scenarios';
+import TrueFalseQuiz from './components/TrueFalseQuiz';
+import FillBlankQuiz from './components/FillBlankQuiz';
+import MatchingGame from './components/MatchingGame';
+import Analytics from './components/Analytics';
+import TimedTest from './components/TimedTest';
+import { authService } from './services/authService';
 import './styles.css';
 
-type Mode = 'home' | 'test' | 'flashcards';
+type Mode = 'home' | 'test' | 'timed' | 'flashcards' | 'scenarios' | 'truefalse' | 'fillblank' | 'matching' | 'analytics';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [mode, setMode] = useState<Mode>('home');
 
-  if (mode === 'test') {
-    return (
-      <div className="app">
-        <header className="app-header">
-          <button className="back-button" onClick={() => setMode('home')}>
-            ← Back
-          </button>
-          <h1>Practice Test</h1>
-        </header>
-        <main className="app-main">
-          <PracticeTest />
-        </main>
-      </div>
-    );
+  useEffect(() => {
+    setIsAuthenticated(authService.isAuthenticated());
+  }, []);
+
+  const handleLogin = (username: string, password: string): boolean => {
+    const success = authService.login(username, password);
+    if (success) {
+      setIsAuthenticated(true);
+    }
+    return success;
+  };
+
+  const handleLogout = () => {
+    authService.logout();
+    setIsAuthenticated(false);
+    setMode('home');
+  };
+
+  if (!isAuthenticated) {
+    return <Login onLogin={handleLogin} />;
   }
 
-  if (mode === 'flashcards') {
+  const renderContent = () => {
+    switch (mode) {
+      case 'test':
+        return <PracticeTest />;
+      case 'timed':
+        return <TimedTest />;
+      case 'flashcards':
+        return <Flashcards />;
+      case 'scenarios':
+        return <Scenarios />;
+      case 'truefalse':
+        return <TrueFalseQuiz />;
+      case 'fillblank':
+        return <FillBlankQuiz />;
+      case 'matching':
+        return <MatchingGame />;
+      case 'analytics':
+        return <Analytics />;
+      default:
+        return null;
+    }
+  };
+
+  if (mode !== 'home') {
     return (
       <div className="app">
         <header className="app-header">
           <button className="back-button" onClick={() => setMode('home')}>
             ← Back
           </button>
-          <h1>Flashcards</h1>
+          <h1>
+            {mode === 'test' && 'Practice Test'}
+            {mode === 'timed' && 'Timed Test'}
+            {mode === 'flashcards' && 'Flashcards'}
+            {mode === 'scenarios' && 'Scenarios'}
+            {mode === 'truefalse' && 'True/False'}
+            {mode === 'fillblank' && 'Fill in the Blank'}
+            {mode === 'matching' && 'Matching Game'}
+            {mode === 'analytics' && 'Performance Analytics'}
+          </h1>
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
         </header>
         <main className="app-main">
-          <Flashcards />
+          {renderContent()}
         </main>
       </div>
     );
@@ -45,41 +95,116 @@ function App() {
       <header className="app-header home-header">
         <h1>Virginia Personal Lines Insurance</h1>
         <p className="subtitle">Exam Prep</p>
+        <button className="logout-button-home" onClick={handleLogout}>
+          Logout
+        </button>
       </header>
       <main className="app-main home-main">
         <div className="home-content">
           <div className="welcome-section">
-            <h2>Welcome!</h2>
-            <p>Prepare for your Virginia Personal Lines Insurance licensing exam with practice tests and flashcards focused on personal auto, homeowners, dwelling, and consumer insurance.</p>
+            <h2>Welcome, Mercy!</h2>
+            <p>Prepare for your Virginia Personal Lines Insurance licensing exam with comprehensive practice materials designed specifically for the Series 11-07 exam.</p>
           </div>
 
+          {/* Analytics Preview */}
+          <div className="analytics-preview" onClick={() => setMode('analytics')}>
+            <h3>📊 Your Progress</h3>
+            <div className="quick-stats">
+              <div className="quick-stat">
+                <span className="stat-value">{authService.getOverallScore()}%</span>
+                <span className="stat-label">Overall Score</span>
+              </div>
+              <div className="quick-stat">
+                <span className="stat-value">{authService.getUserStats().testHistory.length}</span>
+                <span className="stat-label">Sessions</span>
+              </div>
+            </div>
+            <p className="view-analytics">View Detailed Analytics →</p>
+          </div>
+
+          <h3 className="section-title">Practice Activities</h3>
           <div className="mode-cards">
             <button className="mode-card" onClick={() => setMode('test')}>
               <div className="mode-icon">📝</div>
               <h3>Practice Test</h3>
-              <p>200 comprehensive questions with instant feedback and detailed explanations</p>
+              <p>200 comprehensive questions with instant feedback</p>
               <div className="mode-features">
-                <span>✓ Multiple choice questions</span>
-                <span>✓ Immediate explanations</span>
+                <span>✓ All exam topics</span>
+                <span>✓ Detailed explanations</span>
                 <span>✓ Track your score</span>
+              </div>
+            </button>
+
+            <button className="mode-card" onClick={() => setMode('timed')}>
+              <div className="mode-icon">⏱️</div>
+              <h3>Timed Test</h3>
+              <p>Simulate real exam conditions with timer</p>
+              <div className="mode-features">
+                <span>✓ 15, 30, 60, or 120 minutes</span>
+                <span>✓ Exam-day practice</span>
+                <span>✓ Performance metrics</span>
               </div>
             </button>
 
             <button className="mode-card" onClick={() => setMode('flashcards')}>
               <div className="mode-icon">🎴</div>
               <h3>Flashcards</h3>
-              <p>120 essential personal lines insurance terms and definitions</p>
+              <p>120 essential insurance terms and definitions</p>
               <div className="mode-features">
-                <span>✓ Flip to reveal definitions</span>
-                <span>✓ Track studied cards</span>
+                <span>✓ Interactive flip cards</span>
+                <span>✓ Self-assessment</span>
                 <span>✓ Key terminology</span>
+              </div>
+            </button>
+
+            <button className="mode-card" onClick={() => setMode('scenarios')}>
+              <div className="mode-icon">🎯</div>
+              <h3>Scenarios</h3>
+              <p>50 real-world insurance situations</p>
+              <div className="mode-features">
+                <span>✓ Practical application</span>
+                <span>✓ Complex situations</span>
+                <span>✓ Decision-making practice</span>
+              </div>
+            </button>
+
+            <button className="mode-card" onClick={() => setMode('truefalse')}>
+              <div className="mode-icon">✓✗</div>
+              <h3>True/False</h3>
+              <p>100 statements to test your knowledge</p>
+              <div className="mode-features">
+                <span>✓ Quick assessment</span>
+                <span>✓ All categories</span>
+                <span>✓ Immediate feedback</span>
+              </div>
+            </button>
+
+            <button className="mode-card" onClick={() => setMode('fillblank')}>
+              <div className="mode-icon">📋</div>
+              <h3>Fill in the Blank</h3>
+              <p>50 exercises testing precise knowledge</p>
+              <div className="mode-features">
+                <span>✓ Exact terminology</span>
+                <span>✓ Numbers and limits</span>
+                <span>✓ Virginia-specific</span>
+              </div>
+            </button>
+
+            <button className="mode-card" onClick={() => setMode('matching')}>
+              <div className="mode-icon">🔗</div>
+              <h3>Matching</h3>
+              <p>30 sets of terms and definitions</p>
+              <div className="mode-features">
+                <span>✓ 200+ term pairs</span>
+                <span>✓ Interactive matching</span>
+                <span>✓ Comprehensive review</span>
               </div>
             </button>
           </div>
 
           <div className="info-section">
-            <h3>About This App</h3>
-            <p>This study tool is specifically designed for the Virginia Personal Lines Insurance licensing exam (Series 11-07). Content focuses on Virginia-specific regulations, personal auto insurance, homeowners policies, dwelling policies, and personal insurance principles.</p>
+            <h3>About the Virginia Personal Lines Exam</h3>
+            <p>The Series 11-07 exam consists of 100 scored questions (plus 5 pretest items) with a 120-minute time limit. A score of 70% is required to pass. This comprehensive study tool covers all exam topics including Virginia regulations, auto insurance, homeowners policies, dwelling policies, and general insurance principles.</p>
           </div>
         </div>
       </main>
