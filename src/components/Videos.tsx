@@ -5,6 +5,7 @@ import './Videos.css';
 export default function Videos() {
   const [selectedCategory, setSelectedCategory] = useState('All Videos');
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
   const filteredVideos = selectedCategory === 'All Videos'
     ? videos
@@ -20,6 +21,18 @@ export default function Videos() {
 
   const handleCloseVideo = () => {
     setSelectedVideo(null);
+  };
+
+  const handleImageError = (youtubeId: string) => {
+    setImageErrors(prev => new Set(prev).add(youtubeId));
+  };
+
+  const getThumbnailUrl = (youtubeId: string) => {
+    // Try different thumbnail qualities if the first fails
+    if (imageErrors.has(youtubeId)) {
+      return `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`;
+    }
+    return `https://i.ytimg.com/vi/${youtubeId}/mqdefault.jpg`;
   };
 
   return (
@@ -63,9 +76,11 @@ export default function Videos() {
               {video.youtubeId !== 'PLACEHOLDER' ? (
                 <>
                   <img
-                    src={`https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`}
+                    src={getThumbnailUrl(video.youtubeId)}
                     alt={video.title}
                     loading="lazy"
+                    onError={() => handleImageError(video.youtubeId)}
+                    crossOrigin="anonymous"
                   />
                   <div className="play-overlay">
                     <svg width="68" height="48" viewBox="0 0 68 48">
