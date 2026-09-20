@@ -430,6 +430,7 @@ body {
   cursor: pointer;
   transition: transform 0.6s;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 .flashcard.flipped {
@@ -461,6 +462,8 @@ body {
 
 .flashcard-back {
   transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .card-label {
