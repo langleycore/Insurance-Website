@@ -150,6 +150,9 @@ function App() {
           <header className="app-header home-header">
             <h1>Virginia Personal Lines Insurance</h1>
             <p className="subtitle">Exam Prep</p>
+            <button className="logout-button-home" onClick={handleLogout}>
+              Logout
+            </button>
             <div className="header-actions">
               <div className="level-badge" onClick={() => setMode('achievements')}>
                 <span className="level-text">Level {stats.level}</span>
@@ -161,10 +164,6 @@ function App() {
                 </div>
                 <span className="xp-text">{stats.xp}/{stats.xpToNextLevel} XP</span>
               </div>
-              <span className="session-info">Welcome, {firebaseAuthService.getUserDisplayName()}!</span>
-              <button className="logout-button-home" onClick={handleLogout}>
-                Logout
-              </button>
             </div>
           </header>
       <main className="app-main home-main">
