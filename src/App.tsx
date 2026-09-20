@@ -57,7 +57,7 @@ function App() {
             <button className="mode-card" onClick={() => setMode('test')}>
               <div className="mode-icon">📝</div>
               <h3>Practice Test</h3>
-              <p>30 questions with instant feedback and detailed explanations</p>
+              <p>200 comprehensive questions with instant feedback and detailed explanations</p>
               <div className="mode-features">
                 <span>✓ Multiple choice questions</span>
                 <span>✓ Immediate explanations</span>
@@ -68,7 +68,7 @@ function App() {
             <button className="mode-card" onClick={() => setMode('flashcards')}>
               <div className="mode-icon">🎴</div>
               <h3>Flashcards</h3>
-              <p>50 essential insurance terms and definitions</p>
+              <p>155 essential insurance terms and definitions</p>
               <div className="mode-features">
                 <span>✓ Flip to reveal definitions</span>
                 <span>✓ Track studied cards</span>
