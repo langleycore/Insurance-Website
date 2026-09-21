@@ -17,6 +17,7 @@ import LevelUp from './components/LevelUp';
 import { firebaseAuthService } from './services/firebaseAuthService';
 import { Achievement } from './data/achievements';
 import { getStats } from './utils/gamification';
+import { achievementEmitter } from './utils/achievementEvents';
 import './styles.css';
 
 type Mode = 'home' | 'test' | 'timed' | 'flashcards' | 'scenarios' | 'truefalse' | 'fillblank' | 'matching' | 'analytics' | 'videos' | 'settings' | 'achievements' | 'quests';
@@ -34,6 +35,15 @@ function App() {
     const unsubscribe = firebaseAuthService.onAuthStateChange((user) => {
       setIsAuthenticated(!!user);
       setIsLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  // Subscribe to achievement unlocks
+  useEffect(() => {
+    const unsubscribe = achievementEmitter.subscribe((achievements) => {
+      setUnlockedAchievements(prev => [...prev, ...achievements]);
     });
 
     return () => unsubscribe();

@@ -1,5 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { questions } from '../data/questions';
+import { firebaseAuthService } from '../services/firebaseAuthService';
+import type { TestResult } from '../services/firebaseAuthService';
 
 // Fisher-Yates shuffle algorithm
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -16,6 +18,7 @@ export default function PracticeTest() {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showExplanation, setShowExplanation] = useState(false);
   const [score, setScore] = useState({ correct: 0, incorrect: 0, total: 0 });
+  const [startTime] = useState(Date.now());
   
   // Shuffle questions once when component mounts
   const shuffledQuestions = useMemo(() => shuffleArray(questions), []);
@@ -30,6 +33,46 @@ export default function PracticeTest() {
       questionContainer.scrollTop = 0;
     }
   }, [currentQuestionIndex]);
+
+  // Record test results when component unmounts if there are answered questions
+  useEffect(() => {
+    return () => {
+      // Capture current score at cleanup time
+      if (score.total > 0) {
+        // Calculate category breakdown
+        const categoryBreakdown: { [key: string]: { attempted: number; correct: number } } = {};
+        
+        const categoryCounts: { [key: string]: number } = {};
+        shuffledQuestions.forEach(q => {
+          categoryCounts[q.category] = (categoryCounts[q.category] || 0) + 1;
+        });
+        
+        Object.keys(categoryCounts).forEach(category => {
+          const proportion = categoryCounts[category] / shuffledQuestions.length;
+          categoryBreakdown[category] = {
+            attempted: Math.round(score.total * proportion),
+            correct: Math.round(score.correct * proportion)
+          };
+        });
+
+        const duration = Math.floor((Date.now() - startTime) / 1000);
+        const testScore = score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0;
+
+        const result: TestResult = {
+          id: `practice-${Date.now()}`,
+          date: new Date().toISOString(),
+          type: 'practice',
+          duration,
+          questionsAnswered: score.total,
+          correctAnswers: score.correct,
+          score: testScore,
+          categoryBreakdown
+        };
+
+        firebaseAuthService.recordTestResult(result);
+      }
+    };
+  }, [score, startTime, shuffledQuestions]);
 
   const handleAnswerSelect = (answerIndex: number) => {
     if (!showExplanation) {
@@ -65,10 +108,51 @@ export default function PracticeTest() {
   };
 
   const handleRestart = () => {
+    // Record test result before restarting if user has answered questions
+    if (score.total > 0) {
+      recordTestCompletion();
+    }
+    
     setCurrentQuestionIndex(0);
     setSelectedAnswer(null);
     setShowExplanation(false);
     setScore({ correct: 0, incorrect: 0, total: 0 });
+  };
+
+  const recordTestCompletion = () => {
+    // Calculate category breakdown
+    const categoryBreakdown: { [key: string]: { attempted: number; correct: number } } = {};
+    
+    // This is a simplified approach - ideally we'd track which specific questions were answered
+    // For now, we'll just record overall stats with the most common category
+    const categoryCounts: { [key: string]: number } = {};
+    shuffledQuestions.forEach(q => {
+      categoryCounts[q.category] = (categoryCounts[q.category] || 0) + 1;
+    });
+    
+    Object.keys(categoryCounts).forEach(category => {
+      const proportion = categoryCounts[category] / shuffledQuestions.length;
+      categoryBreakdown[category] = {
+        attempted: Math.round(score.total * proportion),
+        correct: Math.round(score.correct * proportion)
+      };
+    });
+
+    const duration = Math.floor((Date.now() - startTime) / 1000);
+    const testScore = score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0;
+
+    const result: TestResult = {
+      id: `practice-${Date.now()}`,
+      date: new Date().toISOString(),
+      type: 'practice',
+      duration,
+      questionsAnswered: score.total,
+      correctAnswers: score.correct,
+      score: testScore,
+      categoryBreakdown
+    };
+
+    firebaseAuthService.recordTestResult(result);
   };
 
   const getAnswerClassName = (answerIndex: number) => {

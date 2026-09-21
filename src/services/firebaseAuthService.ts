@@ -9,6 +9,8 @@ import {
   User
 } from 'firebase/auth';
 import firebaseConfig from '../config/firebase';
+import { recordTestResult as recordGamificationResult } from '../utils/gamification';
+import { achievementEmitter } from '../utils/achievementEvents';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -223,6 +225,24 @@ class FirebaseAuthService {
     });
 
     this.saveUserStats(email, stats);
+
+    // Call gamification system to check for achievements
+    const primaryCategory = Object.keys(result.categoryBreakdown)[0] || 'General';
+    const timeInSeconds = result.duration || 0;
+    const correctInRow = result.correctAnswers; // Approximation - we don't track exact streak
+    
+    const newAchievements = recordGamificationResult(
+      result.score,
+      result.questionsAnswered,
+      primaryCategory,
+      timeInSeconds,
+      correctInRow
+    );
+
+    // Emit achievement unlocks to UI
+    if (newAchievements.length > 0) {
+      achievementEmitter.emit(newAchievements);
+    }
   }
 
   addStudyTime(minutes: number): void {
