@@ -10,7 +10,7 @@ export interface Video {
 
 // Educational videos for Virginia Personal Lines exam preparation
 // Focus: Personal auto, homeowners, renters, condo, umbrella - NO commercial insurance
-// Cache bust: 2026-09-21T02:17:00Z
+// Cache bust: 2026-09-21T02:22:00Z
 export const videos: Video[] = [
   // Homeowners Insurance
   {
@@ -178,30 +178,21 @@ export const videos: Video[] = [
   },
   {
     id: 'v18',
-    title: '2026 NC Personal Lines Practice Exam Full Answers',
-    description: 'Complete North Carolina Personal Lines practice exam with full explanations covering property, casualty, dwelling, homeowners, auto, and state regulations.',
-    youtubeId: 'hGW_01S8Fe8',
+    title: '2026 PSI Personal Lines Practice Exam',
+    description: 'Top practice questions to pass your personal lines license exam covering all major topics: auto, homeowners, dwelling, umbrella, and insurance fundamentals.',
+    youtubeId: 'oOdVtdZC8FE',
     category: 'Practice Tests',
-    duration: '7:36',
-    channel: 'Leaked Exam Practice'
+    duration: '14:25',
+    channel: 'Exam Success'
   },
   {
     id: 'v19',
-    title: 'Missouri Personal Lines Insurance Practice Exam',
-    description: '20 free practice questions for Missouri Personal Lines exam covering liability limits, split limits, permissive use, and real-world claim scenarios.',
-    youtubeId: 'aJN7GaFVLEo',
+    title: 'Virginia Property & Casualty Insurance Practice Exam',
+    description: '20 free Virginia P&C practice questions covering property, liability, auto, homeowners, and state regulations for Series 11-03 exam.',
+    youtubeId: 'zV1PEMfNLto',
     category: 'Practice Tests',
-    duration: '15:20',
-    channel: 'Exam Prep Videos'
-  },
-  {
-    id: 'v20',
-    title: 'California Personal Lines Insurance Exam 2026 Guide',
-    description: 'Ace your California exam: CDI requirements, FAIR Plan, earthquake coverage, personal auto, homeowners, umbrella, inland marine, and state-specific laws.',
-    youtubeId: 'DwpyHmpqu3s',
-    category: 'Practice Tests',
-    duration: '12:40',
-    channel: 'License Exam Prep'
+    duration: '18:30',
+    channel: 'Insurance License Prep'
   }
 ];
 
