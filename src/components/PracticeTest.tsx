@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { questions } from '../data/questions';
 
 // Fisher-Yates shuffle algorithm
@@ -22,6 +22,14 @@ export default function PracticeTest() {
 
   const currentQuestion = shuffledQuestions[currentQuestionIndex];
   const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
+
+  // Scroll to top when question changes
+  useEffect(() => {
+    const questionContainer = document.querySelector('.question-container');
+    if (questionContainer) {
+      questionContainer.scrollTop = 0;
+    }
+  }, [currentQuestionIndex]);
 
   const handleAnswerSelect = (answerIndex: number) => {
     if (!showExplanation) {

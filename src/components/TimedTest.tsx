@@ -25,6 +25,14 @@ export default function TimedTest() {
   const questionCount = duration === 15 ? 25 : duration === 30 ? 50 : duration === 60 ? 100 : 200;
   const shuffledQuestions = useMemo(() => shuffleArray(questions).slice(0, questionCount), [questionCount]);
 
+  // Scroll to top when question changes
+  useEffect(() => {
+    const questionContainer = document.querySelector('.question-container');
+    if (questionContainer) {
+      questionContainer.scrollTop = 0;
+    }
+  }, [currentQuestionIndex]);
+
   useEffect(() => {
     let interval: ReturnType<typeof setInterval> | null = null;
     

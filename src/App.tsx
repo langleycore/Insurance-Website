@@ -39,6 +39,20 @@ function App() {
     return () => unsubscribe();
   }, []);
 
+  // Scroll to top whenever mode changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // Also scroll any main content containers
+    const mainContent = document.querySelector('.app-main');
+    if (mainContent) {
+      mainContent.scrollTop = 0;
+    }
+    const questionContainer = document.querySelector('.question-container');
+    if (questionContainer) {
+      questionContainer.scrollTop = 0;
+    }
+  }, [mode]);
+
   const handleGoogleSignIn = async (): Promise<void> => {
     await firebaseAuthService.signInWithGoogle();
   };
