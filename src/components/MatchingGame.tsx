@@ -235,7 +235,7 @@ export default function MatchingGame() {
           </svg>
 
           <div className="puzzle-column left">
-            {shuffledTerms.map((termIndex, position) => {
+            {shuffledTerms.map((termIndex) => {
               const connection = getConnection(termIndex, true);
               const isSelected = selectedPiece?.isLeft && selectedPiece.index === termIndex;
               const connected = isConnected(termIndex, true);
@@ -262,7 +262,7 @@ export default function MatchingGame() {
           </div>
 
           <div className="puzzle-column right">
-            {shuffledDefinitions.map((defIndex, position) => {
+            {shuffledDefinitions.map((defIndex) => {
               const connection = getConnection(defIndex, false);
               const isSelected = selectedPiece?.isLeft === false && selectedPiece.index === defIndex;
               const connected = isConnected(defIndex, false);
