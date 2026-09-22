@@ -17,10 +17,15 @@ interface Connection {
   defIndex: number;
 }
 
+interface SelectedPiece {
+  index: number;
+  isLeft: boolean;
+}
+
 export default function MatchingGame() {
   const [currentSetIndex, setCurrentSetIndex] = useState(0);
   const [connections, setConnections] = useState<Connection[]>([]);
-  const [selectedTerm, setSelectedTerm] = useState<number | null>(null);
+  const [selectedPiece, setSelectedPiece] = useState<SelectedPiece | null>(null);
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState({ correct: 0, incorrect: 0, total: 0 });
   const [categoryBreakdown, setCategoryBreakdown] = useState<{[key: string]: {attempted: number, correct: number}}>({});
@@ -50,29 +55,37 @@ export default function MatchingGame() {
   const handlePieceClick = (index: number, isLeft: boolean) => {
     if (showResults) return;
     
-    const termIndex = isLeft ? index : selectedTerm;
-    const defIndex = isLeft ? selectedTerm : index;
-    
-    if (selectedTerm === null) {
-      setSelectedTerm(index);
-    } else if (selectedTerm === index && isLeft) {
-      setSelectedTerm(null);
-    } else {
-      const existingConnection = connections.findIndex(
-        c => c.termIndex === termIndex || c.defIndex === defIndex
-      );
-      
-      if (existingConnection !== -1) {
-        const newConnections = [...connections];
-        newConnections.splice(existingConnection, 1);
-        setConnections(newConnections);
-      }
-      
-      if (termIndex !== null && defIndex !== null) {
-        setConnections([...connections, { termIndex, defIndex }]);
-      }
-      setSelectedTerm(null);
+    // If clicking the same piece again, deselect it
+    if (selectedPiece && selectedPiece.index === index && selectedPiece.isLeft === isLeft) {
+      setSelectedPiece(null);
+      return;
     }
+    
+    // If no piece selected yet, select this one
+    if (selectedPiece === null) {
+      setSelectedPiece({ index, isLeft });
+      return;
+    }
+    
+    // If clicking same side, switch selection to this piece
+    if (selectedPiece.isLeft === isLeft) {
+      setSelectedPiece({ index, isLeft });
+      return;
+    }
+    
+    // Different sides - make a connection
+    const termIndex = isLeft ? index : selectedPiece.index;
+    const defIndex = isLeft ? selectedPiece.index : index;
+    
+    // Remove any existing connections for these pieces
+    const newConnections = connections.filter(
+      c => c.termIndex !== termIndex && c.defIndex !== defIndex
+    );
+    
+    // Add the new connection
+    newConnections.push({ termIndex, defIndex });
+    setConnections(newConnections);
+    setSelectedPiece(null);
   };
 
   const isConnected = (index: number, isLeft: boolean) => {
@@ -123,7 +136,7 @@ export default function MatchingGame() {
     if (currentSetIndex < shuffledSets.length - 1) {
       setCurrentSetIndex(prev => prev + 1);
       setConnections([]);
-      setSelectedTerm(null);
+      setSelectedPiece(null);
       setShowResults(false);
     }
   };
@@ -142,7 +155,7 @@ export default function MatchingGame() {
     
     setCurrentSetIndex(0);
     setConnections([]);
-    setSelectedTerm(null);
+    setSelectedPiece(null);
     setShowResults(false);
     setScore({ correct: 0, incorrect: 0, total: 0 });
     setCategoryBreakdown({});
@@ -184,11 +197,47 @@ export default function MatchingGame() {
           {showResults ? 'Results shown below' : 'Tap a puzzle piece on the left, then tap its match on the right to connect them'}
         </p>
 
-        <div className="puzzle-grid">
+        <div className="puzzle-grid" id="puzzle-grid">
+          <svg className="connection-lines" id="connection-svg">
+            {connections.map((conn, idx) => {
+              const leftEl = document.querySelector(`[data-term-index="${conn.termIndex}"]`);
+              const rightEl = document.querySelector(`[data-def-index="${conn.defIndex}"]`);
+              
+              if (!leftEl || !rightEl) return null;
+              
+              const grid = document.getElementById('puzzle-grid');
+              if (!grid) return null;
+              
+              const gridRect = grid.getBoundingClientRect();
+              const leftRect = leftEl.getBoundingClientRect();
+              const rightRect = rightEl.getBoundingClientRect();
+              
+              const x1 = leftRect.right - gridRect.left;
+              const y1 = leftRect.top + leftRect.height / 2 - gridRect.top;
+              const x2 = rightRect.left - gridRect.left;
+              const y2 = rightRect.top + rightRect.height / 2 - gridRect.top;
+              
+              const isCorrect = showResults && isCorrectConnection(conn);
+              const isIncorrect = showResults && !isCorrectConnection(conn);
+              
+              return (
+                <line
+                  key={idx}
+                  x1={x1}
+                  y1={y1}
+                  x2={x2}
+                  y2={y2}
+                  className={`connection-line ${isCorrect ? 'correct-line' : ''} ${isIncorrect ? 'incorrect-line' : ''}`}
+                  strokeWidth="3"
+                />
+              );
+            })}
+          </svg>
+
           <div className="puzzle-column left">
             {shuffledTerms.map((termIndex, position) => {
               const connection = getConnection(termIndex, true);
-              const isSelected = selectedTerm === termIndex;
+              const isSelected = selectedPiece?.isLeft && selectedPiece.index === termIndex;
               const connected = isConnected(termIndex, true);
               const isCorrect = showResults && connection && isCorrectConnection(connection);
               const isIncorrect = showResults && connection && !isCorrectConnection(connection);
@@ -199,13 +248,10 @@ export default function MatchingGame() {
                   className={`puzzle-piece left-piece ${isSelected ? 'selected' : ''} ${connected ? 'connected' : ''} ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''}`}
                   onClick={() => handlePieceClick(termIndex, true)}
                   disabled={showResults}
-                  data-position={position}
+                  data-term-index={termIndex}
                 >
                   <div className="piece-content">
                     <span className="piece-text">{currentSet.pairs[termIndex].term}</span>
-                  </div>
-                  <div className="connector right-connector">
-                    {connected && <div className="connector-plug" />}
                   </div>
                   {showResults && connection && (
                     <span className="result-icon">{isCorrect ? '✓' : '✗'}</span>
@@ -218,7 +264,7 @@ export default function MatchingGame() {
           <div className="puzzle-column right">
             {shuffledDefinitions.map((defIndex, position) => {
               const connection = getConnection(defIndex, false);
-              const isSelected = selectedTerm !== null && !isConnected(defIndex, false);
+              const isSelected = selectedPiece?.isLeft === false && selectedPiece.index === defIndex;
               const connected = isConnected(defIndex, false);
               const isCorrect = showResults && connection && isCorrectConnection(connection);
               const isIncorrect = showResults && connection && !isCorrectConnection(connection);
@@ -226,14 +272,11 @@ export default function MatchingGame() {
               return (
                 <button
                   key={defIndex}
-                  className={`puzzle-piece right-piece ${isSelected ? 'highlight' : ''} ${connected ? 'connected' : ''} ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''}`}
+                  className={`puzzle-piece right-piece ${isSelected ? 'selected' : ''} ${connected ? 'connected' : ''} ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''}`}
                   onClick={() => handlePieceClick(defIndex, false)}
                   disabled={showResults}
-                  data-position={position}
+                  data-def-index={defIndex}
                 >
-                  <div className="connector left-connector">
-                    {connected && <div className="connector-plug" />}
-                  </div>
                   <div className="piece-content">
                     <span className="piece-text">{currentSet.pairs[defIndex].definition}</span>
                   </div>
