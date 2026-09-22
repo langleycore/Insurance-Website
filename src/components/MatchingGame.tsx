@@ -12,9 +12,14 @@ const shuffleArray = <T,>(array: T[]): T[] => {
   return shuffled;
 };
 
+interface Connection {
+  termIndex: number;
+  defIndex: number;
+}
+
 export default function MatchingGame() {
   const [currentSetIndex, setCurrentSetIndex] = useState(0);
-  const [matches, setMatches] = useState<{[key: number]: number}>({});
+  const [connections, setConnections] = useState<Connection[]>([]);
   const [selectedTerm, setSelectedTerm] = useState<number | null>(null);
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState({ correct: 0, incorrect: 0, total: 0 });
@@ -23,51 +28,71 @@ export default function MatchingGame() {
   const shuffledSets = useMemo(() => matchingSets, []);
   const currentSet = shuffledSets[currentSetIndex];
   
+  const limitedPairs = useMemo(() => {
+    const maxPairs = 6;
+    if (currentSet.pairs.length > maxPairs) {
+      const indices = shuffleArray([...Array(currentSet.pairs.length)].map((_, i) => i));
+      return indices.slice(0, maxPairs);
+    }
+    return currentSet.pairs.map((_, i) => i);
+  }, [currentSet]);
+  
   const shuffledTerms = useMemo(() => 
-    shuffleArray(currentSet.pairs.map((_, index) => index)),
-    [currentSet]
+    shuffleArray([...limitedPairs]),
+    [limitedPairs]
   );
   
   const shuffledDefinitions = useMemo(() => 
-    shuffleArray(currentSet.pairs.map((_, index) => index)),
-    [currentSet]
+    shuffleArray([...limitedPairs]),
+    [limitedPairs]
   );
 
-  const handleTermClick = (termIndex: number) => {
+  const handlePieceClick = (index: number, isLeft: boolean) => {
     if (showResults) return;
     
-    if (selectedTerm === termIndex) {
-      setSelectedTerm(null);
-    } else if (selectedTerm !== null) {
-      // Make a match
-      setMatches(prev => ({
-        ...prev,
-        [selectedTerm]: termIndex
-      }));
+    const termIndex = isLeft ? index : selectedTerm;
+    const defIndex = isLeft ? selectedTerm : index;
+    
+    if (selectedTerm === null) {
+      setSelectedTerm(index);
+    } else if (selectedTerm === index && isLeft) {
       setSelectedTerm(null);
     } else {
-      setSelectedTerm(termIndex);
+      const existingConnection = connections.findIndex(
+        c => c.termIndex === termIndex || c.defIndex === defIndex
+      );
+      
+      if (existingConnection !== -1) {
+        const newConnections = [...connections];
+        newConnections.splice(existingConnection, 1);
+        setConnections(newConnections);
+      }
+      
+      if (termIndex !== null && defIndex !== null) {
+        setConnections([...connections, { termIndex, defIndex }]);
+      }
+      setSelectedTerm(null);
     }
   };
 
-  const handleDefinitionClick = (defIndex: number) => {
-    if (showResults) return;
-    
-    if (selectedTerm !== null) {
-      setMatches(prev => ({
-        ...prev,
-        [selectedTerm]: defIndex
-      }));
-      setSelectedTerm(null);
-    }
+  const isConnected = (index: number, isLeft: boolean) => {
+    return connections.some(c => 
+      isLeft ? c.termIndex === index : c.defIndex === index
+    );
+  };
+
+  const getConnection = (index: number, isLeft: boolean) => {
+    return connections.find(c => 
+      isLeft ? c.termIndex === index : c.defIndex === index
+    );
   };
 
   const handleCheck = () => {
     let correct = 0;
-    let total = currentSet.pairs.length;
+    let total = limitedPairs.length;
     
-    Object.entries(matches).forEach(([termIdx, defIdx]) => {
-      if (parseInt(termIdx) === defIdx) {
+    connections.forEach(connection => {
+      if (connection.termIndex === connection.defIndex) {
         correct++;
       }
     });
@@ -97,7 +122,7 @@ export default function MatchingGame() {
   const handleNext = () => {
     if (currentSetIndex < shuffledSets.length - 1) {
       setCurrentSetIndex(prev => prev + 1);
-      setMatches({});
+      setConnections([]);
       setSelectedTerm(null);
       setShowResults(false);
     }
@@ -116,23 +141,19 @@ export default function MatchingGame() {
     firebaseAuthService.recordTestResult(result);
     
     setCurrentSetIndex(0);
-    setMatches({});
+    setConnections([]);
     setSelectedTerm(null);
     setShowResults(false);
     setScore({ correct: 0, incorrect: 0, total: 0 });
     setCategoryBreakdown({});
   };
 
-  const isCorrectMatch = (termIndex: number, defIndex: number) => {
-    return showResults && matches[termIndex] === defIndex && termIndex === defIndex;
-  };
-
-  const isIncorrectMatch = (termIndex: number, defIndex: number) => {
-    return showResults && matches[termIndex] === defIndex && termIndex !== defIndex;
+  const isCorrectConnection = (connection: Connection) => {
+    return connection.termIndex === connection.defIndex;
   };
 
   const percentage = score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0;
-  const allMatched = Object.keys(matches).length === currentSet.pairs.length;
+  const allMatched = connections.length === limitedPairs.length;
 
   return (
     <div className="matching-game">
@@ -160,40 +181,68 @@ export default function MatchingGame() {
       <div className="matching-container">
         <h2 className="matching-title">{currentSet.title}</h2>
         <p className="matching-instructions">
-          {showResults ? 'Results shown below' : 'Click a term, then click its matching definition'}
+          {showResults ? 'Results shown below' : 'Tap a puzzle piece on the left, then tap its match on the right to connect them'}
         </p>
 
-        <div className="matching-columns">
-          <div className="matching-column">
-            <h3>Terms</h3>
-            {shuffledTerms.map(termIndex => (
-              <button
-                key={termIndex}
-                className={`matching-item ${selectedTerm === termIndex ? 'selected' : ''} ${Object.keys(matches).includes(String(termIndex)) ? 'matched' : ''} ${isCorrectMatch(termIndex, matches[termIndex]) ? 'correct' : ''} ${isIncorrectMatch(termIndex, matches[termIndex]) ? 'incorrect' : ''}`}
-                onClick={() => handleTermClick(termIndex)}
-                disabled={showResults || Object.keys(matches).includes(String(termIndex))}
-              >
-                {currentSet.pairs[termIndex].term}
-                {isCorrectMatch(termIndex, matches[termIndex]) && <span className="match-icon">✓</span>}
-                {isIncorrectMatch(termIndex, matches[termIndex]) && <span className="match-icon">✗</span>}
-              </button>
-            ))}
+        <div className="puzzle-grid">
+          <div className="puzzle-column left">
+            {shuffledTerms.map((termIndex, position) => {
+              const connection = getConnection(termIndex, true);
+              const isSelected = selectedTerm === termIndex;
+              const connected = isConnected(termIndex, true);
+              const isCorrect = showResults && connection && isCorrectConnection(connection);
+              const isIncorrect = showResults && connection && !isCorrectConnection(connection);
+              
+              return (
+                <button
+                  key={termIndex}
+                  className={`puzzle-piece left-piece ${isSelected ? 'selected' : ''} ${connected ? 'connected' : ''} ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''}`}
+                  onClick={() => handlePieceClick(termIndex, true)}
+                  disabled={showResults}
+                  data-position={position}
+                >
+                  <div className="piece-content">
+                    <span className="piece-text">{currentSet.pairs[termIndex].term}</span>
+                  </div>
+                  <div className="connector right-connector">
+                    {connected && <div className="connector-plug" />}
+                  </div>
+                  {showResults && connection && (
+                    <span className="result-icon">{isCorrect ? '✓' : '✗'}</span>
+                  )}
+                </button>
+              );
+            })}
           </div>
 
-          <div className="matching-column">
-            <h3>Definitions</h3>
-            {shuffledDefinitions.map(defIndex => (
-              <button
-                key={defIndex}
-                className={`matching-item ${Object.values(matches).includes(defIndex) ? 'matched' : ''} ${isCorrectMatch(Object.keys(matches).find(k => matches[parseInt(k)] === defIndex) ? parseInt(Object.keys(matches).find(k => matches[parseInt(k)] === defIndex)!) : -1, defIndex) ? 'correct' : ''} ${isIncorrectMatch(Object.keys(matches).find(k => matches[parseInt(k)] === defIndex) ? parseInt(Object.keys(matches).find(k => matches[parseInt(k)] === defIndex)!) : -1, defIndex) ? 'incorrect' : ''}`}
-                onClick={() => handleDefinitionClick(defIndex)}
-                disabled={showResults || Object.values(matches).includes(defIndex)}
-              >
-                {currentSet.pairs[defIndex].definition}
-                {isCorrectMatch(Object.keys(matches).find(k => matches[parseInt(k)] === defIndex) ? parseInt(Object.keys(matches).find(k => matches[parseInt(k)] === defIndex)!) : -1, defIndex) && <span className="match-icon">✓</span>}
-                {isIncorrectMatch(Object.keys(matches).find(k => matches[parseInt(k)] === defIndex) ? parseInt(Object.keys(matches).find(k => matches[parseInt(k)] === defIndex)!) : -1, defIndex) && <span className="match-icon">✗</span>}
-              </button>
-            ))}
+          <div className="puzzle-column right">
+            {shuffledDefinitions.map((defIndex, position) => {
+              const connection = getConnection(defIndex, false);
+              const isSelected = selectedTerm !== null && !isConnected(defIndex, false);
+              const connected = isConnected(defIndex, false);
+              const isCorrect = showResults && connection && isCorrectConnection(connection);
+              const isIncorrect = showResults && connection && !isCorrectConnection(connection);
+              
+              return (
+                <button
+                  key={defIndex}
+                  className={`puzzle-piece right-piece ${isSelected ? 'highlight' : ''} ${connected ? 'connected' : ''} ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''}`}
+                  onClick={() => handlePieceClick(defIndex, false)}
+                  disabled={showResults}
+                  data-position={position}
+                >
+                  <div className="connector left-connector">
+                    {connected && <div className="connector-plug" />}
+                  </div>
+                  <div className="piece-content">
+                    <span className="piece-text">{currentSet.pairs[defIndex].definition}</span>
+                  </div>
+                  {showResults && connection && (
+                    <span className="result-icon">{isCorrect ? '✓' : '✗'}</span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
 
